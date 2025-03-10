@@ -21,6 +21,10 @@ from shivsamrajyaecommerce import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.base),
+    path('registration/',views.registration),
+    path('reg/',views.reg),
+    path('login/',views.login),
+    path('log/',views.log)
     
 
 ]
