@@ -1,7 +1,7 @@
 from django.shortcuts import render # type: ignore
 
-def base(request):
-    return render(request,'base.html')
+def home(request):
+    return render(request,'home.html')
 
 def registration(request):
     return render(request,'registration.html')
