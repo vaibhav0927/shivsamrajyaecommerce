@@ -20,6 +20,7 @@ from shivsamrajyaecommerce import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.base)
+    path('',views.base),
+    path("contactus/",views.contactus)
 
 ]
