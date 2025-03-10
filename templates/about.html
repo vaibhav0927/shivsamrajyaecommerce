@@ -1,23 +1,32 @@
+{% extends 'master.html'%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="bootstrap.bundle.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+
+=======
+>>>>>>> d5f7b2d212a4c4c7ce49fb586ca3819dddc34cb2
+    
     <title>Document</title>
 </head>
 
 <body>
-    <div class="col-sm-12" style="text-align: center;color: rgb(34, 26, 26);font-family:Georgia, 'Times New Roman', Times, serif;">
+
+    {% block project%}
+    <div class="col-sm-12 mt-3" style="text-align: center;color: rgb(34, 26, 26);font-family:Georgia, 'Times New Roman', Times, serif;">
         <h1 class="title">About Us</h1></div>
         
         <div class="container-fluid">
         <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 mt-3">
             <h3><b>Shiv-samrajya</b></h3>
             <p>"Shiv-Samrajya" is Satara(koregav) own largest online Super Market where all your daily needs are just a click away!!! Easy access to more than 7000+ products with 800+ brands in various categories like Grocery, food products, personal care, fruit and Vegetables is what makes us Unique.
             </p>
@@ -29,7 +38,12 @@
             <li>Increased credibility for your brand</li>
             <li>Lead Management System</li>
         </div>
+<<<<<<< HEAD
+
         <div class="col-sm-6">
+=======
+        <div class="col-sm-6 mt-3">
+>>>>>>> d5f7b2d212a4c4c7ce49fb586ca3819dddc34cb2
             <h3><b>Shiv-samrajya</b></h3>
             <p>Shiv-Samrajya-free shopping, High Quality Products, Affordable prices and On-Time-Delivery makes us different from the conventional Kirana Stores. Delivering high quality goods to our customers at a reasonable price within stipulated time and thereby making our customers satisfied is our priority.
            </p>
@@ -82,7 +96,7 @@
     </div>
 
 
-
+{%endblock%}
 
         
     
