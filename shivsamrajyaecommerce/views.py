@@ -16,5 +16,7 @@ def registration(request):
 
 def login(request):
     return render(request,'login.html')
+def general(request):
+    return render(request,'general.html')
 
 
