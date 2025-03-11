@@ -17,4 +17,7 @@ def registration(request):
 def login(request):
     return render(request,'login.html')
 
+def cosmetic(request):
+    return render(request,'cosmetic.html')
+
 
