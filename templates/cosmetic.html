@@ -1,0 +1,519 @@
+{% extends 'master.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {% block project %}
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Special Offer Section -->
+            <div class="col-lg-3">
+                <div class="special-offer d-flex flex-column ">
+                    <h4><b>Special Offer</b></h4>
+                    <hr>
+                    <div class="offer-item mb-3">
+                        <img src="/static/assets/glow lovely.jpg" alt="Offer Image" class="img-fluid"
+                            style="height: 60px; width: 120px;">
+                        <h6>Glow & Lovely..</h6>
+                        <p>Rs.100 <del class="text-danger">Rs.186</del></p>
+                        <button class="btn btn-warning">Add To Cart</button>
+                    </div>
+                    <div class="offer-item mb-3">
+                        <img src="/static/assets/vaslin.jpg" alt="Offer Image" class="img-fluid"
+                            style="height: 60px; width: 120px;">
+                        <h6>Vaseline...</h6>
+                        <p>Rs.150 <del class="text-danger">Rs.200</del></p>
+                        <button class="btn btn-warning">Add To Cart</button>
+                    </div>
+                    <div class="offer-item mb-3">
+                        <img src="/static/assets/poko pants.jpg" alt="Offer Image" class="img-fluid"
+                            style="height: 60px; width: 120px;">
+                        <h6>MamyPoko Pants...</h6>
+                        <p>Rs.200 <del class="text-danger">Rs.400</del></p>
+                        <button class="btn btn-warning">Add To Cart</button>
+                    </div>
+
+                    <ol>
+                        <li><strong>Limited-Time Discounts:</strong>
+                            <ol>
+                                <li>Flat 10% Off on All Baby Products!</li>
+                                <li>Get ₹50 Off on Your First Purchase!</li>
+                                <li>Buy 1 Get 1 Free – Limited Time!</li>
+                            </ol>
+                        </li>
+
+                        <li><strong>Exclusive Deals:</strong>
+                            <ol>
+                                <li>Special Deal: MamyPoko Pants – Now ₹390 (was ₹400)!</li>
+                                <li>Suhana Ilaichi 100g – Only ₹369 for Today!</li>
+                            </ol>
+                        </li>
+
+                        <li><strong>Festive or Seasonal Offers:</strong>
+                            <ol>
+                                <li>Summer Sale: Up to 30% Off on Skin Care!</li>
+                                <li>Diwali Special – Free Gifts on Orders Above ₹500!</li>
+                            </ol>
+                        </li>
+
+                        <li><strong>Coupons & Freebies:</strong>
+                            <ol>
+                                <li>Use Code <strong>SAVE10</strong> for ₹10 Off!</li>
+                                <li>Get a Free Face Wash on Orders Above ₹250!</li>
+                            </ol>
+                        </li>
+                    </ol>
+
+                </div>
+            </div>
+
+
+            <!-- Product Section -->
+            <div class="col-lg-9">
+                <h1><b>Cosmatic Products</b></h1>
+                <hr>
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/santoor soap.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Santoor orange soap...</h5>
+                                <p class="text-primary">Rs.142<del class="text-danger">Rs.144</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/vatika shampoo.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">vatika shampoo...</h5>
+                                <p class="text-primary">Rs.100 <del class="text-danger">Rs.130</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/glow lovely.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Glow $ Lovely...</h5>
+                                <p class="text-primary">Rs.123 <del class="text-danger">Rs.140</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Product 4 -->
+
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/patangli gel.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Patanjali gel...</h5>
+                                <p class="text-primary">Rs.99 <del class="text-danger">Rs.120</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/parachute oil.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Parachute oil...</h5>
+                                <p class="text-primary">Rs.143 <del class="text-danger">Rs.150</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/midnight.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title"> Ramsons midnight ...</h5>
+                                <p class="text-primary">Rs.319.85 <del class="text-danger">Rs.350</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/godrej soap.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Godrej No.1...</h5>
+                                <p class="text-primary">Rs.298 <del class="text-danger">Rs.300</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/babyshop.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Himalaya baby soap...</h5>
+                                <p class="text-primary">Rs.144 <del class="text-danger">Rs.150</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/1658825128.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">RED Z x perfume...</h5>
+                                <p class="text-primary">Rs.200 <del class="text-danger">Rs.300</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/cloaseup.png" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Closeup...</h5>
+                                <p class="text-primary">Rs.188 <del class="text-danger">Rs.200</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/colgate.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Colgate...</h5>
+                                <p class="text-primary">Rs.29.85 <del class="text-danger">Rs.30</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/dandu bam.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Zandu ultra power...</h5>
+                                <p class="text-primary">Rs.50.85 <del class="text-danger">Rs.60</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/goodnight.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">GoodKnight Jumbo...</h5>
+                                <p class="text-primary">Rs.29.85 <del class="text-danger">Rs.30</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/surfexcelshop.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Surf Excel..</h5>
+                                <p class="text-primary">Rs.690 <del class="text-danger">Rs.700</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/vanish.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Vanish...</h5>
+                                <p class="text-primary">Rs.212 <del class="text-danger">Rs.250</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/zaldu altra.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">zandu Balm...</h5>
+                                <p class="text-primary">Rs.50.85 <del class="text-danger">Rs.60</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/santoor alovera.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Santoor Soap </h5>
+                                <p class="text-primary">Rs.145 <del class="text-danger">Rs.150</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/sanhaldi.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Santoor Beauty..</h5>
+                                <p class="text-primary">Rs.553 <del class="text-danger">Rs.560</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/pondspoweder.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">POND'S...</h5>
+                                <p class="text-primary">Rs.286 <del class="text-danger">Rs.300</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/poko pants.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Many Poko Panks...</h5>
+                                <p class="text-primary">Rs.195 <del class="text-danger">Rs.200</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/nisha.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Nish brown...</h5>
+                                <p class="text-primary">Rs.25 <del class="text-danger">Rs.30</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/move spare.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Move...</h5>
+                                <p class="text-primary">Rs.100 <del class="text-danger">Rs.150</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/joy face.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Joy Face Wash...</h5>
+                                <p class="text-primary">Rs.105 <del class="text-danger">Rs.110</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/johnsanbaby.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Johnson's baby Soap...</h5>
+                                <p class="text-primary">Rs.200 <del class="text-danger">Rs.250</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/jasmin oil.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Jasmine oli...</h5>
+                                <p class="text-primary">Rs.150 <del class="text-danger"></del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/ponds magic.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">POND's Migic...</h5>
+                                <p class="text-primary">Rs.150 <del class="text-danger"></del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/himalayafashwash.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Himalaya Face Wash...</h5>
+                                <p class="text-primary">Rs.80 <del class="text-danger"></del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/everyth scrub.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">EveryYuth natural...</h5>
+                                <p class="text-primary">Rs.80 <del class="text-danger">Rs.85</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/dove soap.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">DOVe...</h5>
+                                <p class="text-primary">Rs.54 <del class="text-danger">Rs.60</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/serum.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Streax serum...</h5>
+                                <p class="text-primary">Rs.180 <del class="text-danger">Rs.200</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/spark per.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Ramsons SPARK...</h5>
+                                <p class="text-primary">Rs.298 <del class="text-danger">Rs.300</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/ur per.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">RamsonsU.R Lovely...</h5>
+                                <p class="text-primary">Rs.305 <del class="text-danger">Rs.330</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/vaslin.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Vaseline...</h5>
+                                <p class="text-primary">Rs.78 <del class="text-danger">Rs.80</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/rejnigandha per.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Rajnigandha...</h5>
+                                <p class="text-primary">Rs.400 <del class="text-danger">Rs.450</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/ramsons per.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Ramsons U.R Sweet...</h5>
+                                <p class="text-primary">Rs.295 <del class="text-danger">Rs.300</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/medimix.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Medimix...</h5>
+                                <p class="text-primary">Rs.35 <del class="text-danger">Rs.40</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/kesh king.jpg" class="card-img-top product-img" alt="Product Image"
+                                style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Kesh King...</h5>
+                                <p class="text-primary">Rs.148<del class="text-danger"></del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card product-card" style="width: 260px;">
+                            <img src="/static/assets/himalayafashwash.jpg" class="card-img-top product-img"
+                                alt="Product Image" style="width: 190px;" height="180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Himalaya Kesar Face Wash...</h5>
+                                <p class="text-primary">Rs.85 <del class="text-danger">Rs.90</del></p>
+                                <button class="btn btn-warning">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%endblock%}
+
+</body>
+
+</html>
