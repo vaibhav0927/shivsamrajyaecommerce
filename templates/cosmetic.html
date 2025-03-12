@@ -7,91 +7,35 @@
 </head>
 
 
-
-
-
 <body>
     {% block project %}
-    <div class="container mt-4">
+
+    <div class="container-fluid">
+        <h1 class="text-center">Cosmetic</h1>
+        <hr class="text-black">
         <div class="row">
-            <!-- Special Offer Section -->
 
-
-
-
-            <div class="col-lg-3">
-                <div class="special-offer d-flex flex-column ">
-                    <h4><b>CATEGORIES</b></h4>
-                    <hr>
-                    
-                    <a href="">General</a>
-                    <hr>
-                    <a href="">General</a>
-                    <hr>
-                    <a href="">General</a>
-                    <hr>
-                    <div class="offer-item mb-3">
-                        <img src="/static/assets/glow lovely.jpg" alt="Offer Image" class="img-fluid"
-                            style="height: 60px; width: 120px;">
-                        <h6>Glow & Lovely..</h6>
-                        <p>Rs.100 <del class="text-danger">Rs.186</del></p>
-                        <button class="btn btn-warning">Add To Cart</button>
-                    </div>
-                    <div class="offer-item mb-3">
-                        <img src="/static/assets/vaslin.jpg" alt="Offer Image" class="img-fluid"
-                            style="height: 60px; width: 120px;">
-                        <h6>Vaseline...</h6>
-                        <p>Rs.150 <del class="text-danger">Rs.200</del></p>
-                        <button class="btn btn-warning">Add To Cart</button>
-                    </div>
-                    <div class="offer-item mb-3">
-                        <img src="/static/assets/poko pants.jpg" alt="Offer Image" class="img-fluid"
-                            style="height: 60px; width: 120px;">
-                        <h6>MamyPoko Pants...</h6>
-                        <p>Rs.200 <del class="text-danger">Rs.400</del></p>
-                        <button class="btn btn-warning">Add To Cart</button>
-                    </div>
-                    <ol>
-                        <li><strong>Limited-Time Discounts:</strong>
-                            <ol>
-                                <li>Flat 10% Off on All Baby Products!</li>
-                                <li>Get ₹50 Off on Your First Purchase!</li>
-                                <li>Buy 1 Get 1 Free – Limited Time!</li>
-                            </ol>
-                        </li>
-
-                        <li><strong>Exclusive Deals:</strong>
-                            <ol>
-                                <li>Special Deal: MamyPoko Pants – Now ₹390 (was ₹400)!</li>
-                                <li>Suhana Ilaichi 100g – Only ₹369 for Today!</li>
-                            </ol>
-                        </li>
-
-                        <li><strong>Festive or Seasonal Offers:</strong>
-                            <ol>
-                                <li>Summer Sale: Up to 30% Off on Skin Care!</li>
-                                <li>Diwali Special – Free Gifts on Orders Above ₹500!</li>
-                            </ol>
-                        </li>
-
-                        <li><strong>Coupons & Freebies:</strong>
-                            <ol>
-                                <li>Use Code <strong>SAVE10</strong> for ₹10 Off!</li>
-                                <li>Get a Free Face Wash on Orders Above ₹250!</li>
-                            </ol>
-                        </li>
-                    </ol>
-
-                </div>
+            <div class="col-lg-4">
+                <h1>Categories</h1>
+                <hr class="text-black">
+                <ul>
+                    <li><a href="">General</a></li>
+                    <hr class="text-black">
+                    <li><a href="">Grocery</a></li>
+                    <hr class="text-black">
+                    <li><a href="">Food Items</a></li>
+                    <hr class="text-black">
+                    <li><a href="">Spices</a></li>
+                    <hr class="text-black">
+                    <li><a href="">Cosmetic</a></li>
+                    <hr class="text-black">
+                    <li><a href="">Stationary</a></li>
+                    <hr class="text-black">
+                </ul>
             </div>
 
-
-            <!-- Product Section -->
-            <div class="col-lg-9">
-                <div class="container mt-3 ">
-
-                    <h1 class="text-center">Cosmetics</h1>
-                    <hr class="text-black">
+            <div class="col-lg-8">
+                <div class="row">
                     <div class="row">
                         <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
                             <div class="card mb-3  pt-3 p ">
@@ -103,9 +47,9 @@
                                 </div>
 
                                 <a href=""><img class=" card-img-top" style="height: 300px;"
-                                        src="/static/assets/Fashwash.jpg" alt="Card image"></a>
+                                        src="/static/assets/maggie.jpg" alt="Card image"></a>
                                 <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Joy Skin Fruit..</b></h4>
+                                    <h4 class="card-title ms-5"> <b>Maggie..</b></h4>
                                     <p class="card-text text-primary ms-5">Rs.66.50 <del
                                             class="text-danger">Rs.67.00</del></p>
                                     <a href="#" class="btn mt-3 ms-5"
@@ -122,96 +66,12 @@
                                         style="background-color: #ff7722; height: 30px ;width:70px;">Rs.3.00</span>
                                 </div>
                                 <a href=""><img class=" card-img-top img-fluid"
-                                        style="height: 300px; padding-left: 50px;"
-                                        src="/static/assets/vatika shampoo.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Vatika Shampoo..</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.100.00 <del
-                                            class="text-danger">Rs.130.00</del></p>
-
-                                    <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                            <div class="card mb-3 pt-3   ">
-                                <div class="card-title">
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
-                                </div>
-                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                        src="/static/assets/glow lovely.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Glow $ Lovely..</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.125.00 <del
-                                            class="text-danger">Rs.150.00</del></p>
-
-                                    <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                            <div class="card mb-3 pt-3   ">
-                                <div class="card-title">
-
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.5.00</span>
-                                </div>
-                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                        src="/static/assets/patangli gel.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Patanjali gel</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.99.00 <del
-                                            class="text-danger">Rs.120.00</del></p>
-                                    <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                            <div class="card mb-3  pt-3 p ">
-
-
-                                <div class="card-title">
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.0.50</span>
-                                </div>
-
-                                <a href=""><img class=" card-img-top" style="height: 300px;"
-                                        src="/static/assets/parachute oil.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Parachute oil..</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.150.50 <del
-                                            class="text-danger">Rs.160.00</del></p>
-                                    <a href="#" class="btn mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 shadow-lg p-3 mb-5  bg-white rounded">
-                            <div class="card mb-3  pt-3 p">
-
-                                <div class=" card-title">
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.3.00</span>
-                                </div>
-                                <a href=""><img class=" card-img-top img-fluid"
-                                        style="height: 300px; padding-left: 50px;" src="/static/assets/midnight.jpg"
+                                        style="height: 300px; padding-left: 50px;" src="/static/assets/biscuits.jpg"
                                         alt="Card image"></a>
                                 <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Ramsons midnight ...</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.319.00 <del
-                                            class="text-danger">Rs.350.00</del>
-                                    </p>
+                                    <h4 class="card-title ms-5"> <b>Biscuits..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.41.00 <del
+                                            class="text-danger">Rs.44.00</del></p>
 
                                     <a href="#" class="btn  mt-3 ms-5"
                                         style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
@@ -226,187 +86,14 @@
                                         style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
                                 </div>
                                 <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                        src="/static/assets/godrej soap.jpg" alt="Card image"></a>
+                                        src="/static/assets/yippie.jpg" alt="Card image"></a>
                                 <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Godrej No.1..</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.298.00 <del
-                                            class="text-danger">Rs.300.00</del>
-                                    </p>
-
-                                    <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                            <div class="card mb-3 pt-3   ">
-                                <div class="card-title">
-
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.5.00</span>
-                                </div>
-                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                        src="/static/assets/babyshop.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Himalaya baby soap.</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.144.00 <del
-                                            class="text-danger">Rs.150.00</del>
-                                    </p>
-                                    <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                        <div class="card mb-3  pt-3 p ">
-
-
-                            <div class="card-title">
-                                <span class="badge  float-end rounded-pill pt-2 me-1"
-                                    style="background-color: #ff7722; height: 30px ;width:70px;">Rs.0.50</span>
-                            </div>
-
-                            <a href=""><img class=" card-img-top" style="height: 300px;"
-                                    src="/static/assets/1658825128.jpg" alt="Card image"></a>
-                            <div class="card-body">
-                                <h4 class="card-title ms-5"> <b>RED Z x perfume...</b></h4>
-                                <p class="card-text text-primary ms-5">Rs.200.50 <del
-                                        class="text-danger">Rs.300.00</del></p>
-                                <a href="#" class="btn mt-3 ms-5"
-                                    style="background-color: #ff7722;color: aliceblue;">Add To
-                                    Cart</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3 shadow-lg p-3 mb-5  bg-white rounded">
-                        <div class="card mb-3  pt-3 p">
-
-                            <div class=" card-title">
-                                <span class="badge  float-end rounded-pill pt-2 me-1"
-                                    style="background-color: #ff7722; height: 30px ;width:70px;">Rs.3.00</span>
-                            </div>
-                            <a href=""><img class=" card-img-top img-fluid" style="height: 300px; padding-left: 50px;"
-                                    src="/static/assets/colgate.jpg" alt="Card image"></a>
-                            <div class="card-body">
-                                <h4 class="card-title ms-5"> <b>Colgate..</b></h4>
-                                <p class="card-text text-primary ms-5">Rs.29.00 <del class="text-danger">Rs.30.00</del>
-                                </p>
-
-                                <a href="#" class="btn  mt-3 ms-5"
-                                    style="background-color: #ff7722;color: aliceblue;">Add To
-                                    Cart</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                        <div class="card mb-3 pt-3   ">
-                            <div class="card-title">
-                                <span class="badge  float-end rounded-pill pt-2 me-1"
-                                    style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
-                            </div>
-                            <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                    src="/static/assets/goodnight.jpg" alt="Card image"></a>
-                            <div class="card-body">
-                                <h4 class="card-title ms-5"> <b>GoodKnight Jumbo...</b></h4>
-                                <p class="card-text text-primary ms-5">Rs.25.00 <del class="text-danger">Rs.40.00</del>
-                                </p>
-
-                                <a href="#" class="btn  mt-3 ms-5"
-                                    style="background-color: #ff7722;color: aliceblue;">Add To
-                                    Cart</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                        <div class="card mb-3 pt-3   ">
-                            <div class="card-title">
-
-                                <span class="badge  float-end rounded-pill pt-2 me-1"
-                                    style="background-color: #ff7722; height: 30px ;width:70px;">Rs.5.00</span>
-                            </div>
-                            <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                    src="/static/assets/surfexcelshop.jpg" alt="Card image"></a>
-                            <div class="card-body">
-                                <h4 class="card-title ms-5"> <b>Surf Excel</b></h4>
-                                <p class="card-text text-primary ms-5">Rs.690.00 <del
-                                        class="text-danger">Rs.700.00</del></p>
-                                <a href="#" class="btn  mt-3 ms-5"
-                                    style="background-color: #ff7722;color: aliceblue;">Add To
-                                    Cart</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                            <div class="card mb-3  pt-3 p ">
-
-
-                                <div class="card-title">
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.0.50</span>
-                                </div>
-
-                                <a href=""><img class=" card-img-top" style="height: 300px;"
-                                        src="/static/assets/1658825128.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>RED Z x perfume...</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.200.50 <del
-                                            class="text-danger">Rs.300.00</del></p>
-                                    <a href="#" class="btn mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To
-                                        Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 shadow-lg p-3 mb-5  bg-white rounded">
-                            <div class="card mb-3  pt-3 p">
-
-                                <div class=" card-title">
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.3.00</span>
-                                </div>
-                                <a href=""><img class=" card-img-top img-fluid"
-                                        style="height: 300px; padding-left: 50px;" src="/static/assets/colgate.jpg"
-                                        alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Colgate..</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.29.00 <del
-                                            class="text-danger">Rs.30.00</del></p>
-
-                                    <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To
-                                        Cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-                            <div class="card mb-3 pt-3   ">
-                                <div class="card-title">
-                                    <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
-                                </div>
-                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                        src="/static/assets/goodnight.jpg" alt="Card image"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>GoodKnight Jumbo...</b></h4>
+                                    <h4 class="card-title ms-5"> <b>Yippie..</b></h4>
                                     <p class="card-text text-primary ms-5">Rs.25.00 <del
-                                            class="text-danger">Rs.40.00</del></p>
+                                            class="text-danger">Rs.50.00</del></p>
 
                                     <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To
-                                        Cart</a>
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
                                 </div>
                             </div>
 
@@ -414,31 +101,239 @@
                         <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
                             <div class="card mb-3 pt-3   ">
                                 <div class="card-title">
-
                                     <span class="badge  float-end rounded-pill pt-2 me-1"
-                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.5.00</span>
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
                                 </div>
                                 <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
-                                        src="/static/assets/surfexcelshop.jpg" alt="Card image"></a>
+                                        src="/static/assets/yippie.jpg" alt="Card image"></a>
                                 <div class="card-body">
-                                    <h4 class="card-title ms-5"> <b>Surf Excel</b></h4>
-                                    <p class="card-text text-primary ms-5">Rs.690.00 <del
-                                            class="text-danger">Rs.700.00</del></p>
+                                    <h4 class="card-title ms-5"> <b>Yippie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.25.00 <del
+                                            class="text-danger">Rs.50.00</del></p>
+
                                     <a href="#" class="btn  mt-3 ms-5"
-                                        style="background-color: #ff7722;color: aliceblue;">Add To
-                                        Cart</a>
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+         <!----------------------------------------------------------------------------------------------->
+                    <div class="row">
+                        <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card mb-3  pt-3 p ">
+
+
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.0.50</span>
+                                </div>
+
+                                <a href=""><img class=" card-img-top" style="height: 300px;"
+                                        src="/static/assets/maggie.jpg" alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Maggie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.66.50 <del
+                                            class="text-danger">Rs.67.00</del></p>
+                                    <a href="#" class="btn mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 shadow-lg p-3 mb-5  bg-white rounded">
+                            <div class="card mb-3  pt-3 p">
+
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.3.00</span>
+                                </div>
+                                <a href=""><img class=" card-img-top img-fluid"
+                                        style="height: 300px; padding-left: 50px;" src="/static/assets/biscuits.jpg"
+                                        alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Biscuits..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.41.00 <del
+                                            class="text-danger">Rs.44.00</del></p>
+
+                                    <a href="#" class="btn  mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card mb-3 pt-3   ">
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
+                                </div>
+                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
+                                        src="/static/assets/yippie.jpg" alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Yippie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.25.00 <del
+                                            class="text-danger">Rs.50.00</del></p>
+
+                                    <a href="#" class="btn  mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card mb-3 pt-3   ">
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
+                                </div>
+                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
+                                        src="/static/assets/yippie.jpg" alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Yippie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.25.00 <del
+                                            class="text-danger">Rs.50.00</del></p>
+
+                                    <a href="#" class="btn  mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
                         </div>
 
 
                     </div>
+                    <div class="row">
+                        <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card mb-3  pt-3 p ">
+
+
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.0.50</span>
+                                </div>
+
+                                <a href=""><img class=" card-img-top" style="height: 300px;"
+                                        src="/static/assets/maggie.jpg" alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Maggie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.66.50 <del
+                                            class="text-danger">Rs.67.00</del></p>
+                                    <a href="#" class="btn mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 shadow-lg p-3 mb-5  bg-white rounded">
+                            <div class="card mb-3  pt-3 p">
+
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.3.00</span>
+                                </div>
+                                <a href=""><img class=" card-img-top img-fluid"
+                                        style="height: 300px; padding-left: 50px;" src="/static/assets/biscuits.jpg"
+                                        alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Biscuits..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.41.00 <del
+                                            class="text-danger">Rs.44.00</del></p>
+
+                                    <a href="#" class="btn  mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card mb-3 pt-3   ">
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
+                                </div>
+                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
+                                        src="/static/assets/yippie.jpg" alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Yippie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.25.00 <del
+                                            class="text-danger">Rs.50.00</del></p>
+
+                                    <a href="#" class="btn  mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card mb-3 pt-3   ">
+                                <div class="card-title">
+                                    <span class="badge  float-end rounded-pill pt-2 me-1"
+                                        style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
+                                </div>
+                                <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
+                                        src="/static/assets/yippie.jpg" alt="Card image"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title ms-5"> <b>Yippie..</b></h4>
+                                    <p class="card-text text-primary ms-5">Rs.25.00 <del
+                                            class="text-danger">Rs.50.00</del></p>
+
+                                    <a href="#" class="btn  mt-3 ms-5"
+                                        style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+                                </div>
+                            </div>
+
+                        </div>
 
                 </div>
+
+
+
+
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
-
 
 
     {%endblock%}
