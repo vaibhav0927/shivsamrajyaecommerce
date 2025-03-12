@@ -27,6 +27,7 @@ urlpatterns = [
     path('about/',views.about),
 
     path('cosmetic/',views.cosmetic),
-
-    path('general/',views.general)
+    path('Spices/',views.Spices),
+    path('general/',views.general),
+    path('fooditems/',views.fooditems)
 ]
