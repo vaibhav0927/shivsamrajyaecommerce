@@ -4,20 +4,59 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4" style="margin-left: 40px;">
             <div class="card border border-light" style="width: 18rem;">
                 <h1>Account Login</h1>
                 <h5>New Customer</h5>
                 <hr>
                 <div class="card-body">
-                  <h5 class="card-title">Register Account</h5>
-                  <p class="card-text">By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made</p>
-                  <a href="#" class="btn btn-primary" style="background-color: orangered;">Register</a>
-                  </div>
-                   </div>
-                  </div>
-              </div>
+                    <h5 class="card-title">Register Account</h5>
+                    <p class="card-text">By creating an account you will be able to shop faster, be up to date on an
+                        order's status, and keep track of the orders you have previously made</p>
+                    <a href="/registration" class="btn btn-primary" style="background-color: orangered;">Register</a>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="col-lg-4" style="margin-top: 30px;">
+            <b>
+            </b>
+            <h3 class="subtitle"><span>Login Customer</span></h2>
+                <p><strong></strong></p>
+                <form action="/login" method="POST" class="form-horizontal">
+                    <input type="hidden" name="_token" value="XCAb8bMVKoZ4bdTPl0XzK0GJvt4uFGv1L8REYuyT">
+                    <div class="form-group">
+                        <label class="control-label" for="input-email"> <b>E-Mail Address OR Mobile
+                                Number</b>
+                        </label>
+                        <input type="text" name="email" value="" placeholder="E-Mail Address" id="input-email"
+                            class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="input-password"> <b>Password</b> </label>
+                        <input type="password" name="password" value="" placeholder="Password" id="input-password"
+                            class="form-control" />
+                        <br />
 
-    {% endblock %}
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-primary" style="background-color: orangered;" />
+                </form>
+        </div>
+        <aside id="column-right" class="col-sm-3 hidden-xs" style="margin-right: 20px;">
+            <h3 class="subtitle"><span>Account</span></h3>
+            <div class="list-group">
+                <ul class="list-item" style="font-size:20px; list-style: none;" >
+                    <li><a href="/login" class="text-dark">Login</a></li>
+
+                    <li><a href="/login" class="text-dark">My Account</a></li>
+
+                    <li><a href="/login" class="text-dark">Wish List</a></li>
+                    <li><a href="/login" class="text-dark">Order History</a></li>
+
+                    <li><a href="/login" class="text-dark">Returns</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+{% endblock %}
