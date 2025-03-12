@@ -22,7 +22,6 @@ def general(request):
 def Spices(request):
     return render(request,'Spices.html')
 
-
 def cosmetic(request):
     return render(request,'cosmetic.html')
 
