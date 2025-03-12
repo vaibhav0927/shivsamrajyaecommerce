@@ -25,5 +25,8 @@ urlpatterns = [
     path('login/',views.login),
     path('',views.home),
     path('about/',views.about),
+
+    path('cosmetic/',views.cosmetic),
+
     path('general/',views.general)
 ]

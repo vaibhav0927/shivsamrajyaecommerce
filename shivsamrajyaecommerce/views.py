@@ -19,4 +19,7 @@ def login(request):
 def general(request):
     return render(request,'general.html')
 
+def cosmetic(request):
+    return render(request,'cosmetic.html')
+
 
