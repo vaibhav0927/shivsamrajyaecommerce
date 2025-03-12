@@ -19,4 +19,14 @@ def login(request):
 def general(request):
     return render(request,'general.html')
 
+def Spices(request):
+    return render(request,'Spices.html')
+
+def cosmetic(request):
+    return render(request,'cosmetic.html')
+
+def fooditems(request):
+    return render(request,'fooditems.html')
+    
+
 
