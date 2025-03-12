@@ -29,11 +29,6 @@
                                     placeholder="Enter Full Name In English" name="english_name"
                                     :value="old('english_name')" required autofocus autocomplete="f_name">
                             </div>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" id="input-firstname"
-                                    placeholder="Enter Full Name In Marathi" name="name" :value="old('name')" required
-                                    autofocus autocomplete="f_name">
-                            </div>
                         </div>
 
                         <div class="form-group required">
@@ -145,7 +140,7 @@
                             <div class="col-sm-5">
                                 <select data-width="100%" class="form-control select2" name="district" id="distric_id"
                                     onchange="getDistId(this.value)" required>
-                                    <option value="" selected> Selected District</option>
+                                    <option value="" selected>Selected District</option>
 
                                 </select>
                             </div>
@@ -213,9 +208,6 @@
                             </div>
                         </div>
 
-
-
-
                         <div class="form-group required">
                             <label for="input-password" class="col-sm-2 control-label">Password</label>
                             <div class="col-sm-10">
@@ -230,39 +222,46 @@
                                     placeholder="Password Confirm" name="confirm_password" required>
                             </div>
                         </div>
-                        <aside id="column-right" class="col-sm-3 ">
-                            <h3 class="subtitle"><span>Account</span></h3>
-                            <div class="list-group">
-                                <ul class="list-item">
-                                    <li><a href="/login" class="text-dark">Login</a></li>
-                                    <li><a href="/login" class="text-dark">Forgotten Password</a></li>
-                                    <li><a href="/login" class="text-dark">My Account</a></li>
-        
-                                    <li><a href="/login" class="text-dark">Wish List</a></li>
-                                    <li><a href="/login" class="text-dark">Order History</a></li>
-        
-                                    <li><a href="/login" class="text-dark">Returns</a></li>
-                                </ul>
-                                <h3 class="subtitle"><span>Apply To Card</span></h3>
-                            </div class="list-group">
-                            <div>
-                                Saving at the supermarket used to be simple: Everyone got the sale price. Then, stores began
-                                offering loyalty cards, which required customers to scan a plastic card or key in their phone
-                                number at checkout to activate discounts. Now, many grocery store chains are replacing those
-                                loyalty cards with smartphone apps.
-                            </div>
-                        </aside>
 
                         <div class="buttons">
                             <div class="pull-right">
 
-                                <input type="submit" id="btnSubmit" class="btn btn-primary" value="Register"
-                                    onclick="return confirm('Are you sure?')">
+                                <input type="submit" id="btnSubmit" class="btn btn-primary" value="Register" style="background-color: orangered;" onclick="return confirm('Are you sure?')">
                             </div>
                         </div>
-                        
-                </form>
-                
-            </div>
 
-            {% endblock %}
+                </form>
+                <aside id="column-right" class="col-sm-3 ">
+                    <h3 class="subtitle"><span>Account</span></h3>
+                    <div class="list-group">
+                        <ul class="list-item">
+                            <li><a href="/login" class="text-dark">Login</a></li>
+                            <li><a href="/login" class="text-dark">Forgotten Password</a></li>
+                            <li><a href="/login" class="text-dark">My Account</a></li>
+
+                            <li><a href="/login" class="text-dark">Wish List</a></li>
+                            <li><a href="/login" class="text-dark">Order History</a></li>
+
+                            <li><a href="/login" class="text-dark">Returns</a></li>
+                        </ul>
+                        <h3 class="subtitle"><span>Apply To Card</span></h3>
+                    </div class="list-group">
+                    <div>
+                        Saving at the supermarket used to be simple: Everyone got the sale price. Then,
+                        stores began
+                        offering loyalty cards, which required customers to scan a plastic card or key in
+                        their phone
+                        number at checkout to activate discounts. Now, many grocery store chains are
+                        replacing those
+                        loyalty cards with smartphone apps.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
