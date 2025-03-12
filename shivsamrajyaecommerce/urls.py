@@ -25,14 +25,10 @@ urlpatterns = [
     path('registration/',views.registration),
     path('',views.home),
     path('about/',views.about),
-<<<<<<< HEAD
     path('general/',views.general),
-    
-=======
-
     path('cosmetic/',views.cosmetic),
     path('Spices/',views.Spices),
     path('general/',views.general),
     path('fooditems/',views.fooditems)
->>>>>>> e823c65d9dde24f7f85716ea1f26354cb6bb5c5b
+
 ]
