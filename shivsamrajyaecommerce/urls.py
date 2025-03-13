@@ -30,10 +30,7 @@ urlpatterns = [
     path('spices/',views.Spices),
     path('general/',views.general),
     path('fooditems/',views.fooditems),
-<<<<<<< HEAD
     path('shop/',views.shop)
-=======
     path('grocery/',views.grocery)
->>>>>>> f8225c08097b169b60f6d1d29c689830c68fdb22
 
 ]
