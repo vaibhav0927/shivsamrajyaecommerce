@@ -19,6 +19,9 @@ def login(request):
 def general(request):
     return render(request,'general.html')
 
+def grocery(request):
+    return render(request,'grocery.html')
+
 def Spices(request):
     return render(request,'Spices.html')
 
@@ -27,6 +30,9 @@ def cosmetic(request):
 
 def fooditems(request):
     return render(request,'fooditems.html')
+
+def shop(request):
+    return render(request,'shop.html')
     
 
 

@@ -2,18 +2,21 @@
 
 {% block project %}
 
+
 <div class="container-fluid">
-    <div class="row">
+    <h1 class="text-center mt-5">Account Login</h1> 
+    <hr class="text-black ">
+    <div class="row shadow-lg p-3 mb-5  bg-white rounded"">
         <div class="col-lg-4" style="margin-left: 40px;">
             <div class="card border border-light" style="width: 18rem;">
-                <h1>Account Login</h1>
+                
                 <h5>New Customer</h5>
                 <hr>
                 <div class="card-body">
                     <h5 class="card-title">Register Account</h5>
                     <p class="card-text">By creating an account you will be able to shop faster, be up to date on an
                         order's status, and keep track of the orders you have previously made</p>
-                    <a href="/registration" class="btn btn-primary" style="background-color: orangered;">Register</a>
+                    <a href="/registration" class="btn text-light" style="background-color:#ff7722;">Register</a>
                 </div>
             </div>
         </div>
@@ -38,21 +41,21 @@
                         <br />
 
                     </div>
-                    <input type="submit" value="Login" class="btn btn-primary" style="background-color: orangered;" />
+                    <input type="submit" value="Login" class="btn text-light " style="background-color: #ff7722;" />
                 </form>
         </div>
         <aside id="column-right" class="col-sm-3 hidden-xs" style="margin-right: 20px;">
-            <h3 class="subtitle"><span>Account</span></h3>
+            <h3 class="subtitle mt-3 ms-3"><span>Account</span></h3>
             <div class="list-group">
-                <ul class="list-item" style="font-size:20px; list-style: none;" >
-                    <li><a href="/login" class="text-dark">Login</a></li>
+                <ul class="list-item" style="font-size:18px; list-style: none;" >
+                    <li><a href="/login" class="text-dark btn">Login</a></li>
 
-                    <li><a href="/login" class="text-dark">My Account</a></li>
+                    <li><a href="/login" class="text-dark btn">My Account</a></li>
 
-                    <li><a href="/login" class="text-dark">Wish List</a></li>
-                    <li><a href="/login" class="text-dark">Order History</a></li>
+                    <li><a href="/login" class="text-dark btn">Wish List</a></li>
+                    <li><a href="/login" class="text-dark btn">Order History</a></li>
 
-                    <li><a href="/login" class="text-dark">Returns</a></li>
+                    <li><a href="/login" class="text-dark btn">Returns</a></li>
                 </ul>
             </div>
         </aside>
