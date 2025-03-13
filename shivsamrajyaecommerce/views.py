@@ -33,6 +33,9 @@ def fooditems(request):
 
 def shop(request):
     return render(request,'shop.html')
+
+def stationary(request):
+    return render(request,'stationary.html')
     
 
 
