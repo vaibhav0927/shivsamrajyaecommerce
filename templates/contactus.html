@@ -10,68 +10,50 @@
 
 <body>
     {% block project %}
-    <h2 style="font-size: 25px; color: #565252; margin-top: 30px; margin-left: 40px;">CONTACT-US </h2>
-    <div class="aa-contact-address" style="margin: 20px; padding: 20px;">
+    <div class="container">
+        <h1 class="text-center pt-5">Contact Us</h1>
+        <hr class="text-black">
+
+    
         
-        <div class="row">
-            <div class="col-md-8">
-                <div class="aa-contact-address-left">
-                    <form class="comments-form contact-form" action="send">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Name" class="form-control"
-                                        style="border:solid 1px;"><br>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="email" placeholder="Email" class="form-control"
-                                        style="border:solid 1px;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Subject" class="form-control"
-                                        style="border:solid 1px;"><br>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Company" class="form-control"
-                                        style="border:solid 1px;">
-                                </div>
-                            </div>
-                        </div>
+        <div class="row pt-5 pb-5 shadow-lg p-3 mb-5  bg-white rounded""> 
+            <div class="col-lg-6">
+                <form    onsubmit="" action="" method="">
+                    
+                     {%csrf_token %}
+                     <b style="font-size: 25px;">Name:</b>
+                     <input type="text" name="name" id="nm" style="width: 100%;" ><br><br>
+                     
+                     <b style="font-size: 25px;">Email:</b>
+                     <input type="text" name="email" id="em" style="width: 100%;" ><br><br>
+             
+                     <b style="font-size: 25px;">Enquiry:</b>
+                     <textarea class="form-control" id="en" rows="3"></textarea>
+                     
+                      <button type="Submit" class="mt-3 text-light" style="background-color: #ff7722; margin-left: 470px; width:150px; border: none; font-size:25px;"> Submit</button>
+             
+                 </form>
 
-
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3" placeholder="Message"
-                                style="height: 200px; width: 500px; border: solid 1px;"></textarea><br>
-                        </div>
-
-                        <button class="aa-secondary-btn" style="border: solid 1px">Send</button>
-                    </form>
-                </div>
             </div>
-            <div class="col-md-4">
+            
+            <div class="col-md-6" >
                 <div class="aa-contact-address-right">
                     <address>
-                        <h4>Shiv Samrajya</h4>
-                        <p> The Shivsamrajya Help Centre page lists out various types of issues that you may have
+                        <h4 class="text-center"><b>Shiv Samrajya</b></h4>
+                        <hr class="text-black">
+                        <p style="font-size: 18px;"> The Shivsamrajya Help Centre page lists out various types of issues that you may have
                             encountered so that there can be quick resolution and you can go back to shopping online.
                         </p>
-                        <p><span class="fa fa-home"></span> Koregav,Post Office SATARA ,pin code:-415501</p>
-                        <p><span class="fa fa-phone"></span> + 91.343.7575</p>
-                        <p><span class="fa fa-envelope"></span> Email: support@Shivsamrajya.com</p>
-                        <p><span class="fa-solid fa-clock-rotate-left"></span> Openning Time : 24x7</p>
+                        <p style="font-size: 18px;"><span class="fa fa-home"></span> Koregav,Post Office SATARA ,pin code:-415501</p>
+                        <p style="font-size: 18px;"><span class="fa fa-phone"></span> + 91 9503933339</p>
+                        <p style="font-size: 18px;"><span class="fa fa-envelope"></span> support@Shivsamrajya.com</p>
+                        <p style="font-size: 18px;"><span class="fa-solid fa-clock-rotate-left"></span> Openning Time : 24x7</p>
                     </address>
                 </div>
             </div>
         </div>
     </div>
+</div>
    
 
     
