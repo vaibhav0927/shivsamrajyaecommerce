@@ -19,6 +19,9 @@ def login(request):
 def general(request):
     return render(request,'general.html')
 
+def grocery(request):
+    return render(request,'grocery.html')
+
 def Spices(request):
     return render(request,'Spices.html')
 
