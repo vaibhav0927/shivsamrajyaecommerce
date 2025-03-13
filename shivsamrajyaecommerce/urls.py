@@ -29,6 +29,7 @@ urlpatterns = [
     path('cosmetic/',views.cosmetic),
     path('Spices/',views.Spices),
     path('general/',views.general),
-    path('fooditems/',views.fooditems)
+    path('fooditems/',views.fooditems),
+    path('shop/',views.shop)
 
 ]
