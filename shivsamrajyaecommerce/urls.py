@@ -30,7 +30,7 @@ urlpatterns = [
     path('spices/',views.Spices),
     path('general/',views.general),
     path('fooditems/',views.fooditems),
-    path('shop/',views.shop)
+    path('shop/',views.shop),
     path('grocery/',views.grocery)
 
 ]
