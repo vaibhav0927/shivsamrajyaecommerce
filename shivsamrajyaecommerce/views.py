@@ -27,6 +27,9 @@ def cosmetic(request):
 
 def fooditems(request):
     return render(request,'fooditems.html')
+
+def shop(request):
+    return render(request,'shop.html')
     
 
 
