@@ -11,7 +11,7 @@
 <body>
     {% block project %}
     <div class="container">
-        <h1 class="text-center pt-5"> <b>Contact Us </b></h1>
+        <h1 class="text-center pt-3"> <b>Contact Us </b></h1>
         <hr class="text-black">
 
     
@@ -21,13 +21,13 @@
                 <form    onsubmit="" action="" method="">
                     
                      {%csrf_token %}
-                     <b style="font-size: 25px;">Name:</b>
+                     <b style="font-size: 22px;">Name:</b>
                      <input type="text" name="name" id="nm" style="width: 100%;" ><br><br>
                      
-                     <b style="font-size: 25px;">Email:</b>
+                     <b style="font-size: 22px;">Email:</b>
                      <input type="text" name="email" id="em" style="width: 100%;" ><br><br>
              
-                     <b style="font-size: 25px;">Enquiry:</b>
+                     <b style="font-size: 22px;">Enquiry:</b>
                      <textarea class="form-control" id="en" rows="5"></textarea>
                      
                       <button type="Submit" class="mt-3 text-light" style="background-color: #ff7722; margin-left: 470px; width:150px; border: none; font-size:25px; border-radius: 10px;"><b> Submit </b></button>
