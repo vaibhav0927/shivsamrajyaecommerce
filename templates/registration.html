@@ -4,11 +4,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Account</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,152 +17,233 @@
         body {
             background-color: #f8f9fa;
         }
+
         .container {
             margin-top: 30px;
         }
+
         .card {
             padding: 20px;
             border-radius: 10px;
         }
+
         .error {
             color: red;
             font-size: 12px;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="row mb-3">
-        <!-- Left Side: Registration Form -->
-        <div class="col-md-8">
-            <div class="card shadow-sm">
-                <h3 class="mb-3 text-center">Register Account</h3>
-                <p>If you already have an account, please login at the <a href="/login"><b>Login Page</b> </a>.</p>
+    <div class="container">
+        <div class="row mb-3">
+            <!-- Left Side: Registration Form -->
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <h3 class="mb-3 text-center">Register Account</h3>
+                    <p>If you already have an account, please login at the <a href="/login"><b>Login Page</b> </a>.</p>
 
-                <form action="/registration" method="post" class="form-horizontal">
-                    <div class="mb-3">
-                        <label class="form-label">Full Name (English)</label>
-                        <input type="text" id="fullNameEng" class="form-control" placeholder="Enter Full Name In English">
-                        <span class="error" id="nameError"></span>
-                    </div>
+                    <form action="/registration" method="post" class="form-horizontal">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name (English)</label>
+                            <input type="text" id="fullNameEng" class="form-control"
+                                placeholder="Enter Full Name In English">
+                            <span class="error" id="nameError"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Full Name (Marathi)</label>
-                        <input type="text" id="fullNameMarathi" class="form-control" placeholder="Enter Full Name In Marathi">
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name (Marathi)</label>
+                            <input type="text" id="fullNameMarathi" class="form-control"
+                                placeholder="Enter Full Name In Marathi">
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Mobile No</label>
-                        <input type="text" id="mobile" class="form-control" placeholder="Mobile Number">
-                        <span class="error" id="mobileError"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mobile No</label>
+                            <input type="text" id="mobile" class="form-control" placeholder="Mobile Number">
+                            <span class="error" id="mobileError"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Birth Date</label>
-                        <input type="date" id="birthDate" class="form-control">
-                        <span class="error" id="birthDateError"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Birth Date</label>
+                            <input type="date" id="birthDate" class="form-control">
+                            <span class="error" id="birthDateError"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Near by Franchise</label>
-                        <select class="form-select">
-                            <option value="">Choose Franchise</option>
-                            <option value="3 ">
-                                युनिक बजेट मार्ट शाखा-चिमणगाव</option>
-                        </select>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Near by Franchise</label>
+                            <select class="form-select">
+                                <option value="">Choose Franchise</option>
+                                <option value="3 ">
+                                    युनिक बजेट मार्ट शाखा-चिमणगाव</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <select class="form-select">
-                            <option value="">State</option>
-                            <option value="1"> Maharashtra</option>
-                            <option value="1"> Andhra Prades</option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                            <option value="1"> </option>
-                        </select>
-                        
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">State</label>
+                            <select class="form-select">
+                                <option value="1"> Maharashtra</option>
+                                <option value="2"> Andhra Pradesh</option>
+                                <option value="3"> Arunachal Pradesh</option>
+                                <option value="4"> Assam</option>
+                                <option value="5"> Bihar</option>
+                                <option value="6"> Chhattisgarh</option>
+                                <option value="7"> Goa</option>
+                                <option value="8"> Gujarat</option>
+                                <option value="9"> Haryana</option>
+                                <option value="10"> Himachal Pradesh</option>
+                                <option value="11"> Jharkhand</option>
+                                <option value="12"> Karnataka</option>
+                                <option value="13"> Kerala</option>
+                                <option value="14"> Madhya Pradesh</option>
+                                <option value="15"> Manipur</option>
+                                <option value="16"> Meghalaya</option>
+                                <option value="17"> Mizoram</option>
+                                <option value="18"> Nagaland</option>
+                                <option value="19"> Odisha</option>
+                                <option value="20"> Punjab</option>
+                                <option value="21"> Rajasthan</option>
+                                <option value="22"> Sikkim</option>
+                                <option value="23"> Tamil Nadu</option>
+                                <option value="24"> Telangana</option>
+                                <option value="25"> Tripura</option>
+                                <option value="26"> Uttar Pradesh</option>
+                                <option value="27"> Uttrakhand</option>
+                                <option value="28"> West Bengal</option>
+                            </select>
 
-                    <div class="mb-3">
-                        <label class="form-label">District</label>
-                        <select class="form-select">
-                            <option>Satara</option>
-                        </select>
-                    </div>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Taluka</label>
-                        <select class="form-select">
-                            <option>Koregaon</option>
-                        </select>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">District</label>
+                            <select class="form-select">
+                                <option value="1">Satara</option>
+                                <option value="2">Akola</option>
+                                <option value="3">Amravati</option>
+                                <option value="4">Ahmadnagar</option>
+                                <option value="5">Osmanabad</option>
+                                <option value="6">Aurangabad</option>
+                                <option value="7">Kolhapur</option>
+                                <option value="8">Gadchiroli</option>
+                                <option value="9">Gondiya</option>
+                                <option value="10">Chandrapur</option>
+                                <option value="11">Jalgaon</option>
+                                <option value="12">Jalna</option>
+                                <option value="13">Thane</option>
+                                <option value="14">Dhule</option>
+                                <option value="15">Nandurbar</option>
+                                <option value="16">Nagpur</option>
+                                <option value="17">Nagpur(East)</option>
+                                <option value="18">Nanded</option>
+                                <option value="19">Nashik</option>
+                                <option value="20">Parbhani</option>
+                                <option value="21">Nagpur(urban)</option>
+                                <option value="22">Pune</option>
+                                <option value="23">Beed</option>
+                                <option value="24">Buldana</option>
+                                <option value="25">Bhandara</option>
+                                <option value="26">Mumbai(central)</option>
+                                <option value="27">Mumbai(East)</option>
+                                <option value="28">Mumbai(West)</option>
+                                <option value="29">Raigad</option>
+                                <option value="30">Latur</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Village</label>
-                        <select class="form-select">
-                            <option>Ambawade S. Koregaon</option>
-                        </select>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Taluka</label>
+                            <select class="form-select">
+                                <option value="1">Koregaon</option>
+                                <option value="2">Karad</option>
+                                <option value="3">Khandala</option>
+                                <option value="4">Khatav</option>
+                                <option value="5">Jaoli</option>
+                                <option value="6">Mahabaleshwar</option>
+                                <option value="7">Man</option>
+                                <option value="8">Patan</option>
+                                <option value="9">Phaltan</option>
+                                <option value="10">Satara</option>
+                                <option value="11">Wai</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Pin Code</label>
-                        <input type="text" id="pinCode" class="form-control" placeholder="Pin Code">
-                        <span class="error" id="pinCodeError"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Village</label>
+                            <select class="form-select">
+                                <option value="1">Ambawade S. Koregaon</option>
+                                <option value="2">Ambawade S. Wagholi</option>
+                                <option value="3">Ambheri</option>
+                                <option value="4">Apshinge</option>
+                                <option value="5">Arvi</option>
+                                <option value="6">Asangaon</option>
+                                <option value="7">Belewadi</option>
+                                <option value="8">Chimangaon</option>
+                                <option value="9">Dahigaon</option>
+                                <option value="10">Deur</option>
+                                <option value="11">Golewadi</option>
+                                <option value="12">Jalgaon</option>
+                                <option value="13">Kaloshi</option>
+                                <option value="14">Katewadi</option>
+                                <option value="15">Khed</option>
+                                <option value="16">Koregoan</option>
+                                <option value="17">Kumathe</option>
+                                <option value="18">Nigadi</option>
+                                <option value="19">Pawarwadi</option>
+                                <option value="20">Revdi</option>
+                                <option value="21">Saigaon</option>
+                                <option value="22">Wagholi</option>
+                                <option value="23">Satara Road</option>
+                                <option value="24">Takale</option>
+                                <option value="25">Targaon</option>
+                                <option value="26">Valang</option>
+                                <option value="27">Wathar Station</option>
+                                <option value="28">Ghigewadi</option>
+                                <option value="29">Rautwadi</option>
+                                <option value="30">Velu</option>
 
-                    <div class="mb-3">
-                        <label class="form-label">E-Mail</label>
-                        <input type="email" id="email" class="form-control" placeholder="E-Mail">
-                        <span class="error" id="emailError"></span>
-                    </div>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <input type="password" id="password" class="form-control" placeholder="Password">
-                        <span class="error" id="passwordError"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pin Code</label>
+                            <input type="text" id="pinCode" class="form-control" placeholder="Pin Code">
+                            <span class="error" id="pinCodeError"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Confirm Password</label>
-                        <input type="password" id="confirmPassword" class="form-control" placeholder="Password Confirm">
-                        <span class="error" id="confirmPasswordError"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">E-Mail</label>
+                            <input type="email" id="email" class="form-control" placeholder="E-Mail">
+                            <span class="error" id="emailError"></span>
+                        </div>
 
-                    <button type="button" class="btn  w-100 text-light" style="background-color:#ff7722;" onclick="validateForm()">Register</button>
-                </form>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Password">
+                            <span class="error" id="passwordError"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control"
+                                placeholder="Password Confirm">
+                            <span class="error" id="confirmPasswordError"></span>
+                        </div>
+
+                        <button type="button" class="btn  w-100 text-light" style="background-color:#ff7722;"
+                            onclick="validateForm()">Register</button>
+                    </form>
+                </div>
             </div>
-        </div>
+        
+    
+    
 
-        <!-- Right Side: Account Information -->
+             <!-- Right Side: Account Information -->
         <div class="col-md-4">
             <div class="card shadow-sm">
                 <h4>Account</h4>
-                <ul class="list-unstyled">
+                <div class="list-group">
+                <ul class="list-item" style="font-size: 18px; list-style: none;">
                     <li><a href="/login" class="text-dark">Login</a></li>
                     <li><a href="/login" class="text-dark">Forgotten Password</a></li>
                     <li><a href="/login" class="text-dark">My Account</a></li>
@@ -170,73 +252,79 @@
                     <li><a href="/login" class="text-dark">Returns</a></li>
                 </ul>
 
-                <h4>Apply To Card</h4>
-                <p>Saving at the supermarket used to be simpler: Everyone got the sale price. Then, stores began offering loyalty cards, which required customers to scan a plastic card or key in their phone number at checkout to activate discounts. Now, many grocery store chains are replacing those loyalty cards with smartphone apps.</p>
-            </div>
+
+            <h4>Apply To Card</h4>
+            <p>Saving at the supermarket used to be simpler: Everyone got the sale price. Then, stores began offering
+                loyalty cards, which required customers to scan a plastic card or key in their phone number at checkout
+                to activate discounts. Now, many grocery store chains are replacing those loyalty cards with smartphone
+                apps.</p>
         </div>
     </div>
-</div>
+    </div>
+    </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-function validateForm() {
-    let isValid = true;
+    <script>
+        function validateForm() {
+            let isValid = true;
 
-    // Reset previous errors
-    document.querySelectorAll('.error').forEach(e => e.innerText = "");
+            // Reset previous errors
+            document.querySelectorAll('.error').forEach(e => e.innerText = "");
 
-    let name = document.getElementById("fullNameEng").value;
-    let mobile = document.getElementById("mobile").value;
-    let birthDate = document.getElementById("birthDate").value;
-    let pinCode = document.getElementById("pinCode").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+            let name = document.getElementById("fullNameEng").value;
+            let mobile = document.getElementById("mobile").value;
+            let birthDate = document.getElementById("birthDate").value;
+            let pinCode = document.getElementById("pinCode").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
 
-    if (name.trim() === "") {
-        document.getElementById("nameError").innerText = "Full Name is required";
-        isValid = false;
-    }
+            if (name.trim() === "") {
+                document.getElementById("nameError").innerText = "Full Name is required";
+                isValid = false;
+            }
 
-    if (mobile.trim() === "" || !/^\d{10}$/.test(mobile)) {
-        document.getElementById("mobileError").innerText = "Enter a valid 10-digit mobile number";
-        isValid = false;
-    }
+            if (mobile.trim() === "" || !/^\d{10}$/.test(mobile)) {
+                document.getElementById("mobileError").innerText = "Enter a valid 10-digit mobile number";
+                isValid = false;
+            }
 
-    if (birthDate.trim() === "") {
-        document.getElementById("birthDateError").innerText = "Birth Date is required";
-        isValid = false;
-    }
+            if (birthDate.trim() === "") {
+                document.getElementById("birthDateError").innerText = "Birth Date is required";
+                isValid = false;
+            }
 
-    if (pinCode.trim() === "" || !/^\d{6}$/.test(pinCode)) {
-        document.getElementById("pinCodeError").innerText = "Enter a valid 6-digit Pin Code";
-        isValid = false;
-    }
+            if (pinCode.trim() === "" || !/^\d{6}$/.test(pinCode)) {
+                document.getElementById("pinCodeError").innerText = "Enter a valid 6-digit Pin Code";
+                isValid = false;
+            }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
-        document.getElementById("emailError").innerText = "Enter a valid email";
-        isValid = false;
-    }
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                document.getElementById("emailError").innerText = "Enter a valid email";
+                isValid = false;
+            }
 
-    if (password.length < 6) {
-        document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
-        isValid = false;
-    }
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                isValid = false;
+            }
 
-    if (password !== confirmPassword) {
-        document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
-        isValid = false;
-    }
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
+                isValid = false;
+            }
 
-    if (isValid) {
-        alert("Registration Successful!");
-    }
-}
-</script>
+            if (isValid) {
+                alert("Registration Successful!");
+            }
+        }
+    </script>
+
+ {% endblock %}
 
 </body>
+
 </html>
 
-{% endblock %}
