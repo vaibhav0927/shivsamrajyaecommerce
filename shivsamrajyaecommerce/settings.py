@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'taluka',
     'village',
-
+    'franchise',
     'state',
     'district',
 
