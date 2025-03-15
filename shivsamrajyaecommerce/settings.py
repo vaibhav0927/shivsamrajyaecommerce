@@ -37,8 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'taluka',
     'village'
+=======
+    'franchise',
+    'taluka',
+    'village',
+>>>>>>> 12fae08eec7415276fe0daa0495ecedcec818184
 
     'state',
     'district'
