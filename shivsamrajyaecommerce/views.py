@@ -73,6 +73,7 @@ def shop(request):
         return redirect("/login/")
 
 def stationary(request):
+
     return render(request,'stationary.html')
 
 def submit(request):
@@ -88,14 +89,17 @@ def submit(request):
      confirmPassword = request.POST.get('confirmPassword')
 
     return render(request,'submit.html')
-=======
 
 
-     if 'username' in request.session:
+    if 'username' in request.session:
         return render(request,'stationary.html')
-     else:
-        return redirect("/login/")
->>>>>>> 8fc2738e580be3df373eedeccb9ab20f62e6c061
-    
+    else:
+        return redirect("/login/") 
+
+
+
+
+
+     
 
 
