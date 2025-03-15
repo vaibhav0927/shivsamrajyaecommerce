@@ -40,13 +40,6 @@ INSTALLED_APPS = [
     'customer'
 
 
-    'taluka',
-    'village'
-
-
-
-
-
     'franchise',
     'taluka',
     'village',
