@@ -36,6 +36,8 @@ def shop(request):
 
 def stationary(request):
     return render(request,'stationary.html')
+
+
     
 
 
