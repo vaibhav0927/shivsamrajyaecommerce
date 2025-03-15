@@ -12,7 +12,7 @@ def contactus(request):
 
 def loginverify(request):
     if request.method=="POST":
-        email= request.POST.get('username')
+        email= request.POST.get('email')
         password=request.POST.get("password")
         try:
           Customer.objects.get(c_email=email,c_pass=password)
