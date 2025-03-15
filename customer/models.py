@@ -20,6 +20,12 @@ class Customer(models.Model):
     c_pinCode = models.CharField(max_length=255)
     c_email  = models.CharField(max_length=255)
     c_password = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        db_table = "tbl_customer"
+
     
 
 # Create your models here.

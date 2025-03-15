@@ -92,9 +92,27 @@ def submit(request):
      taluka = request.POST.get('taluka')
      village = request.POST.get('village')
      franchise = request.POST.get('franchise')
-     
 
-    return render(request,'submit.html')
+     insertquery=Customer(
+         fullNameEng=fullNameEng,
+         fullNameMarathi=fullNameMarathi,
+         mobile=mobile,
+         birthDate=birthDate,
+         pinCode=pinCode,
+         email=email,
+         password=password,
+         confirmPassword=confirmPassword,
+         state=state,
+         district=district,
+         taluka=taluka,
+         village=village,
+         franchise=franchise,
+
+     )
+     insertquery.save()
+     return redirect("/customerList/")
+    else:
+         return render(request,'registration.html')
 
 
      
