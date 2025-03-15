@@ -37,12 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'taluka',
     'village'
 
+    'franchise',
+    'taluka',
+    'village',
+
+
     'state',
     'district'
-    
+
 ]
 
 MIDDLEWARE = [
