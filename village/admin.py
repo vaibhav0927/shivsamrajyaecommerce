@@ -1,14 +1,14 @@
 from django.contrib import admin # type: ignore
+<<<<<<< HEAD
+=======
+
+>>>>>>> 67874dc837de86263e425e4729e1a8a8c0070a62
 from .models import Village
 
-
-# Register your models here.
 class VillageAdmin(admin.ModelAdmin):
-    list_display = ('village_id','village_name')
+    list_display=('village_id','village_name','village_slug','taluka_name')
     def taluka_name(self,obj):
-        return obj.taluka.taluka_name
-    def taluka_slug(self,obj):
-        return obj.taluka.taluka_slug  
-    taluka_name.short_description = "Taluka Name"     
-admin.site.register(Village,VillageAdmin)
+        return obj.taluka.taluka_name 
 
+
+admin.site.register(Village, VillageAdmin)
