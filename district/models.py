@@ -1,7 +1,7 @@
-from django.db import models
+from django.db import models # type: ignore
 
 from  state.models import state
-from autoslug import AutoSlugField
+from autoslug import AutoSlugField # type: ignore
 
 # Create your models here.
 class District(models.Model): 
