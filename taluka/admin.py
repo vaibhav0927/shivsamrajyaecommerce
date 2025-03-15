@@ -8,10 +8,8 @@ class TalukaAdmin(admin.ModelAdmin):
         return obj.district.district_name 
 
 
-<<<<<<< HEAD
+
 admin.site.register(Taluka, TalukaAdmin)
 
 
-=======
-admin.site.register(Taluka, TalukaAdmin)
->>>>>>> 5b63a5203b2de69b79bfc3e2f45705f0a1f665dc
+

@@ -73,8 +73,8 @@
                         <div class="mb-3">
                             <label class="form-label">Near by Franchise</label>
                             
-                            <select name="franchise" id="f">
-                                <option value=""> Select </option>
+                            <select name="franchise" id="f" style="width: 100%;"  class="form-control">
+                                <option value="" > Select </option>
                                 {% for i in franchise %}
                                
                             <option value="{{i.franchise}}">{{i.franchise_name}}</option>
@@ -86,7 +86,7 @@
                         <div class="mb-3">
                             <label class="form-label">State</label>
                             
-                            <select name="state" id="s">
+                            <select name="state" id="s" style="width: 100%;"  class="form-control">
                                 <option value=""> Select </option>
                                 {% for i in state %}
                                
@@ -100,7 +100,7 @@
                         <div class="mb-3">
                             <label class="form-label">District</label>
             
-                            <select name="district" id="d">
+                            <select name="district" id="d" style="width: 100%;"  class="form-control">
                           <option value=""> Select </option>
                            {% for i in district %}
            
@@ -113,7 +113,7 @@
                         <div class="mb-3">
                             <label class="form-label">Taluka</label>
                             
-                            <select name="taluka" id="t">
+                            <select name="taluka" id="t" style="width: 100%;" class="form-control">
                                 <option value=""> Select </option>
                                 {% for i in taluka %}
                                
@@ -126,7 +126,7 @@
                         <div class="mb-3">
                             <label class="form-label">Village</label>
                         
-                            <select name="village" id="v">
+                            <select name="village" id="v" style="width: 100%;"  class="form-control">
                                 <option value=""> Select </option>
                                 {% for i in village %}
                                
