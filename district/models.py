@@ -11,5 +11,5 @@ class District(models.Model):
     district_slug = AutoSlugField(populate_from="district_name", unique=True)
     class Meta:
         db_table = "tbl_district"
-    def _str_(self):
+    def __str__(self):
         return self.district_name

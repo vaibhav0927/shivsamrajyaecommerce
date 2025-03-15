@@ -10,10 +10,10 @@ from autoslug import AutoSlugField # type: ignore
 class Taluka(models.Model): 
     taluka_id = models.AutoField(primary_key=True)
     district=models.ForeignKey(District,on_delete=models.CASCADE,null=True)
-    taluka_name = models.CharField(max_length=255)
-    taluka_slug = AutoSlugField(populate_from="taluka_name", unique=True)
+    taluka_name = models.CharField(max_length=255,null=True)
+    taluka_slug = AutoSlugField(populate_from="taluka_name", unique=True,null=True, blank=True)
     class Meta:
         db_table = "tbl_taluka"
-    def _str_(self):
+    def __str__(self):
         return self.taluka_name
 

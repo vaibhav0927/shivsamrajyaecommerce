@@ -8,8 +8,8 @@ class Village(models.Model):
     village_id = models.AutoField(primary_key=True)
     taluka=models.ForeignKey(Taluka,on_delete=models.CASCADE,null=True)
     village_name = models.CharField(max_length=255)
-    village_slug = AutoSlugField(populate_from="village_name", unique=True)
+    village_slug = AutoSlugField(populate_from="village_name", unique=True,null=True, blank=True)
     class Meta:
         db_table = "tbl_village"
-    def _str_(self):
+    def __str__(self):
         return self.village_name

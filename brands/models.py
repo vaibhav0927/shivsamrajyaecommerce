@@ -1,0 +1,13 @@
+from django.db import models # type: ignore
+
+# Create your models here.
+class Brands(models.Model): 
+    brands_id = models.AutoField(primary_key=True)
+    
+    brands_name = models.CharField(max_length=255)
+   
+    class Meta:
+        db_table = "tbl_brands"
+    def _str_(self):
+        return self.brands_name
+
