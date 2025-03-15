@@ -36,6 +36,20 @@ def shop(request):
 
 def stationary(request):
     return render(request,'stationary.html')
+
+def submit(request):
+    if request.method == "POST":
+
+     fullNameEng = request.POST.get('fullNameEng')
+     fullNameMarathi = request.POST.get('fullNameMarathi')
+     mobile = request.POST.get('mobile')
+     birthDate = request.POST.get('birthDate')
+     pinCode = request.POST.get('pinCode')
+     email = request.POST.get('email')
+     password = request.POST.get('password')
+     confirmPassword = request.POST.get('confirmPassword')
+
+    return render(request,'submit.html')
     
 
 

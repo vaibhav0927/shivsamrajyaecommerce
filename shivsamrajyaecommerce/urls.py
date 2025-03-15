@@ -32,6 +32,7 @@ urlpatterns = [
     path('fooditems/',views.fooditems),
     path('shop/',views.shop),
     path('grocery/',views.grocery),
-    path('stationary/',views.stationary)
+    path('stationary/',views.stationary),
+    path('submit/',views.submit)
 
 ]
