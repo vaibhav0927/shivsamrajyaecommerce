@@ -72,134 +72,67 @@
 
                         <div class="mb-3">
                             <label class="form-label">Near by Franchise</label>
-                            <select class="form-select">
-                                <option value="">Choose Franchise</option>
-                                <option value="3 ">
-                                    युनिक बजेट मार्ट शाखा-चिमणगाव</option>
+                            
+                            <select name="franchise" id="f">
+                                <option value=""> Select </option>
+                                {% for i in franchise %}
+                               
+                            <option value="{{i.franchise}}">{{i.franchise_name}}</option>
+                                {% endfor%}
+                    
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">State</label>
-                            <select class="form-select">
-                                <option value="1"> Maharashtra</option>
-                                <option value="2"> Andhra Pradesh</option>
-                                <option value="3"> Arunachal Pradesh</option>
-                                <option value="4"> Assam</option>
-                                <option value="5"> Bihar</option>
-                                <option value="6"> Chhattisgarh</option>
-                                <option value="7"> Goa</option>
-                                <option value="8"> Gujarat</option>
-                                <option value="9"> Haryana</option>
-                                <option value="10"> Himachal Pradesh</option>
-                                <option value="11"> Jharkhand</option>
-                                <option value="12"> Karnataka</option>
-                                <option value="13"> Kerala</option>
-                                <option value="14"> Madhya Pradesh</option>
-                                <option value="15"> Manipur</option>
-                                <option value="16"> Meghalaya</option>
-                                <option value="17"> Mizoram</option>
-                                <option value="18"> Nagaland</option>
-                                <option value="19"> Odisha</option>
-                                <option value="20"> Punjab</option>
-                                <option value="21"> Rajasthan</option>
-                                <option value="22"> Sikkim</option>
-                                <option value="23"> Tamil Nadu</option>
-                                <option value="24"> Telangana</option>
-                                <option value="25"> Tripura</option>
-                                <option value="26"> Uttar Pradesh</option>
-                                <option value="27"> Uttrakhand</option>
-                                <option value="28"> West Bengal</option>
+                            
+                            <select name="state" id="s">
+                                <option value=""> Select </option>
+                                {% for i in state %}
+                               
+                            <option value="{{i.state_id}}">{{i.state_name}}</option>
+                                {% endfor%}
+                            
                             </select>
 
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">District</label>
-                            <select class="form-select">
-                                <option value="1">Satara</option>
-                                <option value="2">Akola</option>
-                                <option value="3">Amravati</option>
-                                <option value="4">Ahmadnagar</option>
-                                <option value="5">Osmanabad</option>
-                                <option value="6">Aurangabad</option>
-                                <option value="7">Kolhapur</option>
-                                <option value="8">Gadchiroli</option>
-                                <option value="9">Gondiya</option>
-                                <option value="10">Chandrapur</option>
-                                <option value="11">Jalgaon</option>
-                                <option value="12">Jalna</option>
-                                <option value="13">Thane</option>
-                                <option value="14">Dhule</option>
-                                <option value="15">Nandurbar</option>
-                                <option value="16">Nagpur</option>
-                                <option value="17">Nagpur(East)</option>
-                                <option value="18">Nanded</option>
-                                <option value="19">Nashik</option>
-                                <option value="20">Parbhani</option>
-                                <option value="21">Nagpur(urban)</option>
-                                <option value="22">Pune</option>
-                                <option value="23">Beed</option>
-                                <option value="24">Buldana</option>
-                                <option value="25">Bhandara</option>
-                                <option value="26">Mumbai(central)</option>
-                                <option value="27">Mumbai(East)</option>
-                                <option value="28">Mumbai(West)</option>
-                                <option value="29">Raigad</option>
-                                <option value="30">Latur</option>
+            
+                            <select name="district" id="d">
+                          <option value=""> Select </option>
+                           {% for i in district %}
+           
+                            <option value="{{i.district_id}}">{{i.district_name}}</option>
+                                {% endfor%}
+        
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Taluka</label>
-                            <select class="form-select">
-                                <option value="1">Koregaon</option>
-                                <option value="2">Karad</option>
-                                <option value="3">Khandala</option>
-                                <option value="4">Khatav</option>
-                                <option value="5">Jaoli</option>
-                                <option value="6">Mahabaleshwar</option>
-                                <option value="7">Man</option>
-                                <option value="8">Patan</option>
-                                <option value="9">Phaltan</option>
-                                <option value="10">Satara</option>
-                                <option value="11">Wai</option>
-                            </select>
+                            
+                            <select name="taluka" id="t">
+                                <option value=""> Select </option>
+                                {% for i in taluka %}
+                               
+                            <option value="{{i.taluka_id}}">{{i.taluka_name}}</option>
+                                {% endfor%}
+        
+                                </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Village</label>
-                            <select class="form-select">
-                                <option value="1">Ambawade S. Koregaon</option>
-                                <option value="2">Ambawade S. Wagholi</option>
-                                <option value="3">Ambheri</option>
-                                <option value="4">Apshinge</option>
-                                <option value="5">Arvi</option>
-                                <option value="6">Asangaon</option>
-                                <option value="7">Belewadi</option>
-                                <option value="8">Chimangaon</option>
-                                <option value="9">Dahigaon</option>
-                                <option value="10">Deur</option>
-                                <option value="11">Golewadi</option>
-                                <option value="12">Jalgaon</option>
-                                <option value="13">Kaloshi</option>
-                                <option value="14">Katewadi</option>
-                                <option value="15">Khed</option>
-                                <option value="16">Koregoan</option>
-                                <option value="17">Kumathe</option>
-                                <option value="18">Nigadi</option>
-                                <option value="19">Pawarwadi</option>
-                                <option value="20">Revdi</option>
-                                <option value="21">Saigaon</option>
-                                <option value="22">Wagholi</option>
-                                <option value="23">Satara Road</option>
-                                <option value="24">Takale</option>
-                                <option value="25">Targaon</option>
-                                <option value="26">Valang</option>
-                                <option value="27">Wathar Station</option>
-                                <option value="28">Ghigewadi</option>
-                                <option value="29">Rautwadi</option>
-                                <option value="30">Velu</option>
+                        
+                            <select name="village" id="v">
+                                <option value=""> Select </option>
+                                {% for i in village %}
+                               
+                            <option value="{{i.village_id}}">{{i.village_name}}</option>
+                                {% endfor%}
+                            
 
                             </select>
                         </div>

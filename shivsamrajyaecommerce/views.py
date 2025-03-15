@@ -92,6 +92,12 @@ def submit(request):
      taluka = request.POST.get('taluka')
      village = request.POST.get('village')
      franchise = request.POST.get('franchise')
+<<<<<<< HEAD
+=======
+
+   
+     
+>>>>>>> cd6b527d98d677f7a1a33e9ff376674fb3fdce28
 
      insertquery=Customer(
          fullNameEng=fullNameEng,
