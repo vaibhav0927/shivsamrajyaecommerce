@@ -73,16 +73,12 @@ def shop(request):
         return redirect("/login/")
 
 def stationary(request):
-<<<<<<< HEAD
-    return render(request,'stationary.html')
 
 
-=======
      if 'username' in request.session:
         return render(request,'stationary.html')
      else:
-        return redirect("/login/") 
->>>>>>> 1df3834b3ba7373bb4f91ae42c112e73ca20d8b4
+        return redirect("/login/")
     
 
 
