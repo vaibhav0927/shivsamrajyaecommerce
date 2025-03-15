@@ -25,7 +25,8 @@
             </b>
             <h3 class="subtitle"><span>Login Customer</span></h2>
                 <p><strong></strong></p>
-                <form action="/login" method="POST" class="form-horizontal">
+                <form action="/loginverify" method="POST" class="form-horizontal">
+                    {% csrf_token %}
                     <input type="hidden" name="_token" value="XCAb8bMVKoZ4bdTPl0XzK0GJvt4uFGv1L8REYuyT">
                     <div class="form-group">
                         <label class="control-label" for="input-email"> <b>E-Mail Address OR Mobile
