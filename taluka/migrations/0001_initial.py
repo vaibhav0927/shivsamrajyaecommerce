@@ -1,7 +1,7 @@
 
 
-import django.db.models.deletion
-from django.db import migrations, models
+import django.db.models.deletion # type: ignore
+from django.db import migrations, models # type: ignore
 
 
 class Migration(migrations.Migration):
