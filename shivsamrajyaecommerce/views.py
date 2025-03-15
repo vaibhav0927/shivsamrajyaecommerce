@@ -87,6 +87,12 @@ def submit(request):
      email = request.POST.get('email')
      password = request.POST.get('password')
      confirmPassword = request.POST.get('confirmPassword')
+     state = request.POST.get('state')
+     district = request.POST.get('district')
+     taluka = request.POST.get('taluka')
+     village = request.POST.get('village')
+     franchise = request.POST.get('franchise')
+     
 
     return render(request,'submit.html')
 
