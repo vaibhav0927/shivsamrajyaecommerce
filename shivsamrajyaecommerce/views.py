@@ -92,6 +92,8 @@ def submit(request):
      taluka = request.POST.get('taluka')
      village = request.POST.get('village')
      franchise = request.POST.get('franchise')
+
+   
      
 
     return render(request,'submit.html')
