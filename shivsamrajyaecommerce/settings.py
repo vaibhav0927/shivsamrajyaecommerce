@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'franchise',
     'state',
     'district',
+    'slider',
+    'category',
+    'brands'
 
 ]
 

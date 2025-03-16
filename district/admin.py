@@ -8,4 +8,4 @@ class DistrictAdmin(admin.ModelAdmin):
         return obj.state.state_name 
 
 
-admin.site.register(District, DistrictAdmin)
+admin.site.register(District,DistrictAdmin)
