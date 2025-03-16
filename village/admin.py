@@ -1,8 +1,6 @@
 from django.contrib import admin # type: ignore
-<<<<<<< HEAD
-=======
 
->>>>>>> 67874dc837de86263e425e4729e1a8a8c0070a62
+
 from .models import Village
 
 class VillageAdmin(admin.ModelAdmin):
