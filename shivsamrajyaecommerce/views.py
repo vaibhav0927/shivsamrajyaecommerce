@@ -94,10 +94,6 @@ def submit(request):
      franchise = request.POST.get('franchise')
 
 
-   
-     
-
-
      insertquery=Customer(
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
