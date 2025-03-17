@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin # type: ignore
 from django.urls import path # type: ignore
-from shivsamrajyaecommerce import views
-
+from shivsamrajyaecommerce import settings, views
+from django.conf.urls.static import static # type: ignore
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("contactus/",views.contactus),
@@ -36,4 +36,13 @@ urlpatterns = [
     path('stationary/',views.stationary),
     path('submit/',views.submit)
 
+
+
+
+
+
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 

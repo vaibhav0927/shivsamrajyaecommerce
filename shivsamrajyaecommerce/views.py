@@ -94,10 +94,6 @@ def submit(request):
      franchise = request.POST.get('franchise')
 
 
-   
-     
-
-
      insertquery=Customer(
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
@@ -117,6 +113,7 @@ def submit(request):
      insertquery.save()
      return redirect("/customerList/")
     else:
+         
          return render(request,'registration.html')
 
 
