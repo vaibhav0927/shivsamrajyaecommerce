@@ -1,5 +1,5 @@
 from django.db import models # type: ignore
-from state.models import state
+from state.models import State
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
@@ -8,7 +8,7 @@ from autoslug import AutoSlugField  # type: ignore
 
 class Customer(models.Model):
     c_id = models.AutoField(primary_key=True)
-    state=models.ForeignKey(state,on_delete=models.CASCADE,null=True)
+    state=models.ForeignKey(State,on_delete=models.CASCADE,null=True)
     District=models.ForeignKey(District,on_delete=models.CASCADE,null=True)
     taluka=models.ForeignKey(Taluka,on_delete=models.CASCADE,null=True)
     village=models.ForeignKey(Village,on_delete=models.CASCADE,null=True)
