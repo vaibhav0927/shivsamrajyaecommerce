@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import JsonResponse # type: ignore
 from django.shortcuts import render # type: ignore
 from django.shortcuts import redirect # type: ignore
 
@@ -32,13 +32,15 @@ def about(request):
 def home(request):
      
         return render(request,'home.html')
-    
-
 from customer.models import Customers
 from state.models import State
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
+
+    
+
+
 
 def registration(request):
     if request.method == "POST":

@@ -3,8 +3,8 @@ from autoslug import AutoSlugField # type: ignore
 from state.models import State  # Importing State model
 
 
-from  state.models import state
-from autoslug import AutoSlugField # type: ignore
+
+
  
 # Create your models here.
 
