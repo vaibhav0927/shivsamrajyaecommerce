@@ -1,6 +1,6 @@
 from django.shortcuts import render # type: ignore
 from django.shortcuts import redirect # type: ignore
-from customer.models import Customer
+
 
 
     
@@ -15,7 +15,7 @@ def loginverify(request):
         email= request.POST.get('email')
         password=request.POST.get("password")
         try:
-          Customer.objects.get(c_email=email,c_pass=password)
+          Customers.objects.get(c_email=email,c_pass=password)
         except:
         
            return render(request,'login.html')
@@ -33,8 +33,59 @@ def home(request):
         return render(request,'home.html')
     
 
+from customer.models import Customers
+from state.models import State
+from district.models import District
+from taluka.models import Taluka
+from village.models import Village
+
 def registration(request):
-    return render(request,'registration.html')
+    if request.method == "POST":
+        full_name_eng = request.POST.get("fullNameEng")
+        full_name_marathi = request.POST.get("fullNameMarathi")
+        mobile = request.POST.get("mobile")
+        birth_date = request.POST.get("birthDate")
+        state_id = request.POST.get("state")
+        district_id = request.POST.get("district")
+        taluka_id = request.POST.get("taluka")
+        village_id = request.POST.get("village")
+        pin_code = request.POST.get("pinCode")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        state = State.objects.get(id=state_id) if state_id else None
+        district = District.objects.get(id=district_id) if district_id else None
+        taluka = Taluka.objects.get(id=taluka_id) if taluka_id else None
+        village = Village.objects.get(id=village_id) if village_id else None
+
+        customer = Customers(
+            full_name_eng=full_name_eng,
+            full_name_marathi=full_name_marathi,
+            mobile=mobile,
+            birth_date=birth_date,
+            state=state,
+            district=district,
+            taluka=taluka,
+            village=village,
+            pin_code=pin_code,
+            email=email,
+            password=password  
+        )
+        customer.save()
+        return redirect("registration")
+
+    states = State.objects.all()
+    districts = District.objects.all()
+    talukas = Taluka.objects.all()
+    villages = Village.objects.all()
+    return render(request, "registration.html", {
+        "states": states,
+        "districts": districts,
+        "talukas": talukas,
+        "villages": villages
+    })
+
+
 
 def login(request):
     return render(request,'login.html')
@@ -94,7 +145,7 @@ def submit(request):
      franchise = request.POST.get('franchise')
 
 
-     insertquery=Customer(
+     insertquery=Customers(
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
          mobile=mobile,
@@ -111,7 +162,7 @@ def submit(request):
 
      )
      insertquery.save()
-     return redirect("/customerList/")
+     return redirect("/login/")
     else:
          
          return render(request,'registration.html')
