@@ -38,12 +38,9 @@ urlpatterns = [
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('submit/',views.submit),
+
     
-
-
-
-
-
+    path('slider/',views.slider),
 
 
 ]

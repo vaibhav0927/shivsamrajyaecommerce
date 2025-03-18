@@ -1,5 +1,5 @@
-from django.db import models
-from autoslug import AutoSlugField  # Install via `pip install django-autoslug`
+from django.db import models # type: ignore
+from autoslug import AutoSlugField  # type: ignore # Install via `pip install django-autoslug`
 
 
 class State(models.Model):
