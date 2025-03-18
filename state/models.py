@@ -1,7 +1,7 @@
 from django.db import models # type: ignore
 from autoslug import AutoSlugField  # type: ignore # Install via `pip install django-autoslug`
 
-
+    
 class State(models.Model):
     state_id = models.AutoField(primary_key=True)
     state_name = models.CharField(max_length=255, unique=True)

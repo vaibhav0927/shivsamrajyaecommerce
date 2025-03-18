@@ -2,9 +2,6 @@ from django.db import models # type: ignore
 from autoslug import AutoSlugField # type: ignore
 from state.models import State  # Importing State model
 
-
-
-from autoslug import AutoSlugField # type: ignore
  
 # Create your models here.
 
