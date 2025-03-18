@@ -1,5 +1,5 @@
-from django.db import models
-from autoslug import AutoSlugField
+from django.db import models # type: ignore
+from autoslug import AutoSlugField # type: ignore
 from district.models import District  # Importing District model
 
 class Taluka(models.Model):

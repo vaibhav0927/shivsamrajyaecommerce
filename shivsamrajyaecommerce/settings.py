@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'district',
     'slider',
     'category',
-    'brands'
+    'brands',
+    'taxtype',
 
 ]
 
