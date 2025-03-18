@@ -75,16 +75,6 @@ def registration(request):
         customer.save()
         return redirect("registration")
 
-    states = State.objects.all()
-    districts = District.objects.all()
-    talukas = Taluka.objects.all()
-    villages = Village.objects.all()
-    return render(request, "registration.html", {
-        "states": states,
-        "districts": districts,
-        "talukas": talukas,
-        "villages": villages
-    })
 
 
 
