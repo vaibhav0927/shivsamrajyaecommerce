@@ -38,10 +38,14 @@ urlpatterns = [
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('submit/',views.submit),
+<<<<<<< HEAD
+    path('slider/',views.slider)
+=======
     path('register/', registration, name='register'),
     path('get_districts/', get_districts, name='get_districts'),
     path('get_talukas/', get_talukas, name='get_talukas'),
     path('get_villages/', get_villages, name='get_villages'),
+>>>>>>> 0bc1a29285792c0513335d30e90703a7e53f9dac
 
 
 

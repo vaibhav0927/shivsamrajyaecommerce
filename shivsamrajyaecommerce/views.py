@@ -158,6 +158,13 @@ def submit(request):
     else:
          
          return render(request,'registration.html')
+    
+def slider(request):
+    sliderdata= slider.objects.all()
+    data={
+        "list":sliderdata
+    }
+    return render(request,'home.html',data)
 
 
 
