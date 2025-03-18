@@ -72,68 +72,91 @@
 
                         <div class="mb-3">
                             <label class="form-label">Near by Franchise</label>
-                            
-                            <select name="franchise" id="f" style="width: 100%;"  class="form-control">
-                                <option value="" > Select </option>
+
+                            <select name="franchise" id="f" style="width: 100%;" class="form-control">
+                                <option value=""> Select </option>
                                 {% for i in franchise %}
-                               
-                            <option value="{{i.franchise}}">{{i.franchise_name}}</option>
+
+                                <option value="{{i.franchise}}">{{i.franchise_name}}</option>
                                 {% endfor%}
-                    
+
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">State</label>
-                            
-                            <select name="state" id="s" style="width: 100%;"  class="form-control">
-                                <option value=""> Select </option>
-                                {% for i in state %}
-                               
-                            <option value="{{i.state_id}}">{{i.state_name}}</option>
-                                {% endfor%}
-                            
+<<<<<<< HEAD
+
+                            <select name="state" id="state" class="form-control">
+                                <option value="">Select State</option>
+                                {% for state in states %}
+                                <option value="{{ state.id }}">{{ state.state_name }}</option>
+                                {% endfor %}
                             </select>
 
+
+=======
+
+                            <select name="state" id="state" class="form-control">
+                                <option value="">Select State</option>
+                                {% for state in states %}
+                                <option value="{{ state.state_id }}">{{ state.state_name }}</option>
+                                {% endfor %}
+                            </select>
+>>>>>>> 3a5d205939989e96a82c8d642034e2c794a24292
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">District</label>
-            
-                            <select name="district" id="d" style="width: 100%;"  class="form-control">
-                          <option value=""> Select </option>
-                           {% for i in district %}
-           
-                            <option value="{{i.district_id}}">{{i.district_name}}</option>
-                                {% endfor%}
-        
+
+<<<<<<< HEAD
+                            <!-- District Dropdown -->
+=======
+>>>>>>> 3a5d205939989e96a82c8d642034e2c794a24292
+                            <select name="district" id="district" class="form-control">
+                                <option value="">Select District</option>
+                                {% for district in districts %}
+                                <option value="{{ district.district_id }}">{{ district.district_name }}</option>
+                                {% endfor %}
                             </select>
+
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Taluka</label>
-                            
-                            <select name="taluka" id="t" style="width: 100%;" class="form-control">
-                                <option value=""> Select </option>
-                                {% for i in taluka %}
-                               
-                            <option value="{{i.taluka_id}}">{{i.taluka_name}}</option>
-                                {% endfor%}
-        
-                                </select>
+
+<<<<<<< HEAD
+                            <!-- Taluka Dropdown -->
+                            <select name="taluka" id="taluka" class="form-control">
+                                <option value="">Select Taluka</option>
+                                {% for taluka in talukas %}
+                                <option value="{{ taluka.id }}">{{ taluka.taluka_name }}</option>
+=======
+                            <select name="taluka" id="taluka" class="form-control">
+                                <option value="">Select Taluka</option>
+                                {% for taluka in talukas %}
+                                    <option value="{{ taluka.taluka_id }}">{{ taluka.taluka_name }}</option>
+>>>>>>> 3a5d205939989e96a82c8d642034e2c794a24292
+                                {% endfor %}
+                            </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Village</label>
-                        
-                            <select name="village" id="v" style="width: 100%;"  class="form-control">
-                                <option value=""> Select </option>
-                                {% for i in village %}
-                               
-                            <option value="{{i.village_id}}">{{i.village_name}}</option>
-                                {% endfor%}
-                            
 
+<<<<<<< HEAD
+                            <!-- Village Dropdown -->
+                            <select name="village" id="village" class="form-control">
+                                <option value="">Select Village</option>
+                                {% for village in villages %}
+                                <option value="{{ village.id }}">{{ village.village_name }}</option>
+=======
+                            <select name="village" id="village" class="form-control">
+                                <option value="">Select Village</option>
+                                {% for village in villages %}
+                                    <option value="{{ village.village_id }}">{{ village.village_name }}</option>
+>>>>>>> 3a5d205939989e96a82c8d642034e2c794a24292
+                                {% endfor %}
                             </select>
                         </div>
 
@@ -167,99 +190,110 @@
                     </form>
                 </div>
             </div>
-        
-    
-    
-
-             <!-- Right Side: Account Information -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <h4>Account</h4>
-                <div class="list-group">
-                <ul class="list-item" style="font-size: 18px; list-style: none;">
-                    <li><a href="/login" class="text-dark">Login</a></li>
-                    <li><a href="/login" class="text-dark">Forgotten Password</a></li>
-                    <li><a href="/login" class="text-dark">My Account</a></li>
-                    <li><a href="/login" class="text-dark">Wish List</a></li>
-                    <li><a href="/login" class="text-dark">Order History</a></li>
-                    <li><a href="/login" class="text-dark">Returns</a></li>
-                </ul>
 
 
-            <h4>Apply To Card</h4>
-            <p>Saving at the supermarket used to be simpler: Everyone got the sale price. Then, stores began offering
-                loyalty cards, which required customers to scan a plastic card or key in their phone number at checkout
-                to activate discounts. Now, many grocery store chains are replacing those loyalty cards with smartphone
-                apps.</p>
+
+
+            <!-- Right Side: Account Information -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <h4>Account</h4>
+                    <div class="list-group">
+                        <ul class="list-item" style="font-size: 18px; list-style: none;">
+                            <li><a href="/login" class="text-dark">Login</a></li>
+                            <li><a href="/login" class="text-dark">Forgotten Password</a></li>
+                            <li><a href="/login" class="text-dark">My Account</a></li>
+                            <li><a href="/login" class="text-dark">Wish List</a></li>
+                            <li><a href="/login" class="text-dark">Order History</a></li>
+                            <li><a href="/login" class="text-dark">Returns</a></li>
+                        </ul>
+
+
+                        <h4>Apply To Card</h4>
+                        <p>Saving at the supermarket used to be simpler: Everyone got the sale price. Then, stores began
+                            offering
+                            loyalty cards, which required customers to scan a plastic card or key in their phone number
+                            at checkout
+                            to activate discounts. Now, many grocery store chains are replacing those loyalty cards with
+                            smartphone
+                            apps.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            function validateForm() {
+                let isValid = true;
+
+                // Reset previous errors
+                document.querySelectorAll('.error').forEach(e => e.innerText = "");
+
+                let name = document.getElementById("fullNameEng").value;
+                let mobile = document.getElementById("mobile").value;
+                let birthDate = document.getElementById("birthDate").value;
+                let pinCode = document.getElementById("pinCode").value;
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+                let confirmPassword = document.getElementById("confirmPassword").value;
+
+                if (name.trim() === "") {
+                    document.getElementById("nameError").innerText = "Full Name is required";
+                    isValid = false;
+                }
+
+                if (mobile.trim() === "" || !/^\d{10}$/.test(mobile)) {
+                    document.getElementById("mobileError").innerText = "Enter a valid 10-digit mobile number";
+                    isValid = false;
+                }
+
+                if (birthDate.trim() === "") {
+                    document.getElementById("birthDateError").innerText = "Birth Date is required";
+                    isValid = false;
+                }
+
+                if (pinCode.trim() === "" || !/^\d{6}$/.test(pinCode)) {
+                    document.getElementById("pinCodeError").innerText = "Enter a valid 6-digit Pin Code";
+                    isValid = false;
+                }
+
+                if (!/\S+@\S+\.\S+/.test(email)) {
+                    document.getElementById("emailError").innerText = "Enter a valid email";
+                    isValid = false;
+                }
+
+                if (password.length < 6) {
+                    document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                    isValid = false;
+                }
+
+                if (password !== confirmPassword) {
+                    document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert("Registration Successful!");
+                }
+            }
+<<<<<<< HEAD
+
+           
+                    
+             
+               
+        
+=======
+>>>>>>> 3a5d205939989e96a82c8d642034e2c794a24292
+        </script>
     </div>
-    </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        function validateForm() {
-            let isValid = true;
-
-            // Reset previous errors
-            document.querySelectorAll('.error').forEach(e => e.innerText = "");
-
-            let name = document.getElementById("fullNameEng").value;
-            let mobile = document.getElementById("mobile").value;
-            let birthDate = document.getElementById("birthDate").value;
-            let pinCode = document.getElementById("pinCode").value;
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            let confirmPassword = document.getElementById("confirmPassword").value;
-
-            if (name.trim() === "") {
-                document.getElementById("nameError").innerText = "Full Name is required";
-                isValid = false;
-            }
-
-            if (mobile.trim() === "" || !/^\d{10}$/.test(mobile)) {
-                document.getElementById("mobileError").innerText = "Enter a valid 10-digit mobile number";
-                isValid = false;
-            }
-
-            if (birthDate.trim() === "") {
-                document.getElementById("birthDateError").innerText = "Birth Date is required";
-                isValid = false;
-            }
-
-            if (pinCode.trim() === "" || !/^\d{6}$/.test(pinCode)) {
-                document.getElementById("pinCodeError").innerText = "Enter a valid 6-digit Pin Code";
-                isValid = false;
-            }
-
-            if (!/\S+@\S+\.\S+/.test(email)) {
-                document.getElementById("emailError").innerText = "Enter a valid email";
-                isValid = false;
-            }
-
-            if (password.length < 6) {
-                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
-                isValid = false;
-            }
-
-            if (password !== confirmPassword) {
-                document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
-                isValid = false;
-            }
-
-            if (isValid) {
-                alert("Registration Successful!");
-            }
-        }
-    </script>
-    </div>
 
 
- {% endblock %}
+    {% endblock %}
 
 </body>
 
 </html>
-
