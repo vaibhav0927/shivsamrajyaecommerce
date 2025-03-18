@@ -1,7 +1,7 @@
 from django.contrib import admin # type: ignore
-from .models import Customer
+from .models import Customers
 class CustomerAdmin(admin.ModelAdmin):
     list_display=['c_id','c_fullNameEng','c_fullNameMarathi','c_mobile','c_birthDate','c_pinCode','c_email','c_password']
-admin.site.register(Customer,CustomerAdmin)
+admin.site.register(Customers,CustomerAdmin)
 
-# Register your models here.
+
