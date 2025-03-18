@@ -78,7 +78,7 @@
                                 {% for i in franchise %}
 
                                 <option value="{{i.franchise}}">{{i.franchise_name}}</option>
-                                {% endfor%}
+                                {% endfor %}
 
                             </select>
                         </div>
@@ -94,8 +94,6 @@
                                 {% endfor %}
                             </select>
 
-
-
                         </div>
 
                         <div class="mb-3">
@@ -103,6 +101,7 @@
 
 
                             <!-- District Dropdown -->
+
 
 
                             <select name="district" id="district" class="form-control">
@@ -121,11 +120,13 @@
                             <!-- Taluka Dropdown -->
                             <select name="taluka" id="taluka" class="form-control">
                                 <option value="">Select Taluka</option>
+
                                 {% for taluka in talukas %}
                                 <option value="{{ taluka.id }}">{{ taluka.taluka_name }}</option>
 
                                 {% endfor %}
                             </select>
+
                         </div>
 
                         <div class="mb-3">
@@ -135,11 +136,13 @@
                             <!-- Village Dropdown -->
                             <select name="village" id="village" class="form-control">
                                 <option value="">Select Village</option>
+
                                 {% for village in villages %}
                                 <option value="{{ village.id }}">{{ village.village_name }}</option>
 
                                 {% endfor %}
                             </select>
+
                         </div>
 
                         <div class="mb-3">
@@ -263,11 +266,13 @@
             }
 
 
+
            
                     
              
                
         
+
 
 
         </script>

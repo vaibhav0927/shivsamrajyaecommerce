@@ -40,12 +40,7 @@ urlpatterns = [
     path('submit/',views.submit),
 
     
-
-
-
-
-
-
+    path('slider/',views.slider),
 
 
 ]
