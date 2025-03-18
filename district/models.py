@@ -2,7 +2,7 @@ from django.db import models # type: ignore
 
 from  state.models import state
 from autoslug import AutoSlugField # type: ignore
-
+ 
 # Create your models here.
 class District(models.Model): 
     district_id = models.AutoField(primary_key=True)
