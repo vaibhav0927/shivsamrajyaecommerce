@@ -1,6 +1,9 @@
+
 from django.http import JsonResponse # type: ignore
+
 from django.shortcuts import render # type: ignore
 from django.shortcuts import redirect # type: ignore
+
 
 
 
@@ -38,10 +41,7 @@ from district.models import District
 from taluka.models import Taluka
 from village.models import Village
 
-    
-
-
-
+   
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -74,10 +74,19 @@ def registration(request):
             email=email,
             password=password  
         )
-        
         customer.save()
         return redirect("registration")
 
+    states = State.objects.all()
+    districts = District.objects.all()
+    talukas = Taluka.objects.all()
+    villages = Village.objects.all()
+    return render(request, "registration.html", {
+        "states": states,
+        "districts": districts,
+        "talukas": talukas,
+        "villages": villages
+    })
 
 
 
@@ -169,8 +178,9 @@ def slider(request):
     return render(request,'home.html',data)
 
 
+     
 
-   
+
 
 
 
