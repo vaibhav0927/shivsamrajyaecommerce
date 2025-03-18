@@ -18,10 +18,8 @@ from django.contrib import admin # type: ignore
 from django.urls import path # type: ignore
 from shivsamrajyaecommerce import settings, views
 from django.conf.urls.static import static # type: ignore
-<<<<<<< HEAD
-=======
+
 from .views import registration
->>>>>>> e3a81c1671ab34ae5b3072d10b2030461fddf5ce
 
 
 urlpatterns = [
@@ -41,13 +39,10 @@ urlpatterns = [
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('submit/',views.submit),
-<<<<<<< HEAD
    
 
 
 
-=======
->>>>>>> e3a81c1671ab34ae5b3072d10b2030461fddf5ce
 
     
     path('slider/',views.slider),

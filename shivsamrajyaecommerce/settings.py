@@ -46,13 +46,11 @@ INSTALLED_APPS = [
     'slider',
     'category',
     'brands',
-<<<<<<< HEAD
     'product',
     'tax',
-    'primaryunit'
-=======
+    'primaryunit',
+
     'taxtype',
->>>>>>> e3a81c1671ab34ae5b3072d10b2030461fddf5ce
 
 ]
 
