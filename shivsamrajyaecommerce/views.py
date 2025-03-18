@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render # type: ignore
 from django.shortcuts import redirect # type: ignore
 
@@ -74,16 +75,6 @@ def registration(request):
         customer.save()
         return redirect("registration")
 
-    states = State.objects.all()
-    districts = District.objects.all()
-    talukas = Taluka.objects.all()
-    villages = Village.objects.all()
-    return render(request, "registration.html", {
-        "states": states,
-        "districts": districts,
-        "talukas": talukas,
-        "villages": villages
-    })
 
 
 
@@ -168,9 +159,8 @@ def submit(request):
          return render(request,'registration.html')
 
 
-     
 
-
+   
 
 
 
