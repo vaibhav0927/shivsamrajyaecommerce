@@ -71,6 +71,7 @@ def registration(request):
             email=email,
             password=password  
         )
+        
         customer.save()
         return redirect("registration")
 
