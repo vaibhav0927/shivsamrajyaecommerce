@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'category',
     'brands',
     'taxtype',
+    'alternateunit',
 
 ]
 
