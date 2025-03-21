@@ -32,20 +32,17 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
           aria-label="Slide 3"></button>
       </div>
-      {% for i in list%}
-     
       <div class="carousel-inner">
+        
         <div class="carousel-item active">
-          <img src="/media/slider/fashion1.jpg" class="d-block w-100 " alt="...">
+          <img src="http://127.0.0.1:8000/media/slider/fashion1.jpg" class="d-block w-100 " alt="/media/{{i.slider_img}}">
         </div>
-        <div class="carousel-item">
-          <img src="/media/slider/groccery.jpg" class="d-block w-100 " alt="...">
+      {% for i in list %}
+        <div class="carousel-item ">
+          <img src="media/{{i.slider_img}}" class="d-block w-100 " alt="/media/{{i.slider_img}}">
         </div>
-        <div class="carousel-item">
-          <img src="/media/slider/shoes.jpg" class="d-block w-100 " alt="...">
-        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
       
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
         data-bs-slide="prev">
@@ -381,31 +378,13 @@
 
 
     <div class="row mb-3 shadow-lg p-3 mb-5 bg-white rounded"">
-
-      <div class="col-lg-2 shadow-lg p-3 mb-5 bg-white rounded" ">
-        <img src="/static/assets/amul.png" alt="" class="img-fluid pt-2 pb-2" style="  height: 200px; width: 300px;">
+       
+      {% for i in brand%}
+      <div class="col-lg shadow-lg p-3 mb-5 bg-white rounded" ">
+        <img src="media/{{i.brands_img}}" alt="" class="img-fluid pt-2 pb-2" style="  height: 200px; width: 300px;">
       </div>
-
-      <div class="col-lg-2 shadow-lg p-3 mb-5 bg-white rounded"">
-        <img src="/static/assets/gemini.png" alt="" class="img-fluid" style=" height: 200px; width: 300px ">
-      </div>
-
-      <div class="col-lg-2 shadow-lg p-3 mb-5 bg-white rounded"">
-        <img src="/static/assets/parle.png" alt="" class="img-fluid" style="  height: 200px; width: 300px">
-      </div>
-
-      <div class="col-lg-2 mb-5 shadow-lg p-3 mb-5 bg-white rounded"">
-        <img src="/static/assets/dawat.png" alt="" class="img-fluid" style=" height: 200px; width: 300px">
-      </div>
-
-      <div class="col-lg-2 shadow-lg p-3 mb-5 bg-white rounded" ">
-        <img src="/static/assets/dairymilk.png" alt="" class="img-fluid" style=" height: 200px; width: 300px">
-
-      </div>
-
-      <div class="col-lg-2 shadow-lg p-3 mb-5 bg-white rounded"">
-        <img src="/static/assets/kisan.jpg" alt="" class="img-fluid" style=" height: 200px; width: 300px" >
-      </div>
+        {%endfor%}
+      
     </div>
 
   </div>

@@ -94,13 +94,28 @@
                                 {% endfor %}
                             </select>
 
+
+
+
+
+                            <select name="state" id="state" class="form-control">
+                                <option value="">Select State</option>
+                                {% for state in states %}
+                                <option value="{{ state.state_id }}">{{ state.state_name }}</option>
+                                {% endfor %}
+                            </select>
+
+
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">District</label>
 
 
+
                             <!-- District Dropdown -->
+
+
 
 
 
@@ -116,16 +131,31 @@
                         <div class="mb-3">
                             <label class="form-label">Taluka</label>
 
+                            <!-- Taluka Dropdown -->
+                            <select name="taluka" id="taluka" class="form-control">
+                                <option value="">Select Taluka</option>
+                                {% for taluka in talukas %}
+                                <option value="{{ taluka.id }}">{{ taluka.taluka_name }}</option>
+                            <select name="taluka" id="taluka" class="form-control">
+                                <option value="">Select Taluka</option>
+                                {% for taluka in talukas %}
+                                    <option value="{{ taluka.taluka_id }}">{{ taluka.taluka_name }}</option>
+                                {% endfor %}
+                            </select>
+
+
 
                             <!-- Taluka Dropdown -->
                             <select name="taluka" id="taluka" class="form-control">
                                 <option value="">Select Taluka</option>
+
 
                                 {% for taluka in talukas %}
                                 <option value="{{ taluka.id }}">{{ taluka.taluka_name }}</option>
 
                                 {% endfor %}
                             </select>
+
 
                         </div>
 
@@ -137,8 +167,22 @@
                             <select name="village" id="village" class="form-control">
                                 <option value="">Select Village</option>
 
+
                                 {% for village in villages %}
                                 <option value="{{ village.id }}">{{ village.village_name }}</option>
+
+                                {% endfor %}
+                            </select>
+
+
+
+                                {% for village in villages %}
+                                <option value="{{ village.id }}">{{ village.village_name }}</option>
+
+                            <select name="village" id="village" class="form-control">
+                                <option value="">Select Village</option>
+                                {% for village in villages %}
+                                    <option value="{{ village.village_id }}">{{ village.village_name }}</option>
 
                                 {% endfor %}
                             </select>
@@ -266,12 +310,20 @@
             }
 
 
+           
+                    
+             
+               
+        
+
+
 
            
                     
              
                
         
+
 
 
 
