@@ -25,7 +25,7 @@ from django.shortcuts import redirect # type: ignore
 
 
     
-def contactus(request):
+def contactus(request): 
      if 'username' in request.session:
         return render(request,'contactus.html')
      else:
@@ -265,16 +265,66 @@ def stationary(request):
 
 
 
+<<<<<<< HEAD
+insertquery=Customer(
+         fullNameEng=fullNameEng,
+         fullNameMarathi=fullNameMarathi,
+         mobile=mobile,
+         birthDate=birthDate,
+         pinCode=pinCode,
+         email=email,
+         password=password,
+         confirmPassword=confirmPassword,
+         state=state,
+         district=district,
+         taluka=taluka,
+         village=village,
+         franchise=franchise,
+     )
+
+=======
 
        
 
 
 
        
+>>>>>>> 46221ebb5d22eab44c62cc89bf7dd03da6e7b98d
 def submit(request):
      if request.method == "POST":
 
 
+<<<<<<< HEAD
+      fullNameEng = request.POST.get('fullNameEng')
+      fullNameMarathi = request.POST.get('fullNameMarathi')
+      mobile = request.POST.get('mobile')
+      birthDate = request.POST.get('birthDate')
+      pinCode = request.POST.get('pinCode')
+      email = request.POST.get('email')
+      password = request.POST.get('password')
+      confirmPassword = request.POST.get('confirmPassword')
+      state = request.POST.get('state')
+      district = request.POST.get('district')
+      taluka = request.POST.get('taluka')
+      village = request.POST.get('village')
+      franchise = request.POST.get('franchise')
+
+
+      insertquery=Customer(
+
+           fullNameEng = request.POST.get('fullNameEng'),
+           fullNameMarathi = request.POST.get('fullNameMarathi'),
+           mobile = request.POST.get('mobile'),
+           birthDate = request.POST.get('birthDate'),
+           pinCode = request.POST.get('pinCode'),
+           email = request.POST.get('email'),
+           password = request.POST.get('password'),
+           confirmPassword = request.POST.get('confirmPassword'),
+           state = request.POST.get('state'),
+           district = request.POST.get('district'),
+           taluka = request.POST.get('taluka'),
+           village = request.POST.get('village'),
+=======
 
            fullNameEng = request.POST.get('fullNameEng')
            fullNameMarathi = request.POST.get('fullNameMarathi')
@@ -288,10 +338,11 @@ def submit(request):
            district = request.POST.get('district')
            taluka = request.POST.get('taluka')
            village = request.POST.get('village')
+>>>>>>> 46221ebb5d22eab44c62cc89bf7dd03da6e7b98d
            franchise = request.POST.get('franchise')
+      )
 
-
-           insertquery=Customer(
+     insertquery=Customer(
           fullNameEng=fullNameEng,
           fullNameMarathi=fullNameMarathi,
           mobile=mobile,
@@ -311,8 +362,9 @@ def submit(request):
            return redirect("/login/")
      else:
          
-        return render(request,'registration.html')
-    
+
+      return render(request,'registration.html')
+
 
 
 def slider(request):
@@ -321,6 +373,11 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+
+
+
+
 
 
      

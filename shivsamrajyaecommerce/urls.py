@@ -40,6 +40,8 @@ urlpatterns = [
 
     path('submit/',views.submit),
     path('slider/',views.slider),
+<<<<<<< HEAD
+=======
    
 
 
@@ -53,6 +55,7 @@ urlpatterns = [
 
     
 
+>>>>>>> bdef5199f0434695b476be4728555b5b9e71c238
 
 
 ]
