@@ -18,7 +18,7 @@
         
         <div class="row pt-5 pb-5 shadow-lg p-3 mb-5  bg-white rounded"> 
             <div class="col-lg-6">
-                <form    onsubmit="" action="" method="">
+                <form  action="/contfrom/" method="post">
                     
                      {%csrf_token %}
                      <b style="font-size: 22px;">Name:</b>
@@ -28,7 +28,7 @@
                      <input type="text" name="email" id="em" style="width: 100%;" ><br><br>
              
                      <b style="font-size: 22px;">Enquiry:</b>
-                     <textarea class="form-control" id="en" rows="5"></textarea>
+                     <textarea class="form-control" name="enquiry" id="en" rows="5"></textarea>
                      
                       <button type="Submit" class="mt-3 text-light" style="background-color: #ff7722; margin-left: 470px; width:150px; border: none; font-size:25px; border-radius: 10px;"><b> Submit </b></button>
              
