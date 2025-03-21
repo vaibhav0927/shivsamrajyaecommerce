@@ -2,6 +2,9 @@
 from django.http import JsonResponse # type: ignore
 
 
+from django.http import JsonResponse # type: ignore
+
+
 
 
 from django.shortcuts import render # type: ignore
@@ -67,6 +70,14 @@ def home(request):
    }
    return render(request,'home.html',data)
 
+   return render(request,'home.html')
+from customer.models import Customer
+from state.models import State
+from district.models import District
+from taluka.models import Taluka
+from village.models import Village
+
+
 
 
    
@@ -89,7 +100,7 @@ def registration(request):
         taluka = Taluka.objects.get(id=taluka_id) if taluka_id else None
         village = Village.objects.get(id=village_id) if village_id else None
 
-        customer = Customers(
+        customer = Customer(
             full_name_eng=full_name_eng,
             full_name_marathi=full_name_marathi,
             mobile=mobile,
@@ -254,8 +265,24 @@ def stationary(request):
        return redirect("/login/")
 
 
+
+     insertquery=Customer(
+         fullNameEng=fullNameEng,
+         fullNameMarathi=fullNameMarathi,
+         mobile=mobile,
+         birthDate=birthDate,
+         pinCode=pinCode,
+         email=email,
+         password=password,
+         confirmPassword=confirmPassword,
+         state=state,
+         district=district,
+         taluka=taluka,
+         village=village,
+         franchise=franchise,
 # def submit(request):
 #     if request.method == "POST":
+
 
 #      fullNameEng = request.POST.get('fullNameEng')
 #      fullNameMarathi = request.POST.get('fullNameMarathi')
@@ -305,7 +332,6 @@ def slider(request):
 
 
      
-
 
 
 
