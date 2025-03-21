@@ -311,12 +311,8 @@ def submit(request):
            return redirect("/login/")
      else:
          
-<<<<<<< HEAD
+
       return render(request,'registration.html')
-=======
-        return render(request,'registration.html')
->>>>>>> 162ebf8bb9f1bf889c2265bbdf3c1401c05b8566
-    
 
 
 def slider(request):
