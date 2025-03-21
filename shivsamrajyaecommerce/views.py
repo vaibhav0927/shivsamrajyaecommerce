@@ -285,46 +285,46 @@ def stationary(request):
          taluka=taluka,
          village=village,
          franchise=franchise,
-# def submit(request):
-#     if request.method == "POST":
+def submit(request):
+     if request.method == "POST":
 
 
-#      fullNameEng = request.POST.get('fullNameEng')
-#      fullNameMarathi = request.POST.get('fullNameMarathi')
-#      mobile = request.POST.get('mobile')
-#      birthDate = request.POST.get('birthDate')
-#      pinCode = request.POST.get('pinCode')
-#      email = request.POST.get('email')
-#      password = request.POST.get('password')
-#      confirmPassword = request.POST.get('confirmPassword')
-#      state = request.POST.get('state')
-#      district = request.POST.get('district')
-#      taluka = request.POST.get('taluka')
-#      village = request.POST.get('village')
-#      franchise = request.POST.get('franchise')
+     fullNameEng = request.POST.get('fullNameEng')
+      fullNameMarathi = request.POST.get('fullNameMarathi')
+      mobile = request.POST.get('mobile')
+      birthDate = request.POST.get('birthDate')
+      pinCode = request.POST.get('pinCode')
+      email = request.POST.get('email')
+      password = request.POST.get('password')
+      confirmPassword = request.POST.get('confirmPassword')
+      state = request.POST.get('state')
+      district = request.POST.get('district')
+      taluka = request.POST.get('taluka')
+      village = request.POST.get('village')
+      franchise = request.POST.get('franchise')
 
 
-#      insertquery=Customers(
-#          fullNameEng=fullNameEng,
-#          fullNameMarathi=fullNameMarathi,
-#          mobile=mobile,
-#          birthDate=birthDate,
-#          pinCode=pinCode,
-#          email=email,
-#          password=password,
-#          confirmPassword=confirmPassword,
-#          state=state,
-#          district=district,
-#          taluka=taluka,
-#          village=village,
-#          franchise=franchise,
+      insertquery=Customers(
+          fullNameEng=fullNameEng,
+          fullNameMarathi=fullNameMarathi,
+          mobile=mobile,
+          birthDate=birthDate,
+          pinCode=pinCode,
+          email=email,
+          password=password,
+          confirmPassword=confirmPassword,
+          state=state,
+          district=district,
+          taluka=taluka,
+          village=village,
+          franchise=franchise,
 
-#      )
-#      insertquery.save()
-#      return redirect("/login/")
-#     else:
+      )
+      insertquery.save()
+      return redirect("/login/")
+     else:
          
-#          return render(request,'registration.html')
+          return render(request,'registration.html')
     
 
 
