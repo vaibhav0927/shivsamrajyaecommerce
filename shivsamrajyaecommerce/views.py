@@ -265,7 +265,7 @@ def stationary(request):
 
 
 
-<<<<<<< HEAD
+
 insertquery=Customer(
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
@@ -282,19 +282,19 @@ insertquery=Customer(
          franchise=franchise,
      )
 
-=======
-
-       
-
 
 
        
->>>>>>> 46221ebb5d22eab44c62cc89bf7dd03da6e7b98d
+
+
+
+       
+
 def submit(request):
      if request.method == "POST":
 
 
-<<<<<<< HEAD
+
       fullNameEng = request.POST.get('fullNameEng')
       fullNameMarathi = request.POST.get('fullNameMarathi')
       mobile = request.POST.get('mobile')
@@ -324,7 +324,7 @@ def submit(request):
            district = request.POST.get('district'),
            taluka = request.POST.get('taluka'),
            village = request.POST.get('village'),
-=======
+
 
            fullNameEng = request.POST.get('fullNameEng')
            fullNameMarathi = request.POST.get('fullNameMarathi')
@@ -338,7 +338,7 @@ def submit(request):
            district = request.POST.get('district')
            taluka = request.POST.get('taluka')
            village = request.POST.get('village')
->>>>>>> 46221ebb5d22eab44c62cc89bf7dd03da6e7b98d
+
            franchise = request.POST.get('franchise')
       )
 
@@ -358,15 +358,15 @@ def submit(request):
           franchise=franchise,
 
       )
-           insertquery.save()
-           return redirect("/login/")
+     insertquery.save()
+     return redirect("/login/")
      else:
          
-<<<<<<< HEAD
-      return render(request,'registration.html')
-=======
-        return render(request,'registration.html')
->>>>>>> 162ebf8bb9f1bf889c2265bbdf3c1401c05b8566
+
+     return render(request,'registration.html')
+
+     return render(request,'registration.html')
+
     
 
 
