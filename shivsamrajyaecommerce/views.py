@@ -8,7 +8,7 @@ from django.shortcuts import redirect # type: ignore
 
 
     
-def contactus(request):
+def contactus(request): 
      if 'username' in request.session:
         return render(request,'contactus.html')
      else:
@@ -176,6 +176,11 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+
+
+
+
 
 
      
