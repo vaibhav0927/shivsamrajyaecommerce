@@ -5,8 +5,8 @@ from taluka.models import Taluka
 from village.models import Village
 from franchise.models import Franchise
 from autoslug import AutoSlugField  # type: ignore
-
-class Customers(models.Model):
+ 
+class Customer(models.Model):
     c_id = models.AutoField(primary_key=True)
     state=models.ForeignKey(State,on_delete=models.CASCADE,null=True)
     District=models.ForeignKey(District,on_delete=models.CASCADE,null=True)
