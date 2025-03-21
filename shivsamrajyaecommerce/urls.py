@@ -46,7 +46,7 @@ urlpatterns = [
 
 
     
-    path('slider/',views.slider)
+    path('slider/',views.slider),
 ]
 
 if settings.DEBUG:
