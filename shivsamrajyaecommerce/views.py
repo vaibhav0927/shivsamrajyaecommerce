@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 from django.http import JsonResponse # type: ignore
+=======
+
+from django.http import JsonResponse # type: ignore
+
+>>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
 from django.shortcuts import render # type: ignore
+from customer.models import Customers
+from state.models import State
+from district.models import District
+from taluka.models import Taluka
+from village.models import Village
 from django.shortcuts import redirect # type: ignore
 from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
+
 
 
 
@@ -41,6 +53,7 @@ def about(request):
       else:
         return redirect("/login/")
      
+<<<<<<< HEAD
 
 def home(request):
    sliderdata= Slider.objects.all()
@@ -57,13 +70,12 @@ def home(request):
    
 
     
+=======
+        return render(request,'home.html')
+>>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
 
-from customer.models import Customers
-from state.models import State
-from district.models import District
-from taluka.models import Taluka
-from village.models import Village
 
+   
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -96,7 +108,6 @@ def registration(request):
             email=email,
             password=password  
         )
-        
         customer.save()
         return redirect("registration")
      
@@ -112,6 +123,16 @@ def registration(request):
     return render(request,'registration.html',data)
    
 
+    states = State.objects.all()
+    districts = District.objects.all()
+    talukas = Taluka.objects.all()
+    villages = Village.objects.all()
+    return render(request, "registration.html", {
+        "states": states,
+        "districts": districts,
+        "talukas": talukas,
+        "villages": villages
+    })
 
 
 
@@ -279,8 +300,20 @@ def submit(request):
          
          return render(request,'registration.html')
     
+<<<<<<< HEAD
+=======
+def slider(request):
+    sliderdata= slider.objects.all()
+    data={
+        "list":sliderdata
+    }
+    return render(request,'home.html',data)
 
-   
+
+     
+
+>>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
+
 
 
 
