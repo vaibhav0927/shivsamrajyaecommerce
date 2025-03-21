@@ -13,18 +13,31 @@ from village.models import Village
 from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
+from contactus.models import Contactus
 
 from django.shortcuts import redirect # type: ignore
 
-
-
-
-    
+   
 def contactus(request): 
-     if 'username' in request.session:
-        return render(request,'contactus.html')
-     else:
-        return redirect("/login/")
+   return render(request,'contactus.html')
+
+def sub(request):
+    if request.method == "POST":
+        name = request.POST.get("name", "")
+        email = request.POST.get("email", "")
+        enquiry = request.POST.get("enquiry", "")
+
+     
+        insert = Contactus(
+            contact_name=name,
+            contact_email=email,
+            contact_enquiry=enquiry
+        )
+        insert.save( )
+        
+    
+    return render(request, "contactus.html") 
+
 
 def loginverify(request):
     if request.method=="POST":
@@ -56,11 +69,6 @@ def home(request):
         
    }
    return render(request,'home.html',data)
-
-   
-
-
-
    
 def registration(request):
     if request.method == "POST":
@@ -107,8 +115,6 @@ def registration(request):
         "talukas": talukas,
         "villages": villages
     })
-
-
 
 def login(request):
     return render(request,'login.html')
@@ -167,9 +173,6 @@ def submit(request):
      village = request.POST.get('village')
      franchise = request.POST.get('franchise')
 
-
-
-
      insertquery=Customer(
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
@@ -184,18 +187,12 @@ def submit(request):
          taluka=taluka,
          village=village,
          franchise=franchise,
-
-
      )
      insertquery.save()
      return redirect("/login/")
     else:
         return render(request,'registration.html')
-
-
-     
-
-
+    
 def slider(request):
     sliderdata= slider.objects.all()
     data={
