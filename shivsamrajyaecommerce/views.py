@@ -1,20 +1,14 @@
-
-from django.http import JsonResponse # type: ignore
-
-
-
-
-
+from http.client import HTTPResponse
 from django.shortcuts import render # type: ignore
 from customer.models import Customers
 from state.models import State
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
-from django.shortcuts import redirect # type: ignore
 from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
+from django.shortcuts import redirect # type: ignore
 
 
 
