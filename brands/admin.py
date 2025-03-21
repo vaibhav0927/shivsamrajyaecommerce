@@ -4,7 +4,7 @@ from django.contrib import admin # type: ignore
 from .models import Brands
 
 class BrandsAdmin(admin.ModelAdmin):
-    list_display=('brands_id','brands_name')
+    list_display=('brands_id','brands_name','brands_img')
     
 
 

@@ -1,16 +1,11 @@
-from django.db import models
-from autoslug import AutoSlugField
+from django.db import models # type: ignore
+from autoslug import AutoSlugField # type: ignore
 from state.models import State  # Importing State model
 
-<<<<<<< HEAD
-from  state.models import state
-from autoslug import AutoSlugField # type: ignore
+
  
-# Create your models here.
-class District(models.Model): 
-=======
+# Create your models here. 
 class District(models.Model):
->>>>>>> 0bc1a29285792c0513335d30e90703a7e53f9dac
     district_id = models.AutoField(primary_key=True)
     district_name = models.CharField(max_length=255)
     state = models.ForeignKey(State, on_delete=models.CASCADE, null=True)
