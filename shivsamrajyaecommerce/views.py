@@ -271,9 +271,6 @@ def stationary(request):
    
 def submit(request):
      if request.method == "POST":
-
-
-
       fullNameEng = request.POST.get('fullNameEng')
       fullNameMarathi = request.POST.get('fullNameMarathi')
       mobile = request.POST.get('mobile')
@@ -287,8 +284,6 @@ def submit(request):
       taluka = request.POST.get('taluka')
       village = request.POST.get('village')
       franchise = request.POST.get('franchise')
-      
-
       insertquery=Customer(
           fullNameEng=fullNameEng,
           fullNameMarathi=fullNameMarathi,
@@ -308,19 +303,17 @@ def submit(request):
       insertquery.save()
       return redirect("/login/")
      else:
-         
-
-      return render(request,'registration.html')
-      categorydata= Category.objects.all()
-      branddata=Brands.objects.all()
+        return render(request,'registration.html')
+        categorydata= Category.objects.all()
+        branddata=Brands.objects.all()
    
-      data={
+        data={
        
         "category":categorydata,
         "brand":branddata
         
       }
-      return render(request,'stationary.html',data)
+        return render(request,'stationary.html',data)
 
 def slider(request):
     sliderdata= slider.objects.all()
