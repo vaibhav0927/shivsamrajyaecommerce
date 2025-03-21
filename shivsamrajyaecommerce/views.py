@@ -1,7 +1,12 @@
 
 from django.http import JsonResponse # type: ignore
 
+
 from django.http import JsonResponse # type: ignore
+
+
+
+
 
 from django.shortcuts import render # type: ignore
 from customer.models import Customers
@@ -29,7 +34,7 @@ def loginverify(request):
         email= request.POST.get('email')
         password=request.POST.get("password")
         try:
-          Customer.objects.get(c_email=email,c_pass=password)
+          Customers.objects.get(c_email=email,c_pass=password)
         except:
         
            return render(request,'login.html')
@@ -52,6 +57,7 @@ def about(request):
         return redirect("/login/")
      
 
+
 def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
@@ -68,12 +74,14 @@ def home(request):
 
     
 
+
    return render(request,'home.html')
 from customer.models import Customer
 from state.models import State
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
+
 
 
 
