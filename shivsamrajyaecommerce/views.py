@@ -1,6 +1,7 @@
+
 from http.client import HTTPResponse
 from django.shortcuts import render # type: ignore
-from customer.models import Customers
+from customer.models import Customer
 from state.models import State
 from district.models import District
 from taluka.models import Taluka
@@ -25,7 +26,7 @@ def loginverify(request):
         email= request.POST.get('email')
         password=request.POST.get("password")
         try:
-          Customers.objects.get(c_email=email,c_pass=password)
+          Customer.objects.get(c_email=email,c_pass=password)
         except:
         
            return render(request,'login.html')
@@ -66,6 +67,10 @@ def home(request):
     
 
 
+   
+
+
+
 
 
    
@@ -88,7 +93,7 @@ def registration(request):
         taluka = Taluka.objects.get(id=taluka_id) if taluka_id else None
         village = Village.objects.get(id=village_id) if village_id else None
 
-        customer = Customers(
+        customer = Customer(
             full_name_eng=full_name_eng,
             full_name_marathi=full_name_marathi,
             mobile=mobile,
@@ -253,8 +258,26 @@ def stationary(request):
        return redirect("/login/")
 
 
+
+       insertquery=Customer(
+         fullNameEng=fullNameEng,
+         fullNameMarathi=fullNameMarathi,
+         mobile=mobile,
+         birthDate=birthDate,
+         pinCode=pinCode,
+         email=email,
+         password=password,
+         confirmPassword=confirmPassword,
+         state=state,
+         district=district,
+         taluka=taluka,
+         village=village,
+         franchise=franchise,
+     )
+
 # def submit(request):
 #     if request.method == "POST":
+
 
 #      fullNameEng = request.POST.get('fullNameEng')
 #      fullNameMarathi = request.POST.get('fullNameMarathi')
@@ -295,7 +318,7 @@ def stationary(request):
     
 
 
-def slider(request):
+   def slider(request):
     sliderdata= slider.objects.all()
     data={
         "list":sliderdata
@@ -304,7 +327,6 @@ def slider(request):
 
 
      
-
 
 
 
