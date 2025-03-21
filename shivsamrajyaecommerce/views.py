@@ -271,7 +271,7 @@ def stationary(request):
 
 
 
-     insertquery=Customer(
+insertquery=Customer(
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
          mobile=mobile,
@@ -285,11 +285,12 @@ def stationary(request):
          taluka=taluka,
          village=village,
          franchise=franchise,
+     )
 def submit(request):
      if request.method == "POST":
 
 
-     fullNameEng = request.POST.get('fullNameEng')
+      fullNameEng = request.POST.get('fullNameEng')
       fullNameMarathi = request.POST.get('fullNameMarathi')
       mobile = request.POST.get('mobile')
       birthDate = request.POST.get('birthDate')
@@ -304,7 +305,7 @@ def submit(request):
       franchise = request.POST.get('franchise')
 
 
-      insertquery=Customers(
+      insertquery=Customer(
           fullNameEng=fullNameEng,
           fullNameMarathi=fullNameMarathi,
           mobile=mobile,
