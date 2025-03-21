@@ -9,6 +9,7 @@ class Contactus(models.Model):
     class Meta:
        db_table= "tbl_contact"
 
+
     def __str__(self):
         return self.contact_name
 # Create your models here.

@@ -1,23 +1,8 @@
 
 from django.http import JsonResponse # type: ignore
 
-
-from django.http import JsonResponse # type: ignore
-
-
-
-
-
 from django.shortcuts import render # type: ignore
-from customer.models import Customers
-from state.models import State
-from district.models import District
-from taluka.models import Taluka
-from village.models import Village
 from django.shortcuts import redirect # type: ignore
-from slider.models import Slider
-from category.models import Category
-from brands.models import Brands
 
 
 
@@ -34,7 +19,7 @@ def loginverify(request):
         email= request.POST.get('email')
         password=request.POST.get("password")
         try:
-          Customers.objects.get(c_email=email,c_pass=password)
+          Customer.objects.get(c_email=email,c_pass=password)
         except:
         
            return render(request,'login.html')
@@ -43,47 +28,18 @@ def loginverify(request):
              return redirect('/')
 
 def about(request):
-      categorydata= Category.objects.all()
-      branddata=Brands.objects.all()
-      data={
-          "category":categorydata,
-          "brand":branddata
-      }
-      return render(request,'about.html',data)
-      
       if 'username' in request.session:
         return render(request,'about.html')
       else:
         return redirect("/login/")
-     
-
-
 def home(request):
-   sliderdata= Slider.objects.all()
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-        "list":sliderdata,
-        "category":categorydata,
-        "brand":branddata
-        
-   }
-   return render(request,'home.html',data)
-   
-
-    
-
-
-   return render(request,'home.html')
+     
+        return render(request,'home.html')
 from customer.models import Customer
 from state.models import State
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
-
-
-
 
    
 def registration(request):
@@ -120,18 +76,6 @@ def registration(request):
         )
         customer.save()
         return redirect("registration")
-     
-    categorydata= Category.objects.all()
-    branddata=Brands.objects.all()
-   
-    data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-    return render(request,'registration.html',data)
-   
 
     states = State.objects.all()
     districts = District.objects.all()
@@ -147,128 +91,61 @@ def registration(request):
 
 
 def login(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'login.html',data)
-    
+    return render(request,'login.html')
 def general(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'general.html',data)
-   if 'username' in request.session:
-      return render(request,'general.html')
-   else:
-      return redirect("/login/")
+     if 'username' in request.session:
+        return render(request,'general.html')
+     else:
+        return redirect("/login/")
 
 def grocery(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'grocery.html',data)
-   if 'username' in request.session:
+     if 'username' in request.session:
         return render(request,'grocery.html')
-   else:
+     else:
         return redirect("/login/")
 def Spices(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'Spices.html',data)
-   if 'username' in request.session:
+     if 'username' in request.session:
         return render(request,'Spices.html')
-   else:
+     else:
         return redirect("/login/")
 def cosmetic(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'cosmetic.html',data)
-   if 'username' in request.session:
+     if 'username' in request.session:
         return render(request,'cosmetic.html')
-   else:
+     else:
         return redirect("/login/")
 
 def fooditems(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'fooditems.html',data)
-   if 'username' in request.session:
+     if 'username' in request.session:
         return render(request,'fooditems.html')
-   else:
+     else:
         return redirect("/login/")
 
 def shop(request):
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'shop.html',data)
-   if 'username' in request.session:
+     if 'username' in request.session:
         return render(request,'shop.html')
-   else:
+     else:
         return redirect("/login/")
 
 def stationary(request):
 
-   categorydata= Category.objects.all()
-   branddata=Brands.objects.all()
-   
-   data={
-       
-        "category":categorydata,  
-        "brand":branddata
-        
-        }
-   return render(request,'stationary.html',data)
-   if 'username' in request.session: 
-         render(request,'stationary.html')
-   else:
-       return redirect("/login/")
+    return render(request,'stationary.html')
 
+def submit(request):
+    if request.method == "POST":
+
+     fullNameEng = request.POST.get('fullNameEng')
+     fullNameMarathi = request.POST.get('fullNameMarathi')
+     mobile = request.POST.get('mobile')
+     birthDate = request.POST.get('birthDate')
+     pinCode = request.POST.get('pinCode')
+     email = request.POST.get('email')
+     password = request.POST.get('password')
+     confirmPassword = request.POST.get('confirmPassword')
+     state = request.POST.get('state')
+     district = request.POST.get('district')
+     taluka = request.POST.get('taluka')
+     village = request.POST.get('village')
+     franchise = request.POST.get('franchise')
 
 
      insertquery=Customer(
@@ -285,49 +162,14 @@ def stationary(request):
          taluka=taluka,
          village=village,
          franchise=franchise,
-# def submit(request):
-#     if request.method == "POST":
 
-
-#      fullNameEng = request.POST.get('fullNameEng')
-#      fullNameMarathi = request.POST.get('fullNameMarathi')
-#      mobile = request.POST.get('mobile')
-#      birthDate = request.POST.get('birthDate')
-#      pinCode = request.POST.get('pinCode')
-#      email = request.POST.get('email')
-#      password = request.POST.get('password')
-#      confirmPassword = request.POST.get('confirmPassword')
-#      state = request.POST.get('state')
-#      district = request.POST.get('district')
-#      taluka = request.POST.get('taluka')
-#      village = request.POST.get('village')
-#      franchise = request.POST.get('franchise')
-
-
-#      insertquery=Customers(
-#          fullNameEng=fullNameEng,
-#          fullNameMarathi=fullNameMarathi,
-#          mobile=mobile,
-#          birthDate=birthDate,
-#          pinCode=pinCode,
-#          email=email,
-#          password=password,
-#          confirmPassword=confirmPassword,
-#          state=state,
-#          district=district,
-#          taluka=taluka,
-#          village=village,
-#          franchise=franchise,
-
-#      )
-#      insertquery.save()
-#      return redirect("/login/")
-#     else:
+     )
+     insertquery.save()
+     return redirect("/login/")
+    else:
          
-#          return render(request,'registration.html')
+         return render(request,'registration.html')
     
-
-
 def slider(request):
     sliderdata= slider.objects.all()
     data={
