@@ -7,7 +7,6 @@ from django.http import JsonResponse # type: ignore
 
 
 
-
 from django.shortcuts import render # type: ignore
 from customer.models import Customers
 from state.models import State
@@ -70,10 +69,6 @@ def home(request):
         
    }
    return render(request,'home.html',data)
-   
-
-    
-
 
    return render(request,'home.html')
 from customer.models import Customer
@@ -286,6 +281,7 @@ insertquery=Customer(
          village=village,
          franchise=franchise,
      )
+
 def submit(request):
      if request.method == "POST":
 
@@ -306,6 +302,23 @@ def submit(request):
 
 
       insertquery=Customer(
+
+           fullNameEng = request.POST.get('fullNameEng'),
+           fullNameMarathi = request.POST.get('fullNameMarathi'),
+           mobile = request.POST.get('mobile'),
+           birthDate = request.POST.get('birthDate'),
+           pinCode = request.POST.get('pinCode'),
+           email = request.POST.get('email'),
+           password = request.POST.get('password'),
+           confirmPassword = request.POST.get('confirmPassword'),
+           state = request.POST.get('state'),
+           district = request.POST.get('district'),
+           taluka = request.POST.get('taluka'),
+           village = request.POST.get('village'),
+           franchise = request.POST.get('franchise')
+      )
+
+     insertquery=Customer(
           fullNameEng=fullNameEng,
           fullNameMarathi=fullNameMarathi,
           mobile=mobile,
@@ -321,12 +334,13 @@ def submit(request):
           franchise=franchise,
 
       )
-      insertquery.save()
-      return redirect("/login/")
+     insertquery.save()
+     return redirect("/login/")
      else:
          
-          return render(request,'registration.html')
+     return render(request,'registration.html')
     
+
 
 
 def slider(request):
