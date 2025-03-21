@@ -377,13 +377,13 @@
     <hr class="text-black">
 
 
-    <div class="row mb-3 shadow-lg p-3 mb-5 bg-white rounded"">
+    <div class="row mb-3 shadow-lg p-3 mb-5 bg-white rounded">
        
-      {% for i in brand%}
-      <div class="col-lg shadow-lg p-3 mb-5 bg-white rounded" ">
-        <img src="media/{{i.brands_img}}" alt="" class="img-fluid pt-2 pb-2" style="  height: 200px; width: 300px;">
+      {% for i in brand %}
+      <div class="col-lg shadow-lg p-3 mb-5 bg-white rounded" >
+        <img src="/media/{{ i.brands_img }}" alt="" class="img-fluid pt-2 pb-2" style="  height: 200px; width: 300px;">
       </div>
-        {%endfor%}
+        {% endfor %}
       
     </div>
 

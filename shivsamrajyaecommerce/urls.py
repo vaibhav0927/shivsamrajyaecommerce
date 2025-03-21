@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin # type: ignore
 from django.urls import path # type: ignore
-from shivsamrajyaecommerce import settings, views
+from shivsamrajyaecommerce import settings,views
 from django.conf.urls.static import static # type: ignore
 from .views import registration
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("contactus/",views.contactus),
+    path('contactus/',views.contactus),
     path('login/',views.login),
     path('loginverify/',views.loginverify),
     path('registration/',views.registration),
