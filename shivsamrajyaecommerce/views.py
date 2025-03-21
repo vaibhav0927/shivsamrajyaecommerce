@@ -8,7 +8,7 @@ from django.http import JsonResponse # type: ignore
 
 
 from django.shortcuts import render # type: ignore
-from customer.models import Customers
+from customer.models import Customer
 from state.models import State
 from district.models import District
 from taluka.models import Taluka
@@ -302,11 +302,11 @@ def submit(request):
           franchise=franchise,
 
       )
-     insertquery.save()
-     return redirect("/login/")
+           insertquery.save()
+           return redirect("/login/")
      else:
          
-     return render(request,'registration.html')
+      return render(request,'registration.html')
     
 
 
