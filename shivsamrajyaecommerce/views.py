@@ -1,10 +1,10 @@
-<<<<<<< HEAD
-from django.http import JsonResponse # type: ignore
-=======
 
 from django.http import JsonResponse # type: ignore
 
->>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
+
+
+
+
 from django.shortcuts import render # type: ignore
 from customer.models import Customers
 from state.models import State
@@ -53,7 +53,7 @@ def about(request):
       else:
         return redirect("/login/")
      
-<<<<<<< HEAD
+
 
 def home(request):
    sliderdata= Slider.objects.all()
@@ -70,9 +70,8 @@ def home(request):
    
 
     
-=======
-        return render(request,'home.html')
->>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
+
+
 
 
    
@@ -300,8 +299,8 @@ def stationary(request):
          
 #          return render(request,'registration.html')
     
-<<<<<<< HEAD
-=======
+
+
 def slider(request):
     sliderdata= slider.objects.all()
     data={
@@ -312,7 +311,7 @@ def slider(request):
 
      
 
->>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
+
 
 
 
