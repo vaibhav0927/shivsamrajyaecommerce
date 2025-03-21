@@ -94,23 +94,12 @@
                                 {% endfor %}
                             </select>
 
-
-
-
-
-                            
-
-
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">District</label>
 
 
-                            <!-- District Dropdown -->
-
-
-                            <!-- District Dropdown -->
 
                             <select name="district" id="district" class="form-control">
                                 <option value="">Select District</option>
@@ -124,19 +113,23 @@
                         <div class="mb-3">
                             <label class="form-label">Taluka</label>
 
-                            
-
-
-
                             <!-- Taluka Dropdown -->
+
                             <select name="taluka" id="taluka" class="form-control">
                                 <option value="">Select Taluka</option>
-                                
-                                    {% for taluka in talukas %}
-                                    <option value="{{ taluka.taluka_id }}">{{ taluka.taluka_name }}</option>
+                                {% for taluka in talukas %}
+                                <option value="{{ taluka.taluka_id }}">{{ taluka.taluka_name }}</option>
+                                {% endfor %}
+                            </select>
 
-                                    {% endfor %}
-                                </select>
+
+
+
+
+
+
+
+
 
                         </div>
 
@@ -144,22 +137,23 @@
                             <label class="form-label">Village</label>
 
 
-                            
+
+
+
+
+
+
+
+
 
                             <select name="village" id="village" class="form-control">
                                 <option value="">Select Village</option>
                                 {% for village in villages %}
-                                    <option value="{{ village.village_id }}">{{ village.village_name }}</option>
+                                <option value="{{ village.village_id }}">{{ village.village_name }}</option>
 
                                 {% endfor %}
+
                             </select>
-
-                                
-                                    {% for village in villages %}
-                                    <option value="{{ village.village_id }}">{{ village.village_name }}</option>
-
-                                    {% endfor %}
-                                </select>
 
                         </div>
 
@@ -284,17 +278,11 @@
             }
 
 
-           
-                    
-             
-               
-        
-
         </script>
     </div>
 
-{% endblock %}
-    
+    {% endblock %}
+
 
 </body>
 
