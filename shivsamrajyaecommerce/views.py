@@ -266,21 +266,7 @@ def stationary(request):
 
 
 
-       insertquery=Customer(
-         fullNameEng=fullNameEng,
-         fullNameMarathi=fullNameMarathi,
-         mobile=mobile,
-         birthDate=birthDate,
-         pinCode=pinCode,
-         email=email,
-         password=password,
-         confirmPassword=confirmPassword,
-         state=state,
-         district=district,
-         taluka=taluka,
-         village=village,
-         franchise=franchise,
-     )
+       
 def submit(request):
      if request.method == "POST":
 
