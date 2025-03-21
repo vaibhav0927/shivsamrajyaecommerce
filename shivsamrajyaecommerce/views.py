@@ -171,9 +171,6 @@ def submit(request):
 
 
      insertquery=Customer(
-
-
-
          fullNameEng=fullNameEng,
          fullNameMarathi=fullNameMarathi,
          mobile=mobile,
@@ -193,8 +190,7 @@ def submit(request):
      insertquery.save()
      return redirect("/login/")
     else:
-         
-         return render(request,'registration.html')
+        return render(request,'registration.html')
 
 
      
