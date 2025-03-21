@@ -262,11 +262,6 @@ def stationary(request):
     else:
         return redirect("/login/")
 
-<<<<<<< HEAD
-=======
-
-   
->>>>>>> 46f9e10c59c3da5ae23df04657e2806b84b5495e
 def submit(request):
      if request.method == "POST":
       fullNameEng = request.POST.get('fullNameEng')
