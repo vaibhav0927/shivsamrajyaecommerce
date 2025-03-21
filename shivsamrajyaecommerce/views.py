@@ -1,8 +1,11 @@
 
+
+from http.client import HTTPResponse
 from django.http import JsonResponse # type: ignore
 
 
 from django.http import JsonResponse # type: ignore
+
 
 
 
@@ -13,10 +16,10 @@ from state.models import State
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
-from django.shortcuts import redirect # type: ignore
 from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
+from django.shortcuts import redirect # type: ignore
 
 
 
@@ -33,7 +36,7 @@ def loginverify(request):
         email= request.POST.get('email')
         password=request.POST.get("password")
         try:
-          Customers.objects.get(c_email=email,c_pass=password)
+          Customer.objects.get(c_email=email,c_pass=password)
         except:
         
            return render(request,'login.html')
@@ -70,12 +73,8 @@ def home(request):
    }
    return render(request,'home.html',data)
 
-   return render(request,'home.html')
-from customer.models import Customer
-from state.models import State
-from district.models import District
-from taluka.models import Taluka
-from village.models import Village
+   
+
 
 
 
@@ -266,9 +265,15 @@ def stationary(request):
 
 
 
+
+       
+
+
+
        
 def submit(request):
      if request.method == "POST":
+
 
 
            fullNameEng = request.POST.get('fullNameEng')
@@ -306,7 +311,11 @@ def submit(request):
            return redirect("/login/")
      else:
          
+<<<<<<< HEAD
       return render(request,'registration.html')
+=======
+        return render(request,'registration.html')
+>>>>>>> 162ebf8bb9f1bf889c2265bbdf3c1401c05b8566
     
 
 
