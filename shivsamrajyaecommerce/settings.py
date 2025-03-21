@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'primaryunit',
 
     'taxtype',
+    'alternateunit',
 
 ]
 
