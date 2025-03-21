@@ -93,11 +93,21 @@
                                 <option value="{{ state.id }}">{{ state.state_name }}</option>
                                 {% endfor %}
                             </select>
+
+
+
+
+
                             
+
+
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">District</label>
+
+
+                            <!-- District Dropdown -->
 
 
                             <!-- District Dropdown -->
@@ -114,6 +124,9 @@
                         <div class="mb-3">
                             <label class="form-label">Taluka</label>
 
+                            
+
+
 
                             <!-- Taluka Dropdown -->
                             <select name="taluka" id="taluka" class="form-control">
@@ -124,21 +137,30 @@
 
                                     {% endfor %}
                                 </select>
+
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Village</label>
 
 
-                            <!-- Village Dropdown -->
+                            
+
                             <select name="village" id="village" class="form-control">
                                 <option value="">Select Village</option>
+                                {% for village in villages %}
+                                    <option value="{{ village.village_id }}">{{ village.village_name }}</option>
+
+                                {% endfor %}
+                            </select>
+
                                 
                                     {% for village in villages %}
                                     <option value="{{ village.village_id }}">{{ village.village_name }}</option>
 
                                     {% endfor %}
                                 </select>
+
                         </div>
 
                         <div class="mb-3">
@@ -262,14 +284,17 @@
             }
 
 
-
-
+           
+                    
+             
+               
+        
 
         </script>
     </div>
 
-
-    {% endblock %}
+{% endblock %}
+    
 
 </body>
 

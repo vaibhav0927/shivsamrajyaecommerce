@@ -37,8 +37,25 @@ urlpatterns = [
     path('shop/',views.shop),
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
+
     path('submit/',views.submit),
     path('slider/',views.slider),
+<<<<<<< HEAD
+=======
+   
+
+
+
+
+
+
+
+
+    
+
+    
+
+>>>>>>> bdef5199f0434695b476be4728555b5b9e71c238
 
 
 ]
