@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+from django.http import JsonResponse # type: ignore
+=======
 
 from django.http import JsonResponse # type: ignore
 
+>>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
 from django.shortcuts import render # type: ignore
 from customer.models import Customers
 from state.models import State
@@ -8,6 +12,9 @@ from district.models import District
 from taluka.models import Taluka
 from village.models import Village
 from django.shortcuts import redirect # type: ignore
+from slider.models import Slider
+from category.models import Category
+from brands.models import Brands
 
 
 
@@ -33,13 +40,39 @@ def loginverify(request):
              return redirect('/')
 
 def about(request):
+      categorydata= Category.objects.all()
+      branddata=Brands.objects.all()
+      data={
+          "category":categorydata,
+          "brand":branddata
+      }
+      return render(request,'about.html',data)
+      
       if 'username' in request.session:
         return render(request,'about.html')
       else:
         return redirect("/login/")
-def home(request):
      
+<<<<<<< HEAD
+
+def home(request):
+   sliderdata= Slider.objects.all()
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+        "list":sliderdata,
+        "category":categorydata,
+        "brand":branddata
+        
+   }
+   return render(request,'home.html',data)
+   
+
+    
+=======
         return render(request,'home.html')
+>>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
 
 
    
@@ -77,6 +110,18 @@ def registration(request):
         )
         customer.save()
         return redirect("registration")
+     
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
+   
+    data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+    return render(request,'registration.html',data)
+   
 
     states = State.objects.all()
     districts = District.objects.all()
@@ -92,44 +137,128 @@ def registration(request):
 
 
 def login(request):
-    return render(request,'login.html')
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'login.html',data)
+    
 def general(request):
-     if 'username' in request.session:
-        return render(request,'general.html')
-     else:
-        return redirect("/login/")
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'general.html',data)
+   if 'username' in request.session:
+      return render(request,'general.html')
+   else:
+      return redirect("/login/")
 
 def grocery(request):
-     if 'username' in request.session:
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'grocery.html',data)
+   if 'username' in request.session:
         return render(request,'grocery.html')
-     else:
+   else:
         return redirect("/login/")
 def Spices(request):
-     if 'username' in request.session:
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'Spices.html',data)
+   if 'username' in request.session:
         return render(request,'Spices.html')
-     else:
+   else:
         return redirect("/login/")
 def cosmetic(request):
-     if 'username' in request.session:
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'cosmetic.html',data)
+   if 'username' in request.session:
         return render(request,'cosmetic.html')
-     else:
+   else:
         return redirect("/login/")
 
 def fooditems(request):
-     if 'username' in request.session:
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'fooditems.html',data)
+   if 'username' in request.session:
         return render(request,'fooditems.html')
-     else:
+   else:
         return redirect("/login/")
 
 def shop(request):
-     if 'username' in request.session:
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'shop.html',data)
+   if 'username' in request.session:
         return render(request,'shop.html')
-     else:
+   else:
         return redirect("/login/")
 
 def stationary(request):
 
-    return render(request,'stationary.html')
+   categorydata= Category.objects.all()
+   branddata=Brands.objects.all()
+   
+   data={
+       
+        "category":categorydata,  
+        "brand":branddata
+        
+        }
+   return render(request,'stationary.html',data)
+   if 'username' in request.session: 
+         render(request,'stationary.html')
+   else:
+       return redirect("/login/")
+
 
 # def submit(request):
 #     if request.method == "POST":
@@ -171,6 +300,8 @@ def stationary(request):
          
 #          return render(request,'registration.html')
     
+<<<<<<< HEAD
+=======
 def slider(request):
     sliderdata= slider.objects.all()
     data={
@@ -181,6 +312,7 @@ def slider(request):
 
      
 
+>>>>>>> 418d82337c0c3efc68bc38801b9d6e9805136440
 
 
 

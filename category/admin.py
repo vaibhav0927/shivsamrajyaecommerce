@@ -4,7 +4,7 @@ from django.contrib import admin # type: ignore
 from .models import Category
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display=('category_id','category_name')
+    list_display=('category_id','category_name','category_img')
     
 admin.site.register(Category, CategoryAdmin)
 
