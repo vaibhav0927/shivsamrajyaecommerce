@@ -51,18 +51,7 @@ def sub(request):
     return render(request, "contactus.html") 
 
 
-def loginverify(request):
-    if request.method=="POST":
-        email= request.POST.get('email')
-        password=request.POST.get("password")
-        try:
-          Customer.objects.get(c_email=email,c_pass=password)
-        except:
-        
-           return render(request,'login.html')
-        else:
-             request.session['username']='admin'
-             return redirect('/')
+
 
 def about(request):
     if 'username' not in request.session:
@@ -151,6 +140,18 @@ def registration(request):
 
 
 def login(request):
+
+    if request.method=="POST":
+        email= request.POST.get('email')
+        password=request.POST.get("password")
+        try:
+          Customer.objects.get(c_email=email,c_pass=password)
+        except:
+        
+           return render(request,'login.html')
+        else:
+             request.session['username']='admin'
+             return redirect('/')
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
