@@ -51,18 +51,7 @@ def sub(request):
     return render(request, "contactus.html") 
 
 
-def loginverify(request):
-    if request.method=="POST":
-        email= request.POST.get('email')
-        password=request.POST.get("password")
-        try:
-          Customer.objects.get(c_email=email,c_pass=password)
-        except:
-        
-           return render(request,'login.html')
-        else:
-             request.session['username']='admin'
-             return redirect('/')
+
 
 def about(request):
     if 'username' not in request.session:
@@ -105,26 +94,26 @@ def registration(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
 
-        state = State.objects.get(id=state_id) if state_id else None
-        district = District.objects.get(id=district_id) if district_id else None
-        taluka = Taluka.objects.get(id=taluka_id) if taluka_id else None
-        village = Village.objects.get(id=village_id) if village_id else None
+        state = State.objects.get(state_id=state_id)
+        district = District.objects.get(district_id=district_id) 
+        taluka = Taluka.objects.get(taluka_id=taluka_id) 
+        village = Village.objects.get(village_id=village_id)
 
         customer = Customer(
-            full_name_eng=full_name_eng,
-            full_name_marathi=full_name_marathi,
-            mobile=mobile,
-            birth_date=birth_date,
+            c_fullNameEng=full_name_eng,
+            c_fullNameMarathi=full_name_marathi,
+            c_mobile=mobile,
+            c_birthDate=birth_date,
             state=state,
-            district=district,
+            District=district,
             taluka=taluka,
             village=village,
-            pin_code=pin_code,
-            email=email,
-            password=password  
+            c_pinCode=pin_code,
+            c_email=email,
+            c_password=password
         )
         customer.save()
-        return redirect("registration")
+        return redirect("/login/")
 
     states = State.objects.all()
     districts = District.objects.all()
@@ -147,7 +136,22 @@ def registration(request):
    }
     return render(request,'general.html',data) 
 
+
+
+
 def login(request):
+
+    if request.method=="POST":
+        email= request.POST.get('email')
+        password=request.POST.get("password")
+        try:
+          Customer.objects.get(c_email=email,c_pass=password)
+        except:
+        
+           return render(request,'login.html')
+        else:
+             request.session['username']='admin'
+             return redirect('/')
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
