@@ -137,21 +137,20 @@ def registration(request):
     return render(request,'general.html',data) 
 
 
-
-
 def login(request):
-
-    if request.method=="POST":
-        email= request.POST.get('email')
-        password=request.POST.get("password")
-        try:
-          Customer.objects.get(c_email=email,c_pass=password)
-        except:
+    error_message = ""
+    if request.method == "POST":
+        email = request.POST.get('email')
+        password = request.POST.get('password')
         
-           return render(request,'login.html')
-        else:
-             request.session['username']='admin'
-             return redirect('/')
+        try:
+            customer = Customer.objects.get(c_email=email, c_password=password)
+            request.session['user_email'] = email  
+            return redirect("/home/")  
+        except Customer.DoesNotExist:
+            error_message = "Invalid email or password. Please try again."
+    
+    return render(request, 'login.html', {"error": error_message})
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
