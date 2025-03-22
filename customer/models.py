@@ -22,7 +22,7 @@ class Customer(models.Model):
     c_password = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.c_fullNameEng
     class Meta:
         db_table = "tbl_customer"
 

@@ -44,36 +44,38 @@
                     <h3 class="mb-3 text-center">Register Account</h3>
                     <p>If you already have an account, please login at the <a href="/login"><b>Login Page</b> </a>.</p>
 
-                    <form action="/registration" method="post" class="form-horizontal">
+                    <form action="" method="post" class="form-horizontal">
+                        {% csrf_token %}
                         <div class="mb-3">
                             <label class="form-label">Full Name (English)</label>
-                            <input type="text" id="fullNameEng" class="form-control"
+                            <input type="text"  name="fullNameEng" id="fullNameEng" class="form-control"
                                 placeholder="Enter Full Name In English">
                             <span class="error" id="nameError"></span>
+                            
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Full Name (Marathi)</label>
-                            <input type="text" id="fullNameMarathi" class="form-control"
+                            <input type="text" name="fullNameMarathi" id="fullNameMarathi" class="form-control"
                                 placeholder="Enter Full Name In Marathi">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Mobile No</label>
-                            <input type="text" id="mobile" class="form-control" placeholder="Mobile Number">
+                            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Mobile Number">
                             <span class="error" id="mobileError"></span>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Birth Date</label>
-                            <input type="date" id="birthDate" class="form-control">
+                            <input type="date" name="birthDate" id="birthDate" class="form-control">
                             <span class="error" id="birthDateError"></span>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Near by Franchise</label>
 
-                            <select name="franchise" id="f" style="width: 100%;" class="form-control">
+                            <select name="franchise"  id="f" style="width: 100%;" class="form-control">
                                 <option value=""> Select </option>
                                 {% for i in franchise %}
 
@@ -90,7 +92,7 @@
                             <select name="state" id="state" class="form-control">
                                 <option value="">Select State</option>
                                 {% for state in states %}
-                                <option value="{{ state.id }}">{{ state.state_name }}</option>
+                                <option value="{{ state.state_id }}">{{ state.state_name }}</option>
                                 {% endfor %}
                             </select>
 
@@ -124,23 +126,10 @@
 
 
 
-
-
-
-
-
-
-
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Village</label>
-
-
-
-
-
-
 
 
 
@@ -159,30 +148,30 @@
 
                         <div class="mb-3">
                             <label class="form-label">Pin Code</label>
-                            <input type="text" id="pinCode" class="form-control" placeholder="Pin Code">
+                            <input type="text" name="pinCode" id="pinCode" class="form-control" placeholder="Pin Code">
                             <span class="error" id="pinCodeError"></span>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">E-Mail</label>
-                            <input type="email" id="email" class="form-control" placeholder="E-Mail">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="E-Mail">
                             <span class="error" id="emailError"></span>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" id="password" class="form-control" placeholder="Password">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                             <span class="error" id="passwordError"></span>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Confirm Password</label>
-                            <input type="password" id="confirmPassword" class="form-control"
+                            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
                                 placeholder="Password Confirm">
                             <span class="error" id="confirmPasswordError"></span>
                         </div>
 
-                        <button type="button" class="btn  w-100 text-light" style="background-color:#ff7722;"
+                        <button type="submit" class="btn  w-100 text-light" style="background-color:#ff7722;"
                             onclick="validateForm()">Register</button>
                     </form>
                 </div>
