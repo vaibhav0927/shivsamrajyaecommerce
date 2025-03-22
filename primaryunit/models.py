@@ -7,5 +7,5 @@ class Primaryunit(models.Model):
     class Meta:
        db_table= "tbl_primaryunit"
     def __str__(self):
-        return self.primaryunit_name_name
+        return self.primaryunit_name
 

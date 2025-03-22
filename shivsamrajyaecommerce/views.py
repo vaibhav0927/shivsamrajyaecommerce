@@ -1,3 +1,8 @@
+
+
+from http.client import HTTPResponse
+from django.http import JsonResponse # type: ignore
+
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
@@ -14,6 +19,8 @@ from django.shortcuts import redirect # type: ignore
 
    
 def contactus(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -24,10 +31,7 @@ def contactus(request):
         
    }
     return render(request,'contactus.html',data)
-    if 'username' in request.session:
-        return render(request,'about.html')
-    else:
-        return redirect("/login/") 
+    
   
 def sub(request):
     if request.method == "POST":
@@ -61,6 +65,8 @@ def loginverify(request):
              return redirect('/')
 
 def about(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -71,10 +77,7 @@ def about(request):
         
    }
     return render(request,'about.html',data)
-    if 'username' in request.session:
-        return render(request,'about.html')
-    else:
-        return redirect("/login/")
+    
 def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
@@ -133,6 +136,16 @@ def registration(request):
         "talukas": talukas,
         "villages": villages
     })
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
+   
+    data={
+       
+        "category":categorydata,
+        "brand":branddata
+        
+   }
+    return render(request,'general.html',data) 
 
 
 
@@ -150,6 +163,8 @@ def login(request):
     return render(request,'login.html',data)
      
 def general(request):
+     if 'username' not in request.session:
+        return redirect("/login/")
      categorydata= Category.objects.all()
      branddata=Brands.objects.all()
    
@@ -160,12 +175,11 @@ def general(request):
         
    }
      return render(request,'general.html',data) 
-     if 'username' in request.session:
-        return render(request,'general.html')
-     else:
-        return redirect("/login/")
+     
 
 def grocery(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -176,13 +190,12 @@ def grocery(request):
         
    }
     return render(request,'grocery.html',data)
-    if 'username' in request.session:
-        return render(request,'grocery.html')
-    else:
-        return redirect("/login/")
     
 
+
 def Spices(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -193,14 +206,13 @@ def Spices(request):
         
    }
     return render(request,'login.html',data)
-    if 'username' in request.session:
-        return render(request,'Spices.html')
-    else:
-        return redirect("/login/")
+    
     
 
 
 def cosmetic(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -211,12 +223,11 @@ def cosmetic(request):
         
    }
     return render(request,'cosmetic.html',data)
-    if 'username' in request.session:
-        return render(request,'cosmetic.html')
-    else:
-        return redirect("/login/")
+    
 
 def fooditems(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -227,13 +238,10 @@ def fooditems(request):
         
    }
     return render(request,'fooditems.html',data)
-    if 'username' in request.session:
-        return render(request,'fooditems.html')
     
-    else:
-        return redirect("/login/")
-
 def shop(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -244,12 +252,11 @@ def shop(request):
         
    }
     return render(request,'shop.html',data)
-    if 'username' in request.session:
-        return render(request,'shop.html')
-    else:
-        return redirect("/login/")
+    
 
 def stationary(request):
+    if 'username' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -260,11 +267,9 @@ def stationary(request):
         
    }
     return render(request,'stationary.html',data)
-    if 'username' in request.session:
-        return render(request,'stationary.html')
-    else:
-        return redirect("/login/")
+    
 
+   
 def submit(request):
      if request.method == "POST":
       fullNameEng = request.POST.get('fullNameEng')
@@ -300,16 +305,7 @@ def submit(request):
       return redirect("/login/")
      else:
         return render(request,'registration.html')
-        categorydata= Category.objects.all()
-        branddata=Brands.objects.all()
-   
-        data={
-       
-        "category":categorydata,
-        "brand":branddata
         
-      }
-        return render(request,'stationary.html',data)
 
 def slider(request):
     sliderdata= slider.objects.all()
@@ -317,3 +313,19 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+
+
+
+
+
+
+     
+
+
+
+
+
+     
+
+
