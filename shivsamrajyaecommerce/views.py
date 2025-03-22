@@ -264,22 +264,9 @@ def stationary(request):
         
    }
     return render(request,'stationary.html',data)
-<<<<<<< HEAD
     
 
    
-=======
-
-    
-
-   
-
-    if 'username' in request.session:
-        return render(request,'stationary.html')
-    else:
-        return redirect("/login/")
-
->>>>>>> d1362b396788e6d66a5c61f46e82b7a13485614a
 def submit(request):
      if request.method == "POST":
       fullNameEng = request.POST.get('fullNameEng')
