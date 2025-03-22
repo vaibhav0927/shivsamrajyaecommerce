@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contactus/',views.contactus),
     path('login/',views.login),
-    path('loginverify/',views.loginverify),
+
     path('registration/',views.registration),
     path('',views.home),
     path('about/',views.about),
@@ -41,6 +41,12 @@ urlpatterns = [
     path('submit/',views.submit),
     path('slider/',views.slider),
     path("contfrom/",views.sub),
+    path('Grocery/',views.grocery),
+    path('General/',views.general),
+    path('Food Items/',views.fooditems),
+    path('Spices/',views.Spices),
+    path('Stationary/',views.stationary),
+    path('Cosmetic/',views.cosmetic),
 
 ]
 
