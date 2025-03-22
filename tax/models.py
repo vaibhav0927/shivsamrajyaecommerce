@@ -1,5 +1,5 @@
-from django.db import models
-from autoslug import AutoSlugField
+from django.db import models # type: ignore
+from autoslug import AutoSlugField # type: ignore
 class Tax(models.Model):
     tax_id = models.AutoField(primary_key=True)
     tax_name = models.CharField(max_length=255 , null=True)

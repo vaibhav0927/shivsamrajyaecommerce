@@ -137,21 +137,20 @@ def registration(request):
     return render(request,'general.html',data) 
 
 
-
-
 def login(request):
-
-    if request.method=="POST":
-        email= request.POST.get('email')
-        password=request.POST.get("password")
-        try:
-          Customer.objects.get(c_email=email,c_pass=password)
-        except:
+    error_message = ""
+    if request.method == "POST":
+        email = request.POST.get('email')
+        password = request.POST.get('password')
         
-           return render(request,'login.html')
-        else:
-             request.session['username']='admin'
-             return redirect('/')
+        try:
+            customer = Customer.objects.get(c_email=email, c_password=password)
+            request.session['user_email'] = email  
+            return redirect("/home/")  
+        except Customer.DoesNotExist:
+            error_message = "Invalid email or password. Please try again."
+    
+    return render(request, 'login.html', {"error": error_message})
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -164,8 +163,8 @@ def login(request):
     return render(request,'login.html',data)
      
 def general(request):
-     if 'username' not in request.session:
-        return redirect("/login/")
+    #  if 'username' not in request.session:
+        # return redirect("/login/")
      categorydata= Category.objects.all()
      branddata=Brands.objects.all()
    
@@ -179,8 +178,8 @@ def general(request):
      
 
 def grocery(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -195,8 +194,8 @@ def grocery(request):
 
 
 def Spices(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -206,14 +205,14 @@ def Spices(request):
         "brand":branddata
         
    }
-    return render(request,'login.html',data)
+    return render(request,'Spices.html',data)
     
     
 
 
 def cosmetic(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -227,8 +226,8 @@ def cosmetic(request):
     
 
 def fooditems(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -241,8 +240,8 @@ def fooditems(request):
     return render(request,'fooditems.html',data)
     
 def shop(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -256,8 +255,8 @@ def shop(request):
     
 
 def stationary(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -314,6 +313,7 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
 
 
 
