@@ -1,3 +1,8 @@
+
+
+from http.client import HTTPResponse
+from django.http import JsonResponse # type: ignore
+
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
@@ -264,10 +269,16 @@ def stationary(request):
 
    
 
+
+    
+
+   
+
     if 'username' in request.session:
         return render(request,'stationary.html')
     else:
         return redirect("/login/")
+
 
 def submit(request):
      if request.method == "POST":
@@ -312,3 +323,19 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+
+
+
+
+
+
+     
+
+
+
+
+
+     
+
+
