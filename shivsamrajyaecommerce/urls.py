@@ -41,6 +41,12 @@ urlpatterns = [
     path('submit/',views.submit),
     path('slider/',views.slider),
     path("contfrom/",views.sub),
+    path('Grocery/',views.grocery),
+    path('General/',views.general),
+    path('Food Items/',views.fooditems),
+    path('Spices/',views.Spices),
+    path('Stationary/',views.stationary),
+    path('Cosmetic/',views.cosmetic),
 
 ]
 

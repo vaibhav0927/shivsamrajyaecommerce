@@ -71,7 +71,7 @@
                 <a class="nav-link dropdown-toggle  text-light" href="#" role="button" data-bs-toggle="dropdown"><B>CATEGORIES</B></a>
                 <ul class="dropdown-menu">
                 {% for i in category %}
-                  <li >{{ i.category_name }}</li>
+                  <li ><a href="/{{ i.category_name }}/" class="btn">{{ i.category_name }}</li></a>
                   
                   {% endfor %}
                 </ul>
