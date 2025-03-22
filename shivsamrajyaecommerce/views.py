@@ -264,11 +264,11 @@ def stationary(request):
         
    }
     return render(request,'stationary.html',data)
-<<<<<<< HEAD
+
     
 
    
-=======
+
 
     
 
@@ -285,7 +285,7 @@ def stationary(request):
         return redirect("/login/")
 
 
->>>>>>> 60268898745adcaf3ae9574e7c67757761df3dc9
+
 def submit(request):
      if request.method == "POST":
       fullNameEng = request.POST.get('fullNameEng')
