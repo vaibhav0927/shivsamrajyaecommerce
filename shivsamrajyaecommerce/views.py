@@ -163,8 +163,8 @@ def login(request):
     return render(request,'login.html',data)
      
 def general(request):
-     if 'username' not in request.session:
-        return redirect("/login/")
+    #  if 'username' not in request.session:
+        # return redirect("/login/")
      categorydata= Category.objects.all()
      branddata=Brands.objects.all()
    
@@ -178,8 +178,8 @@ def general(request):
      
 
 def grocery(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -194,8 +194,8 @@ def grocery(request):
 
 
 def Spices(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -205,14 +205,14 @@ def Spices(request):
         "brand":branddata
         
    }
-    return render(request,'login.html',data)
+    return render(request,'Spices.html',data)
     
     
 
 
 def cosmetic(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -226,8 +226,8 @@ def cosmetic(request):
     
 
 def fooditems(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -240,8 +240,8 @@ def fooditems(request):
     return render(request,'fooditems.html',data)
     
 def shop(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -255,8 +255,8 @@ def shop(request):
     
 
 def stationary(request):
-    if 'username' not in request.session:
-        return redirect("/login/")
+    # if 'username' not in request.session:
+        # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
@@ -313,6 +313,7 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
 
 
 
