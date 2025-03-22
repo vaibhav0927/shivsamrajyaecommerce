@@ -9,6 +9,6 @@ class Brands(models.Model):
    
     class Meta:
         db_table = "tbl_brands"
-    def _str_(self):
+    def __str__(self):
         return self.brands_name
 
