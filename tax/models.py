@@ -6,3 +6,6 @@ class Tax(models.Model):
     tax_slug = AutoSlugField(populate_from="tax_name", unique=True)
     class Meta:
        db_table= "tbl_tax"
+    def __str__(self):
+        return self.tax_name
+
