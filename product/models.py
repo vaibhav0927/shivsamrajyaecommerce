@@ -8,6 +8,7 @@ from taxtype.models import TaxType
 from alternateunit.models import AlternateUnit
 
 
+
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=255 , null=True)
