@@ -228,7 +228,7 @@ def cosmetic(request):
 def fooditems(request):
     # if 'username' not in request.session:
         # return redirect("/login/")
-    categorydata= Category.objects.all()
+    categorydata= Category.objects.all() 
     branddata=Brands.objects.all()
    
     data={
