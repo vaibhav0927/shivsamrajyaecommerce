@@ -161,8 +161,12 @@
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 03.00</span>
           </div>
-          <a href=""><img class="card-img-top img-fluid" style="height: 180px;width:180px;"
-              src="/static/assets/halad.jpg" alt="Card image"></a>
+          {% for i in list %}
+        <div class="img">
+          <img src="media/{{i.product_img}}" class="d-block w-100 " alt="/media/{{i.product_img}}">
+        </div>
+        {% endfor %}
+  
           <div class="card-body">
             <h4 class="card-title pt-2"> <b>Katdare Special</b></h4>
             <p class="card-text text-primary">Rs 20.00 <del class="text-danger">Rs 23.00</del></p>
