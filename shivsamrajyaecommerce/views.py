@@ -83,7 +83,7 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
-   productdata=Product.objects.all()[:10]  
+   productdata=Product.objects.all()[:4]  
    data={
         "list":sliderdata,
         "category":categorydata,
