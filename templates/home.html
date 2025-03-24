@@ -157,8 +157,13 @@
     <div class="row">
       {% for i in plist %}
       <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+<<<<<<< HEAD
 
         <div class="card mb-3 ps-4 pt-3 p" style="width: 240px; ">
+=======
+        
+        <div class="card mb-3 ps-4 pt-3 ms-4" style="width: 240px; ">
+>>>>>>> c3f217e491a5d28b89376d7336d09b707a6f51dc
           <div class="card-title">
 
             <span class="badge  float-end rounded-pill pt-2 me-1"
@@ -167,8 +172,10 @@
           <img class="card-img-top img-fluid" style="height: 180px;width:180px;" src="/media/{{ i.product_img }}"
             alt="/media/{{ i.product_img }}"></a>
           <div class="card-body">
-            <h4 class="card-title pt-2"> <b>Katdare Special</b></h4>
-            <p class="card-text text-primary">Rs 20.00 <del class="text-danger">Rs 23.00</del></p>
+            
+            <h4 class="card-title pt-2"> <b>{{i.product_name}}</b></h4>
+          
+            <p class="card-text text-primary">Rs.{{i.sale}} <del class="text-danger">Rs.{{i.mrp}}</del></p>
             <div class="d-flex">
               <a href="#" class="btn  mt-3 " style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
               <i class="fa-regular fa-heart text-light"
@@ -223,13 +230,21 @@
     <h1 class="mb-3">Categories</h1>
     <hr class="text-black">
     <div class="row">
+      {%for i in category%}
       <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+<<<<<<< HEAD
         <div class="card mb-3  pt-3 p">
 
           <a href=""><img class=" card-img-top" style="height: 300px;" src="/static/assets/redlabel.jpg"
               alt="Card image"></a>
+=======
+        <div class="card mb-3  pt-3 p" >
+                 
+                  <a href=""><img class=" card-img-top" style="height: 300px;" src="/media/{{i.category_img}}"
+          alt="/media/{{i.product_img}}"></a>
+>>>>>>> c3f217e491a5d28b89376d7336d09b707a6f51dc
           <div class="card-body">
-            <h4 class="card-title ms-5"> <b>Grocery</b></h4>
+            <h4 class="card-title ms-5"> <b>{{i.category_name}}</b></h4>
 
             <div class="d-flex">
               <a href="#" class="btn  mt-3  ms-4" style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
@@ -240,6 +255,10 @@
         </div>
 
       </div>
+<<<<<<< HEAD
+      {% endfor %}
+      
+=======
       <div class="col-lg-3 shadow-lg p-3 mb-5  bg-white rounded">
         <div class="card mb-3  pt-3 p" >
                   <a href=""><img class=" card-img-top img-fluid" style="height: 300px; padding-left: 50px;"
@@ -340,6 +359,7 @@
       </div>
 
     </div>
+>>>>>>> ac2c501523b126ec1922423e9caa022a4d7b9d69
   </div>
   </div>
 
