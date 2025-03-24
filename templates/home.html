@@ -155,8 +155,9 @@
     <h1><b>Products</b></h1>
     <hr class="text-black">
     <div class="row">
+      {% for i in plist %}
       <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-        {% for i in plist %}
+        
         <div class="card mb-3 ps-4 pt-3 p" style="width: 240px; ">
           <div class="card-title">
 
@@ -179,67 +180,7 @@
         
       </div>
       {% endfor %}
-      <!-- <div class="col-lg-3 shadow-lg p-3 mb-5  ps-5 bg-white rounded"> --> 
-
-        <!-- <div class="card mb-4 ps-4 pt-2 " style="width: 240px; "> -->
-          <!-- <div class="card-title"> -->
-
-            <span class="badge  float-end rounded-pill pt-2 me-1"
-              style="background-color: #ff7722; height: 30px ;width:70px;">Rs 02.00</span>
-          </div>
-          <a href=""><img class="card-img-top img-fluid" style="height: 180px;width:180px;"
-              src="/static/assets/paste.jpg" alt="Card image"></a>
-          <div class="card-body">
-            <h4 class="card-title "><b>Patanjali Dantk...</b></h4>
-            <p class="card-text text-primary">Rs.113.00 <del class="text-danger">Rs.115.00</del></p>
-            <div class="d-flex">
-              <a href="#" class="btn  mt-3 " style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-              <i class="fa-regular fa-heart text-light"
-                style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
-        <div class="card mb-4 ps-4 pt-2 " style="width: 240px;  ">
-          <div class="card-title">
-
-            <span class="badge  float-end rounded-pill pt-2 me-1"
-              style="background-color: #ff7722; height: 30px ;width:70px;">Rs 00.50</span>
-          </div>
-          <a href=""><img class="card-img-top img-fluid pb-1 pt-2" style="height: 180px;width:180px;"
-              src="/static/assets/lizol.jpg" alt="Card image"></a>
-          <div class="card-body">
-            <h4 class="card-title pt-2 "><b>lizol Rose flor...</b></h4>
-            <p class="card-text text-primary">Rs 44.50 <del class="text-danger">Rs 45.00</del></p>
-            <div class="d-flex">
-              <a href="#" class="btn  mt-3 " style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-              <i class="fa-regular fa-heart text-light"
-                style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
-        <div class="card mb-4 ps-4 pt-2 " style="width: 240px; ">
-          <div class="card-title">
-
-            <span class="badge  float-end rounded-pill pt-2 me-1"
-              style="background-color: #ff7722; height: 30px ;width:70px;">Rs 02.00</span>
-          </div>
-          <a href=""><img class="card-img-top img-fluid" style="height: 180px;width:180px; "
-              src="/static/assets/jasmin.jpg" alt="Card image"></a>
-          <div class="card-body">
-            <h4 class="card-title "><b>Parachute jasmin..</b></h4>
-            <p class="card-text text-primary">Rs 83.00 <del class="text-danger">Rs 85.00</del></p>
-            <div class="d-flex">
-              <a href="#" class="btn  mt-3 " style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
-              <i class="fa-regular fa-heart text-light"
-                style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
-            </div>
-          </div>
-        </div>
-      <!-- </div> -->
+       
 
 
 
