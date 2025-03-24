@@ -23,9 +23,10 @@ def product(requset):
     productdata=Product.objects.all()
     data={
        
-        "list":productdata
+        "plist":productdata
         
    }
+    print(data)
 
     return render(requset,'home.html',data)
    
@@ -82,11 +83,12 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
-   
+   productdata=Product.objects.all()
    data={
         "list":sliderdata,
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "plist":productdata
         
    }
    return render(request,'home.html',data)

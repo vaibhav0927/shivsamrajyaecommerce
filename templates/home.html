@@ -10,18 +10,18 @@
   <meta name="author" content="" />
   <title>shivsamarjya</title>
   <!-- Favicon-->
-  
+
 </head>
 
 <body>
-  
 
-  
+
+
 
   {% block project%}
- <!-- slides-->
+  <!-- slides-->
   <div class="container pt-1">
-   
+
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -33,17 +33,18 @@
           aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        
+
         <div class="carousel-item active">
-          <img src="http://127.0.0.1:8000/media/slider/fashion1.jpg" class="d-block w-100 " alt="/media/{{i.slider_img}}">
+          <img src="http://127.0.0.1:8000/media/slider/fashion1.jpg" class="d-block w-100 "
+            alt="/media/{{i.slider_img}}">
         </div>
-      {% for i in list %}
+        {% for i in list %}
         <div class="carousel-item ">
           <img src="media/{{i.slider_img}}" class="d-block w-100 " alt="/media/{{i.slider_img}}">
         </div>
         {% endfor %}
       </div>
-      
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
         data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -66,7 +67,7 @@
       <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
         <div class="card mb-3 ps-4 pt-3 " style="width: 240px; ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 10.00</span>
           </div>
@@ -86,7 +87,7 @@
       <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
         <div class="card mb-4 ps-4 pt-2 " style="width: 240px; ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 50.00</span>
           </div>
@@ -106,7 +107,7 @@
       <div class="col-lg-3 shadow-lg p-3 mb-5  ps-5 bg-white rounded">
         <div class="card mb-4 ps-4 pt-2 " style="width: 240px; ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 60.00</span>
           </div>
@@ -126,7 +127,7 @@
       <div class="col-lg-3 shadow-lg p-3 mb-5  ps-5 bg-white rounded">
         <div class="card mb-4 ps-4 pt-2 " style="width: 240px; ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 10.00</span>
           </div>
@@ -143,7 +144,7 @@
           </div>
         </div>
       </div>
-      
+
 
 
     </div>
@@ -155,18 +156,15 @@
     <hr class="text-black">
     <div class="row">
       <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
+        {% for i in plist %}
         <div class="card mb-3 ps-4 pt-3 p" style="width: 240px; ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 03.00</span>
           </div>
-          {% for i in list %}
-        <div class="img">
-          <img src="media/{{i.product_img}}" class="d-block w-100 " alt="/media/{{i.product_img}}">
-        </div>
-        {% endfor %}
-  
+          <img class="card-img-top img-fluid" style="height: 180px;width:180px;" src="/media/{{ i.product_img }}"
+            alt="/media/{{ i.product_img }}"></a>
           <div class="card-body">
             <h4 class="card-title pt-2"> <b>Katdare Special</b></h4>
             <p class="card-text text-primary">Rs 20.00 <del class="text-danger">Rs 23.00</del></p>
@@ -175,14 +173,17 @@
               <i class="fa-regular fa-heart text-light"
                 style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
             </div>
+          </div>
+         
         </div>
+        
       </div>
-      </div>
-      <div class="col-lg-3 shadow-lg p-3 mb-5  ps-5 bg-white rounded">
-      
-        <div class="card mb-4 ps-4 pt-2 " style="width: 240px; ">
-          <div class="card-title">
-          
+      {% endfor %}
+      <!-- <div class="col-lg-3 shadow-lg p-3 mb-5  ps-5 bg-white rounded"> --> 
+
+        <!-- <div class="card mb-4 ps-4 pt-2 " style="width: 240px; "> -->
+          <!-- <div class="card-title"> -->
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 02.00</span>
           </div>
@@ -202,7 +203,7 @@
       <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
         <div class="card mb-4 ps-4 pt-2 " style="width: 240px;  ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 00.50</span>
           </div>
@@ -216,13 +217,13 @@
               <i class="fa-regular fa-heart text-light"
                 style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
             </div>
+          </div>
         </div>
-      </div>
       </div>
       <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
         <div class="card mb-4 ps-4 pt-2 " style="width: 240px; ">
           <div class="card-title">
-          
+
             <span class="badge  float-end rounded-pill pt-2 me-1"
               style="background-color: #ff7722; height: 30px ;width:70px;">Rs 02.00</span>
           </div>
@@ -238,8 +239,8 @@
             </div>
           </div>
         </div>
-      </div>
-      
+      <!-- </div> -->
+
 
 
 
@@ -281,7 +282,7 @@
             <h4 class="card-title ms-5"> <b>Food Item</b></h4>
 
             <div class="d-flex">
-              <a href="#" class="btn  mt-3 ms-4" " style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+              <a href="#" class="btn  mt-3 ms-4" " style=" background-color: #ff7722;color: aliceblue;">Add To Cart</a>
               <i class="fa-regular fa-heart text-light"
                 style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
             </div>
@@ -297,7 +298,7 @@
             <h4 class="card-title ms-5"> <b>General</b></h4>
 
             <div class="d-flex">
-              <a href="#" class="btn  mt-3  ms-4"" style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+              <a href="#" class="btn  mt-3  ms-4"" style=" background-color: #ff7722;color: aliceblue;">Add To Cart</a>
               <i class="fa-regular fa-heart text-light"
                 style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
             </div>
@@ -313,7 +314,7 @@
             <h4 class="card-title ms-5"> <b>Cosmetic</b></h4>
 
             <div class="d-flex">
-              <a href="#" class="btn  mt-3  ms-4"" style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+              <a href="#" class="btn  mt-3  ms-4"" style=" background-color: #ff7722;color: aliceblue;">Add To Cart</a>
               <i class="fa-regular fa-heart text-light"
                 style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
             </div>
@@ -331,7 +332,7 @@
             <h4 class="card-title ms-5"> <b>Spices</b></h4>
 
             <div class="d-flex">
-              <a href="#" class="btn  mt-3  ms-4"" style="background-color: #ff7722;color: aliceblue;">Add To Cart</a>
+              <a href="#" class="btn  mt-3  ms-4"" style=" background-color: #ff7722;color: aliceblue;">Add To Cart</a>
               <i class="fa-regular fa-heart text-light"
                 style="height:30 px; width: 40px ; background-color: #ff7722; margin-left: 6px; margin-top:17px; font-size: 28px; padding-left: 5px; padding-top: 5px; border-radius: 4px;"></i>
             </div>
@@ -382,13 +383,13 @@
 
 
     <div class="row mb-3 shadow-lg p-3 mb-5 bg-white rounded">
-       
+
       {% for i in brand %}
-      <div class="col-lg shadow-lg p-3 mb-5 bg-white rounded" >
+      <div class="col-lg shadow-lg p-3 mb-5 bg-white rounded">
         <img src="/media/{{ i.brands_img }}" alt="" class="img-fluid pt-2 pb-2" style="  height: 200px; width: 300px;">
       </div>
-        {% endfor %}
-      
+      {% endfor %}
+
     </div>
 
   </div>
@@ -399,7 +400,7 @@
 
 
   {% endblock %}
- 
+
 </body>
 
 </html>
