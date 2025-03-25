@@ -15,6 +15,7 @@ from category.models import Category
 from brands.models import Brands
 from contactus.models import Contactus
 from product.models import Product
+from wishlist.models import Wishlist
 
 
 from django.shortcuts import redirect # type: ignore
@@ -29,6 +30,13 @@ def product(requset):
     print(data)
 
     return render(requset,'home.html',data)
+
+def Wishlist(request):
+   return render(request,'wishlist.html')
+
+
+
+
    
 def contactus(request):
     if 'username' not in request.session:
