@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'taxtype',
     'alternateunit',
     'contactus',
+    'cart',
 
 ]
 
