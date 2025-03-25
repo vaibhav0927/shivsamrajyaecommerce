@@ -14,24 +14,12 @@ from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
 from contactus.models import Contactus
-from product.models import Product
-
 
 from django.shortcuts import redirect # type: ignore
 
-def product(requset):
-    productdata=Product.objects.all()
-    data={
-       
-        "plist":productdata
-        
-   }
-    print(data)
-
-    return render(requset,'home.html',data)
    
 def contactus(request):
-    if 'username' not in request.session:
+    if 'user_email' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -66,7 +54,7 @@ def sub(request):
 
 
 def about(request):
-    if 'username' not in request.session:
+    if 'user_email' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -83,17 +71,15 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
-   productdata=Product.objects.all()[:4]  
-   product=Product.objects.all()[86:92]  
+   
    data={
         "list":sliderdata,
         "category":categorydata,
-        "brand":branddata,
-        "plist":productdata,
-        "product":product
+        "brand":branddata
         
    }
    return render(request,'home.html',data)
+
    
 def registration(request):
     if request.method == "POST":
@@ -145,8 +131,12 @@ def registration(request):
    
     data={
        
-    "category":categorydata,
+
+        "category":categorydata,
         "brand":branddata
+
+    
+
         
    }
     return render(request,'general.html',data) 
@@ -157,11 +147,14 @@ def login(request):
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
-        
+    
+    
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
-            request.session['user_email'] = email  
-            return redirect("/home/")  
+            request.session['user_email'] = email 
+         
+     
+            return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
     
@@ -171,8 +164,8 @@ def login(request):
    
     data={
        
-    "category":categorydata,
-    "brand":branddata
+        "category":categorydata,
+        "brand":branddata
         
    }
     return render(request,'login.html',data)
@@ -224,7 +217,6 @@ def Spices(request):
     
     
 
-
 def cosmetic(request):
     # if 'username' not in request.session:
         # return redirect("/login/")
@@ -243,7 +235,7 @@ def cosmetic(request):
 def fooditems(request):
     # if 'username' not in request.session:
         # return redirect("/login/")
-    categorydata= Category.objects.all() 
+    categorydata= Category.objects.all()
     branddata=Brands.objects.all()
    
     data={
