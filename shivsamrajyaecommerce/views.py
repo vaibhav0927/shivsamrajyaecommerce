@@ -85,6 +85,7 @@ def home(request):
    branddata=Brands.objects.all()
    productdata=Product.objects.all()[:4]  
    product=Product.objects.all()[86:92]  
+    
    data={
         "list":sliderdata,
         "category":categorydata,
@@ -259,11 +260,12 @@ def shop(request):
         # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
-   
+    productdata=Product.objects.all()  
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "plist":productdata
         
    }
     return render(request,'shop.html',data)
