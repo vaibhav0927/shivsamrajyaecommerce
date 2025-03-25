@@ -84,7 +84,7 @@ def home(request):
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
    productdata=Product.objects.all()[:4]  
-   product=Product.objects.all()[7:11]  
+   product=Product.objects.all()[86:92]  
    data={
         "list":sliderdata,
         "category":categorydata,
@@ -145,7 +145,7 @@ def registration(request):
    
     data={
        
-        "category":categorydata,
+    "category":categorydata,
         "brand":branddata
         
    }
@@ -171,8 +171,8 @@ def login(request):
    
     data={
        
-        "category":categorydata,
-        "brand":branddata
+    "category":categorydata,
+    "brand":branddata
         
    }
     return render(request,'login.html',data)
