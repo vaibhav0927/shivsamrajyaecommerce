@@ -35,9 +35,6 @@ def Wishlist(request):
    return render(request,'wishlist.html')
 
 
-
-
-   
 def contactus(request):
     if 'username' not in request.session:
         return redirect("/login/")
