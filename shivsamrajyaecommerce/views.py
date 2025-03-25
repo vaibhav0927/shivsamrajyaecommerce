@@ -131,8 +131,12 @@ def registration(request):
    
     data={
        
+
         "category":categorydata,
         "brand":branddata
+
+    
+
         
    }
     return render(request,'general.html',data) 

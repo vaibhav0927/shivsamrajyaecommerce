@@ -54,6 +54,10 @@ INSTALLED_APPS = [
     'alternateunit',
     'contactus',
 
+    'wishlist',
+    'cart',
+
+
 ]
 
 MIDDLEWARE = [
