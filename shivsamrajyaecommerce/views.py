@@ -79,6 +79,7 @@ def home(request):
         
    }
    return render(request,'home.html',data)
+
    
 def registration(request):
     if request.method == "POST":
@@ -146,7 +147,7 @@ def login(request):
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
             request.session['user_email'] = email  
-            return redirect("/home/")  
+            return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
     
@@ -208,7 +209,6 @@ def Spices(request):
     return render(request,'Spices.html',data)
     
     
-
 
 def cosmetic(request):
     # if 'username' not in request.session:
