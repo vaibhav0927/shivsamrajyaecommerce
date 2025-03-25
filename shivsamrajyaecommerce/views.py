@@ -145,7 +145,7 @@ def registration(request):
    
     data={
        
-        "category":categorydata,
+    "category":categorydata,
         "brand":branddata
         
    }
@@ -171,8 +171,8 @@ def login(request):
    
     data={
        
-        "category":categorydata,
-        "brand":branddata
+    "category":categorydata,
+    "brand":branddata
         
    }
     return render(request,'login.html',data)
