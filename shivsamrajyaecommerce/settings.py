@@ -53,7 +53,11 @@ INSTALLED_APPS = [
     'taxtype',
     'alternateunit',
     'contactus',
+<<<<<<< HEAD
     'wishlist',
+=======
+    'cart',
+>>>>>>> 73069f3192f1c2097cbb6c81937af2ce9439e132
 
 ]
 
