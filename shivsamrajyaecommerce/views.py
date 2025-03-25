@@ -14,9 +14,21 @@ from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
 from contactus.models import Contactus
+from product.models import Product
+
 
 from django.shortcuts import redirect # type: ignore
 
+def product(requset):
+    productdata=Product.objects.all()
+    data={
+       
+        "plist":productdata
+        
+   }
+    print(data)
+
+    return render(requset,'home.html',data)
    
 def contactus(request):
     if 'username' not in request.session:
@@ -71,11 +83,15 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
-   
+   productdata=Product.objects.all()[:4]  
+   product=Product.objects.all()[86:92]  
+    
    data={
         "list":sliderdata,
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "plist":productdata,
+        "product":product
         
    }
    return render(request,'home.html',data)
@@ -131,7 +147,7 @@ def registration(request):
    
     data={
        
-        "category":categorydata,
+    "category":categorydata,
         "brand":branddata
         
    }
@@ -157,8 +173,8 @@ def login(request):
    
     data={
        
-        "category":categorydata,
-        "brand":branddata
+    "category":categorydata,
+    "brand":branddata
         
    }
     return render(request,'login.html',data)
@@ -228,7 +244,7 @@ def cosmetic(request):
 def fooditems(request):
     # if 'username' not in request.session:
         # return redirect("/login/")
-    categorydata= Category.objects.all()
+    categorydata= Category.objects.all() 
     branddata=Brands.objects.all()
    
     data={
@@ -244,11 +260,12 @@ def shop(request):
         # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
-   
+    productdata=Product.objects.all()  
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "plist":productdata
         
    }
     return render(request,'shop.html',data)
