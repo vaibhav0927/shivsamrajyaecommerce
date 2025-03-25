@@ -85,6 +85,7 @@ def home(request):
    branddata=Brands.objects.all()
    productdata=Product.objects.all()[:4]  
    product=Product.objects.all()[86:92]  
+    
    data={
         "list":sliderdata,
         "category":categorydata,
@@ -94,6 +95,7 @@ def home(request):
         
    }
    return render(request,'home.html',data)
+
    
 def registration(request):
     if request.method == "POST":
@@ -161,7 +163,7 @@ def login(request):
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
             request.session['user_email'] = email  
-            return redirect("/home/")  
+            return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
     
@@ -224,7 +226,6 @@ def Spices(request):
     
     
 
-
 def cosmetic(request):
     # if 'username' not in request.session:
         # return redirect("/login/")
@@ -259,11 +260,12 @@ def shop(request):
         # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
-   
+    productdata=Product.objects.all()  
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "plist":productdata
         
    }
     return render(request,'shop.html',data)
