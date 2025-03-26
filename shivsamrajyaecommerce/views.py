@@ -35,8 +35,7 @@ def product(requset):
 
     return render(requset,'home.html',data)
 
-def Wishlist(request):
-   return render(request,'wishlist.html')
+
 
 
 def contactus(request):
@@ -365,10 +364,10 @@ def cart_submit(request):
         cart_quantity=request.POST.get("cart_quantity")
         cart_price=request.POST.get("cart_price")  
         if not c_id:
-            return redirect("/")  # Redirect to login if user is not logged in
+            return redirect("/")  
         
         try:
-            customer = Customer.objects.get(c_id=int(c_id))  # Convert c_id to int to match DB type
+            customer = Customer.objects.get(c_id=int(c_id))  
         except Customer.DoesNotExist:
             return redirect("/") 
 
@@ -384,6 +383,34 @@ def cart_submit(request):
    
     insert.save()
     return redirect("/")
+
+
+def wishlist_add(request):
+    if request.method == "POST":
+        product_id = request.POST.get("product_id")
+        c_id = request.session.get('user_id')
+
+        if not c_id:
+            return redirect("/") 
+
+        try:
+            customer = Customer.objects.get(c_id=int(c_id)) 
+        except Customer.DoesNotExist:
+            return redirect("/") 
+
+        
+        if Wishlist.objects.filter(c_id=customer, product_id=product_id).exists():
+            return redirect("/") 
+
+       
+        insert = Wishlist(
+            product_id=Product.objects.get(product_id=product_id),
+            c_id=customer
+        )
+        insert.save()
+        
+    return redirect("/")
+
 
 def slider(request):
     sliderdata= slider.objects.all()

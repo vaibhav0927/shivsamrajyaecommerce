@@ -48,7 +48,8 @@ urlpatterns = [
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
    
-    path('cart_submit/',views.cart_submit)
+    path('cart_submit/',views.cart_submit),
+    path('wishlist_add/',views.wishlist_add)
 ]
 
 if settings.DEBUG:
