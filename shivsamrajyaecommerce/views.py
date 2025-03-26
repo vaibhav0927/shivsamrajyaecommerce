@@ -1,6 +1,6 @@
 
 
-from http.client import HTTPResponse
+
 from django.http import JsonResponse # type: ignore
 
 from django.shortcuts import render # type: ignore
@@ -15,6 +15,10 @@ from category.models import Category
 from brands.models import Brands
 from contactus.models import Contactus
 from product.models import Product
+from wishlist.models import Wishlist
+from cart.models import Cart
+
+
 
 
 from django.shortcuts import redirect # type: ignore
@@ -85,13 +89,14 @@ def home(request):
    branddata=Brands.objects.all()
    productdata=Product.objects.all()[:4]  
    product=Product.objects.all()[86:92]  
-    
+   cartdata=Cart.objects.all()
    data={
         "list":sliderdata,
         "category":categorydata,
         "brand":branddata,
         "plist":productdata,
-        "product":product
+        "product":product,
+        "cart":cartdata
         
    }
    return render(request,'home.html',data)
@@ -330,6 +335,26 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+def cart_submit(request):
+    if request.method == "POST":
+        product_id = request.POST.get("product_id")
+        c_id = request.POST.get("c_id")
+        cart_quantity=request.POST.get("cart_quantity")
+        cart_price=request.POST.get("cart_price")
+
+     
+        insert =Cart(
+        product_id= Product.objects.get(product_id=product_id),
+        c_id=Customer.objects.get(c_id=c_id),
+        cart_quantity=cart_quantity,
+        cart_price=cart_price
+            
+        )
+        
+   
+    insert.save()
+    return redirect("/")
 
 
 

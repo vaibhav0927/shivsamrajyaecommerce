@@ -9,12 +9,12 @@ class Cart(models.Model):
 
     product_id = models.ForeignKey(Product,null=True,on_delete=models.CASCADE)
 
-    cart_quantity = models.CharField(max_length=255)
+    cart_quantity = models.CharField(max_length=255,null=True)
     
-    cart_price= models.CharField(max_length=255)
+    cart_price= models.CharField(max_length=255,null=True)
 
     class Meta:
         db_table = "tbl_cart"
     def __str__(self):
-        return self.cart_id
+        return f"Cart Id:{self.cart_id}"
 
