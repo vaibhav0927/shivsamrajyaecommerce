@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contactus/',views.contactus),
     path('login/',views.login),
-
     path('registration/',views.registration),
     path('',views.home),
     path('about/',views.about),
@@ -37,6 +36,7 @@ urlpatterns = [
     path('shop/',views.shop),
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
+    # path('cart/',views.cart),
 
     path('submit/',views.submit),
     path('slider/',views.slider),
@@ -47,7 +47,8 @@ urlpatterns = [
     path('Spices/',views.Spices),
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
-
+   
+    path('cart_submit/',views.cart_submit)
 ]
 
 if settings.DEBUG:

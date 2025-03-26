@@ -15,6 +15,8 @@ from category.models import Category
 from brands.models import Brands
 from contactus.models import Contactus
 from product.models import Product
+from wishlist.models import Wishlist
+from cart.models import Cart
 
 
 from django.shortcuts import redirect # type: ignore
@@ -32,17 +34,23 @@ def product(requset):
     print(data)
 
     return render(requset,'home.html',data)
-   
+
+def Wishlist(request):
+   return render(request,'wishlist.html')
+
+
 def contactus(request):
     if 'username' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
    
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "user_name": user_name,
         
    }
     return render(request,'contactus.html',data)
@@ -73,11 +81,13 @@ def about(request):
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
    
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "user_name": user_name,
         
    }
     return render(request,'about.html',data)
@@ -86,20 +96,33 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
+
+   user_name = request.session.get('user_name', None)
+
    productdata=Product.objects.all()[:4]  
    product=Product.objects.all()[86:92]  
     
+
    data={
         "list":sliderdata,
         "category":categorydata,
         "brand":branddata,
+
+        
+        "user_name": user_name,  # Pass the user name to the template
+
         "plist":productdata,
         "product":product
         
    }
    return render(request,'home.html',data)
 
-   
+def logout(request):
+    request.session.flush()  # Clear session data
+    return redirect("/")  # Redirect to home page
+ 
+
+
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -150,8 +173,14 @@ def registration(request):
    
     data={
        
-    "category":categorydata,
-    "brand":branddata
+
+
+        "category":categorydata,
+        "brand":branddata,
+
+        "category":categorydata,
+        "brand":branddata
+
         
    }
     return render(request,'general.html',data) 
@@ -162,10 +191,13 @@ def login(request):
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
-        
+         
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
-            request.session['user_email'] = email  
+            request.session['user_email'] = email 
+            request.session['user_id'] = str(customer.c_id)
+            print(f"DEBUG: Customer ID from session: {request.session.get('user_id')}")
+  
             return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
@@ -325,7 +357,33 @@ def submit(request):
       return redirect("/login/")
      else:
         return render(request,'registration.html')
+     
+def cart_submit(request):
+    if request.method == "POST":
+        product_id = request.POST.get("product_id")
+        c_id = request.session.get('user_id')
+        cart_quantity=request.POST.get("cart_quantity")
+        cart_price=request.POST.get("cart_price")  
+        if not c_id:
+            return redirect("/")  # Redirect to login if user is not logged in
         
+        try:
+            customer = Customer.objects.get(c_id=int(c_id))  # Convert c_id to int to match DB type
+        except Customer.DoesNotExist:
+            return redirect("/") 
+
+     
+        insert =Cart(
+        product_id= Product.objects.get(product_id=product_id),
+        c_id=customer,
+        cart_quantity=cart_quantity,
+        cart_price=cart_price
+            
+        )
+        
+   
+    insert.save()
+    return redirect("/")
 
 def slider(request):
     sliderdata= slider.objects.all()
