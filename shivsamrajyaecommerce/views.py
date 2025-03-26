@@ -19,6 +19,9 @@ from product.models import Product
 
 from django.shortcuts import redirect # type: ignore
 
+
+
+
 def product(requset):
     productdata=Product.objects.all()
     data={
