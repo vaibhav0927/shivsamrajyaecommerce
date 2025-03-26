@@ -21,6 +21,9 @@ from cart.models import Cart
 
 from django.shortcuts import redirect # type: ignore
 
+
+
+
 def product(requset):
     productdata=Product.objects.all()
     data={
