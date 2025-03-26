@@ -1,6 +1,6 @@
 
 
-
+from http.client import HTTPResponse
 from django.http import JsonResponse # type: ignore
 
 from django.shortcuts import render # type: ignore
@@ -19,8 +19,6 @@ from wishlist.models import Wishlist
 from cart.models import Cart
 
 
-
-
 from django.shortcuts import redirect # type: ignore
 
 def product(requset):
@@ -33,17 +31,23 @@ def product(requset):
     print(data)
 
     return render(requset,'home.html',data)
-   
+
+def Wishlist(request):
+   return render(request,'wishlist.html')
+
+
 def contactus(request):
     if 'username' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
    
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "user_name": user_name,
         
    }
     return render(request,'contactus.html',data)
@@ -74,11 +78,13 @@ def about(request):
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
    
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "user_name": user_name,
         
    }
     return render(request,'about.html',data)
@@ -87,21 +93,33 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
+
+   user_name = request.session.get('user_name', None)
+
    productdata=Product.objects.all()[:4]  
    product=Product.objects.all()[86:92]  
-   cartdata=Cart.objects.all()
+    
+
    data={
         "list":sliderdata,
         "category":categorydata,
         "brand":branddata,
+
+        
+        "user_name": user_name,  # Pass the user name to the template
+
         "plist":productdata,
-        "product":product,
-        "cart":cartdata
+        "product":product
         
    }
    return render(request,'home.html',data)
 
-   
+def logout(request):
+    request.session.flush()  # Clear session data
+    return redirect("/")  # Redirect to home page
+ 
+
+
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -152,8 +170,14 @@ def registration(request):
    
     data={
        
-    "category":categorydata,
-    "brand":branddata
+
+
+        "category":categorydata,
+        "brand":branddata,
+
+        "category":categorydata,
+        "brand":branddata
+
         
    }
     return render(request,'general.html',data) 
@@ -330,15 +354,7 @@ def submit(request):
       return redirect("/login/")
      else:
         return render(request,'registration.html')
-        
-
-def slider(request):
-    sliderdata= slider.objects.all()
-    data={
-        "list":sliderdata
-    }
-    return render(request,'home.html',data)
-
+     
 def cart_submit(request):
     if request.method == "POST":
         product_id = request.POST.get("product_id")
@@ -365,6 +381,13 @@ def cart_submit(request):
    
     insert.save()
     return redirect("/")
+
+def slider(request):
+    sliderdata= slider.objects.all()
+    data={
+        "list":sliderdata
+    }
+    return render(request,'home.html',data)
 
 
 
