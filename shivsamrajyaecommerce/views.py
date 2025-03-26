@@ -14,12 +14,29 @@ from slider.models import Slider
 from category.models import Category
 from brands.models import Brands
 from contactus.models import Contactus
+from product.models import Product
+from wishlist.models import Wishlist
+
 
 from django.shortcuts import redirect # type: ignore
 
-   
+def product(requset):
+    productdata=Product.objects.all()
+    data={
+       
+        "plist":productdata
+        
+   }
+    print(data)
+
+    return render(requset,'home.html',data)
+
+def Wishlist(request):
+   return render(request,'wishlist.html')
+
+
 def contactus(request):
-    if 'user_email' not in request.session:
+    if 'username' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -56,7 +73,7 @@ def sub(request):
 
 
 def about(request):
-    if 'user_email' not in request.session:
+    if 'username' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -75,14 +92,23 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
+
    user_name = request.session.get('user_name', None)
-   
+
+   productdata=Product.objects.all()[:4]  
+   product=Product.objects.all()[86:92]  
+    
+
    data={
         "list":sliderdata,
         "category":categorydata,
         "brand":branddata,
+
         
         "user_name": user_name,  # Pass the user name to the template
+
+        "plist":productdata,
+        "product":product
         
    }
    return render(request,'home.html',data)
@@ -144,8 +170,13 @@ def registration(request):
     data={
        
 
+
+        "category":categorydata,
+        "brand":branddata,
+
         "category":categorydata,
         "brand":branddata
+
         
    }
     return render(request,'general.html',data) 
@@ -156,14 +187,17 @@ def login(request):
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
-    
-    
+        
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
+
             request.session['user_email'] = email
             request.session['user_name'] = customer.c_fullNameEng  
          
      
+
+            request.session['user_email'] = email  
+
             return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
@@ -174,8 +208,8 @@ def login(request):
    
     data={
        
-        "category":categorydata,
-        "brand":branddata
+    "category":categorydata,
+    "brand":branddata
         
    }
     return render(request,'login.html',data)
@@ -245,7 +279,7 @@ def cosmetic(request):
 def fooditems(request):
     # if 'username' not in request.session:
         # return redirect("/login/")
-    categorydata= Category.objects.all()
+    categorydata= Category.objects.all() 
     branddata=Brands.objects.all()
    
     data={
@@ -261,11 +295,12 @@ def shop(request):
         # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
-   
+    productdata=Product.objects.all()  
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "plist":productdata
         
    }
     return render(request,'shop.html',data)

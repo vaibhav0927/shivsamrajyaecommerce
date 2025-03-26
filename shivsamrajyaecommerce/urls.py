@@ -47,6 +47,7 @@ urlpatterns = [
     path('Spices/',views.Spices),
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
+    path("wishlist/",views.Wishlist),
 
 ]
 
