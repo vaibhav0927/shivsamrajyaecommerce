@@ -23,11 +23,13 @@ def contactus(request):
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
    
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "user_name": user_name,
         
    }
     return render(request,'contactus.html',data)
@@ -58,11 +60,13 @@ def about(request):
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
    
     data={
        
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        "user_name": user_name,
         
    }
     return render(request,'about.html',data)
@@ -71,16 +75,24 @@ def home(request):
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
+   user_name = request.session.get('user_name', None)
    
    data={
         "list":sliderdata,
         "category":categorydata,
-        "brand":branddata
+        "brand":branddata,
+        
+        "user_name": user_name,  # Pass the user name to the template
         
    }
    return render(request,'home.html',data)
 
-   
+def logout(request):
+    request.session.flush()  # Clear session data
+    return redirect("/")  # Redirect to home page
+ 
+
+
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -134,9 +146,6 @@ def registration(request):
 
         "category":categorydata,
         "brand":branddata
-
-    
-
         
    }
     return render(request,'general.html',data) 
@@ -151,7 +160,8 @@ def login(request):
     
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
-            request.session['user_email'] = email 
+            request.session['user_email'] = email
+            request.session['user_name'] = customer.c_fullNameEng  
          
      
             return redirect("/")  
