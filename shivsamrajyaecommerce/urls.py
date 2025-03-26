@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contactus/',views.contactus),
     path('login/',views.login),
-
+    path('logout/',views.logout),
     path('registration/',views.registration),
     path('',views.home),
     path('about/',views.about),
@@ -47,6 +47,7 @@ urlpatterns = [
     path('Spices/',views.Spices),
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
+    path("wishlist/",views.Wishlist),
 
 ]
 
