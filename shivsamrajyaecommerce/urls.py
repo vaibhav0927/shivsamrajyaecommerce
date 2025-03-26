@@ -25,10 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contactus/',views.contactus),
     path('login/',views.login),
-<<<<<<< HEAD
-=======
-    path('logout/',views.logout),
->>>>>>> 27d424ade1c482947982791c1eded95006b40223
     path('registration/',views.registration),
     path('',views.home),
     path('about/',views.about),
@@ -51,13 +47,8 @@ urlpatterns = [
     path('Spices/',views.Spices),
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
-<<<<<<< HEAD
    
     path('cart_submit/',views.cart_submit)
-=======
-    path("wishlist/",views.Wishlist),
-
->>>>>>> 27d424ade1c482947982791c1eded95006b40223
 ]
 
 if settings.DEBUG:
