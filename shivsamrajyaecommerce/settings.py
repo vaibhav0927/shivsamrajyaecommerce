@@ -59,8 +59,11 @@ INSTALLED_APPS = [
 
 
     
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 6a64701c3ae07a235c2f16307f6ed158caf5c573
 
 
 ]
