@@ -7,6 +7,7 @@ from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
 from state.models import State
+from franchise.models import Franchise
 from district.models import District
 from taluka.models import Taluka
 from village.models import Village
@@ -36,10 +37,8 @@ def product(requset):
     return render(requset,'home.html',data)
 
 
-
-
 def contactus(request):
-    if 'username' not in request.session:
+    if 'user_email' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -76,7 +75,7 @@ def sub(request):
 
 
 def about(request):
-    if 'username' not in request.session:
+    if 'user_email' not in request.session:
         return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -129,6 +128,7 @@ def registration(request):
         mobile = request.POST.get("mobile")
         birth_date = request.POST.get("birthDate")
         state_id = request.POST.get("state")
+        franchise_id = request.POST.get("franchise")
         district_id = request.POST.get("district")
         taluka_id = request.POST.get("taluka")
         village_id = request.POST.get("village")
@@ -137,6 +137,7 @@ def registration(request):
         password = request.POST.get("password")
 
         state = State.objects.get(state_id=state_id)
+        franchise = Franchise.objects.get(franchise_id=franchise_id)
         district = District.objects.get(district_id=district_id) 
         taluka = Taluka.objects.get(taluka_id=taluka_id) 
         village = Village.objects.get(village_id=village_id)
@@ -147,6 +148,7 @@ def registration(request):
             c_mobile=mobile,
             c_birthDate=birth_date,
             state=state,
+            franchise=franchise,
             District=district,
             taluka=taluka,
             village=village,
@@ -158,6 +160,7 @@ def registration(request):
         return redirect("/login/")
 
     states = State.objects.all()
+    franchises=Franchise.objects.all()
     districts = District.objects.all()
     talukas = Taluka.objects.all()
     villages = Village.objects.all()
@@ -165,7 +168,8 @@ def registration(request):
         "states": states,
         "districts": districts,
         "talukas": talukas,
-        "villages": villages
+        "villages": villages,
+        "franchises":franchises
     })
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -193,10 +197,15 @@ def login(request):
          
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
-            request.session['user_email'] = email 
+
+
+            request.session['user_email'] = email
+            request.session['user_name'] = customer.c_fullNameEng  
+
             request.session['user_id'] = str(customer.c_id)
             print(f"DEBUG: Customer ID from session: {request.session.get('user_id')}")
   
+
             return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
@@ -294,12 +303,15 @@ def shop(request):
         # return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
-    productdata=Product.objects.all()  
+    productdata=Product.objects.all() 
+    user_name = request.session.get('user_name', None)
+     
     data={
        
         "category":categorydata,
         "brand":branddata,
-        "plist":productdata
+        "plist":productdata,
+        "user_name": user_name, 
         
    }
     return render(request,'shop.html',data)
@@ -383,6 +395,18 @@ def cart_submit(request):
    
     insert.save()
     return redirect("/")
+
+def wishlist(request):
+    wishlist = Wishlist.objects.all()  
+    data = {
+        "wishlist": wishlist
+    }
+    return render(request, "wishlist.html", data)
+
+def wishlistdelete(request, id):
+    wishlist= Wishlist.objects.get(wish_id=id)
+    wishlist.delete()
+    return redirect("/wishlist/")
 
 
 def wishlist_add(request):
