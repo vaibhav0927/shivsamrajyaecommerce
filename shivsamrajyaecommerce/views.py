@@ -384,6 +384,15 @@ def cart_submit(request):
     insert.save()
     return redirect("/")
 
+def wishlist(request):
+    wishlist = Wishlist.objects.all()  
+    data = {
+        "wishlist": wishlist
+    }
+    return render(request, "wishlist.html", data)
+
+    
+
 
 def wishlist_add(request):
     if request.method == "POST":

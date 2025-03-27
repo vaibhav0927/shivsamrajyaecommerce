@@ -1,3 +1,5 @@
+{% extends 'master.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,40 @@
     <title>Document</title>
 </head>
 <body>
-    
+    {% block project%}
+    <h2>My Wish List</h2>
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in wishlist %}
+            <tr>
+                <td>
+                    {% if i.product_id.product_img %}
+                   
+                    <img src="/media/{{ i.product_id.product_img }}" alt="Product Image" width="50px">
+
+
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>{{ i.product_id.product_name }}</td>
+                <td>₹ {{ i.product_id.mrp }}</td>
+                <td>
+                    <button>Add to Cart</button>
+                    <a href="/remove/{{ i.wish_id }}">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
 </body>
 </html>
