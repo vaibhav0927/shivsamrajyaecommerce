@@ -75,11 +75,11 @@
                         <div class="mb-3">
                             <label class="form-label">Near by Franchise</label>
 
-                            <select name="franchise"  id="f" style="width: 100%;" class="form-control">
+                            <select name="franchise"  id="franchise" class="form-control">
                                 <option value=""> Select </option>
-                                {% for i in franchise %}
+                                {% for franchise in franchises %}
 
-                                <option value="{{i.franchise}}">{{i.franchise_name}}</option>
+                                <option value="{{franchise.franchise_id}}">{{franchise.franchise_name}}</option>
                                 {% endfor %}
 
                             </select>
