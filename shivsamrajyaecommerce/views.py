@@ -399,6 +399,7 @@ def cart_submit(request):
     return redirect("/")
 
 def wishlist(request):
+    
     wishlist = Wishlist.objects.all()  
     data = {
         "wishlist": wishlist
@@ -412,6 +413,7 @@ def wishlistdelete(request, id):
 
 
 def wishlist_add(request):
+    
     if request.method == "POST":
         product_id = request.POST.get("product_id")
         c_id = request.session.get('user_id')
