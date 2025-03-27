@@ -201,8 +201,6 @@ def login(request):
 
             request.session['user_email'] = email
             request.session['user_name'] = customer.c_fullNameEng  
-         
-            
 
             request.session['user_id'] = str(customer.c_id)
             print(f"DEBUG: Customer ID from session: {request.session.get('user_id')}")
