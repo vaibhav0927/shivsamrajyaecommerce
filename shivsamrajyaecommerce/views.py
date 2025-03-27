@@ -37,8 +37,6 @@ def product(requset):
     return render(requset,'home.html',data)
 
 
-
-
 def contactus(request):
     if 'user_email' not in request.session:
         return redirect("/login/")
