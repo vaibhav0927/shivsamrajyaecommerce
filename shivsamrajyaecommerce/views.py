@@ -34,10 +34,7 @@ def product(requset):
     return render(requset,'home.html',data)
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> be67f7700246c13543abb3158770a8ff9a179b3e
 def contactus(request):
     if 'user_email' not in request.session:
         return redirect("/login/")

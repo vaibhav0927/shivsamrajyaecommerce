@@ -53,10 +53,7 @@ urlpatterns = [
     path('cart_submit/',views.cart_submit),
     path('wishlist_add/',views.wishlist_add),
 
-<<<<<<< HEAD
-=======
 
->>>>>>> be67f7700246c13543abb3158770a8ff9a179b3e
     path('wishlist/',views.wishlist),
      path("wishlistdelete/<id>/",views.wishlistdelete),
 
