@@ -37,7 +37,6 @@ def product(requset):
 
 
 
-
 def contactus(request):
     if 'username' not in request.session:
         return redirect("/login/")
@@ -418,6 +417,14 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+def addcart(request):
+    cartdata=Cart.objects.all()
+    data={
+        "cart":cartdata
+         }
+    return render('shopping.html',data)
+   
 
 
 

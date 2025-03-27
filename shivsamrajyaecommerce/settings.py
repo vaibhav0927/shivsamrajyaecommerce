@@ -58,8 +58,8 @@ INSTALLED_APPS = [
     'cart',
 
 
-    'wishlist',
-    'cart',
+    
+    
 
 
 
