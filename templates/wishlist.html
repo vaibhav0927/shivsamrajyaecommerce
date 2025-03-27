@@ -2,46 +2,57 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Wishlist</title>
 </head>
-<body>
-    {% block project%}
-    <h2>My Wish List</h2>
-    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+<body style="font-family: Arial, sans-serif; margin: 20px;">
+
+    {% block project %}
+    <h2 style="text-align: center; color: #333;">My Wish List</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0" width="100%" 
+           style="border-collapse: collapse; text-align: center;">
         <thead>
-            <tr>
-                <th>Image</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Action</th>
+            <tr style="background-color: #f4f4f4;">
+                <th style="padding: 10px; border: 1px solid #ddd;">Image</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Product Name</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
             </tr>
         </thead>
         <tbody>
             {% for i in wishlist %}
             <tr>
-                <td>
+                <td style="padding: 10px; border: 1px solid #ddd;">
                     {% if i.product_id.product_img %}
-                   
-                    <img src="/media/{{ i.product_id.product_img }}" alt="Product Image" width="50px">
-
-
+                    <img src="/media/{{ i.product_id.product_img }}" alt="Product Image" width="50px" 
+                         style="border-radius: 5px; border: 1px solid #ccc;">
                     {% else %}
                         No Image
                     {% endif %}
                 </td>
-                <td>{{ i.product_id.product_name }}</td>
-                <td>₹ {{ i.product_id.mrp }}</td>
-                <td>
-                    <button>Add to Cart</button>
-                    <a href="/remove/{{ i.wish_id }}">Remove</a>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ i.product_id.product_name }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);">₹ {{ i.product_id.mrp }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">
+                    <button style="padding: 5px 10px; background-color: rgb(112, 112, 238); color: white; border: none; cursor: pointer;">
+                        Add to Cart
+                    </button>
+                    <a href="/wishlistdelete/{{ i.wish_id }}" 
+                       style="padding: 5px 10px; background-color: rgb(241, 91, 91); color: white; text-decoration: none; 
+                              border-radius: 3px; display: inline-block; margin-left: 10px;">
+                        Remove
+                    </a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    {% endfor %}
+
+    {% endblock %}
+
 </body>
 </html>

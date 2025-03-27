@@ -199,7 +199,7 @@ def login(request):
          
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
-<<<<<<< HEAD
+
 
             request.session['user_email'] = email
             request.session['user_name'] = customer.c_fullNameEng  
@@ -208,12 +208,12 @@ def login(request):
 
             
 
-=======
-            request.session['user_email'] = email 
+
+            
             request.session['user_id'] = str(customer.c_id)
             print(f"DEBUG: Customer ID from session: {request.session.get('user_id')}")
   
->>>>>>> ef22782e8531a57de9b5a79d6fccaa9f13fc5bcd
+
             return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
@@ -411,7 +411,10 @@ def wishlist(request):
     }
     return render(request, "wishlist.html", data)
 
-    
+def wishlistdelete(request, id):
+    wishlist= Wishlist.objects.get(wish_id=id)
+    wishlist.delete()
+    return redirect("/wishlist/")
 
 
 def wishlist_add(request):
