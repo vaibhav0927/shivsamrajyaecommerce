@@ -1,8 +1,5 @@
 
 
-from http.client import HTTPResponse
-from django.http import JsonResponse # type: ignore
-
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
@@ -35,7 +32,6 @@ def product(requset):
     print(data)
 
     return render(requset,'home.html',data)
-
 
 
 
@@ -446,6 +442,14 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+def addcart(request):
+    cartdata=Cart.objects.all()
+    data={
+        "cart":cartdata
+         }
+    return render('shopping.html',data)
+   
 
 
 
