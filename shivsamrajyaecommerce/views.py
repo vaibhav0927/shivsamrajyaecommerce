@@ -1,8 +1,5 @@
 
 
-from http.client import HTTPResponse
-from django.http import JsonResponse # type: ignore
-
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
