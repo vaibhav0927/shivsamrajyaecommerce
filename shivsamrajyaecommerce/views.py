@@ -205,6 +205,7 @@ def login(request):
             request.session['user_name'] = customer.c_fullNameEng  
          
             
+
             request.session['user_id'] = str(customer.c_id)
             print(f"DEBUG: Customer ID from session: {request.session.get('user_id')}")
   
@@ -398,6 +399,18 @@ def cart_submit(request):
    
     insert.save()
     return redirect("/")
+
+def wishlist(request):
+    wishlist = Wishlist.objects.all()  
+    data = {
+        "wishlist": wishlist
+    }
+    return render(request, "wishlist.html", data)
+
+def wishlistdelete(request, id):
+    wishlist= Wishlist.objects.get(wish_id=id)
+    wishlist.delete()
+    return redirect("/wishlist/")
 
 
 def wishlist_add(request):
