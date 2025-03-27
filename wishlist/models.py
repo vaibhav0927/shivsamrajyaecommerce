@@ -12,6 +12,6 @@ class Wishlist(models.Model):
         db_table = "tbl_wish"
 
     def __str__(self):
-        return self.wish_id
+         return f"Wishlist ID: {self.wish_id}"
 
 # Create your models here.

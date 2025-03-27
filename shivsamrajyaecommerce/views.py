@@ -17,9 +17,13 @@ from brands.models import Brands
 from contactus.models import Contactus
 from product.models import Product
 from wishlist.models import Wishlist
+from cart.models import Cart
 
 
 from django.shortcuts import redirect # type: ignore
+
+
+
 
 def product(requset):
     productdata=Product.objects.all()
@@ -32,8 +36,7 @@ def product(requset):
 
     return render(requset,'home.html',data)
 
-def Wishlist(request):
-   return render(request,'wishlist.html')
+
 
 
 def contactus(request):
@@ -193,9 +196,10 @@ def login(request):
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
-        
+         
         try:
             customer = Customer.objects.get(c_email=email, c_password=password)
+<<<<<<< HEAD
 
             request.session['user_email'] = email
             request.session['user_name'] = customer.c_fullNameEng  
@@ -204,6 +208,12 @@ def login(request):
 
             
 
+=======
+            request.session['user_email'] = email 
+            request.session['user_id'] = str(customer.c_id)
+            print(f"DEBUG: Customer ID from session: {request.session.get('user_id')}")
+  
+>>>>>>> ef22782e8531a57de9b5a79d6fccaa9f13fc5bcd
             return redirect("/")  
         except Customer.DoesNotExist:
             error_message = "Invalid email or password. Please try again."
@@ -366,7 +376,61 @@ def submit(request):
       return redirect("/login/")
      else:
         return render(request,'registration.html')
+     
+def cart_submit(request):
+    if request.method == "POST":
+        product_id = request.POST.get("product_id")
+        c_id = request.session.get('user_id')
+        cart_quantity=request.POST.get("cart_quantity")
+        cart_price=request.POST.get("cart_price")  
+        if not c_id:
+            return redirect("/")  
         
+        try:
+            customer = Customer.objects.get(c_id=int(c_id))  
+        except Customer.DoesNotExist:
+            return redirect("/") 
+
+     
+        insert =Cart(
+        product_id= Product.objects.get(product_id=product_id),
+        c_id=customer,
+        cart_quantity=cart_quantity,
+        cart_price=cart_price
+            
+        )
+        
+   
+    insert.save()
+    return redirect("/")
+
+
+def wishlist_add(request):
+    if request.method == "POST":
+        product_id = request.POST.get("product_id")
+        c_id = request.session.get('user_id')
+
+        if not c_id:
+            return redirect("/") 
+
+        try:
+            customer = Customer.objects.get(c_id=int(c_id)) 
+        except Customer.DoesNotExist:
+            return redirect("/") 
+
+        
+        if Wishlist.objects.filter(c_id=customer, product_id=product_id).exists():
+            return redirect("/") 
+
+       
+        insert = Wishlist(
+            product_id=Product.objects.get(product_id=product_id),
+            c_id=customer
+        )
+        insert.save()
+        
+    return redirect("/")
+
 
 def slider(request):
     sliderdata= slider.objects.all()
