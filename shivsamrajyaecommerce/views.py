@@ -17,6 +17,7 @@ from wishlist.models import Wishlist
 from cart.models import Cart
 
 
+
 from django.shortcuts import redirect # type: ignore
 
 
@@ -35,8 +36,8 @@ def product(requset):
 
 
 def contactus(request):
-    # if 'username' not in request.session:
-    #    return redirect("/login/")
+    if 'user_email' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
@@ -75,8 +76,8 @@ def sub(request):
 
 
 def about(request):
-    # if 'username' not in request.session:
-        # return redirect("/login/")
+    if 'user_email' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
@@ -448,7 +449,30 @@ def cart_submit(request):
         
     return redirect("/")
 
+<<<<<<< HEAD
     
+=======
+
+
+def view_cart(request):
+    if 'user_id' not in request.session:  # Check if user is logged in
+        return redirect("/") 
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
+        "user_name": user_name,
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'view_cart.html',data)
+>>>>>>> ae59a03a9cd5a59852e3f62b555ca43eb868ec7b
 
 def wishlist(request):
     if 'user_id' not in request.session:  
