@@ -48,14 +48,19 @@ urlpatterns = [
     path('Spices/',views.Spices),
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
+<<<<<<< HEAD
      path('viewcart/',views.viewcart),
+=======
+    
+>>>>>>> 74fd83f69ad3d1b5eb6a5fe961abc71f2b043f69
    
     path('cart_submit/',views.cart_submit),
     path('wishlist_add/',views.wishlist_add),
     
 
     path('wishlist/',views.wishlist),
-     path("wishlistdelete/<id>/",views.wishlistdelete),
+    path("wishlistdelete/<id>/",views.wishlistdelete),
+    path("cart_delete<id>/",views.cartdelete),
 
 ]
 

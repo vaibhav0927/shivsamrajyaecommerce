@@ -45,18 +45,18 @@
       <div class="col-lg-4 pt-3 ">
         {% if user_name %}
         <a href="/logout/" style="color: white; font-size: 17px; margin-right:10px;" class="btn "><b>Logout</b></a>
-      
+
         <p style="color: white; font-size: 17px; display: inline;">
           <i class="fas fa-user text-light" style="font-size: 17px; margin-right: 5px;"></i><b> {{ user_name }}</b>
         </p>
-       
+
 
         {% else %}
         <a href="/login/" style="margin-left:260px; color: white; font-size: 17px;" class="btn"> <b>login</b></a>
         <a href="/registration/" style="color: white; font-size: 17px;" class="btn"> <b>Register</b></a>
-        <a href="/wishlist/" style="margin-left:20px; color: white; font-size: 17px;" class="btn"> <b>wishlist</b></a>
-        
+       
         {% endif %}
+        <a href="/wishlist/" style="margin-left:20px; color: white; font-size: 17px;" class="btn"> <b>wishlist</b></a>
 
 
         <p style="font-size: 20px; color: white; margin-left: 100px;">
@@ -64,78 +64,89 @@
             info.shivsamarajya@gmail.com</b>
         </p>
 
-        <p style="font-size: 20px; color: white;  margin-left: 100px;"><i class=" fas fa-phone text-light " style="font-size: 20px;"></i> <b>+91 9503933339 </b></p>
+        <p style="font-size: 20px; color: white;  margin-left: 100px;"><i class=" fas fa-phone text-light "
+            style="font-size: 20px;"></i> <b>+91 9503933339 </b></p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"
+          style="margin-left:100px; color: white; font-size: 20px;" class="btn"><strong>item(s) </strong></a>
+          <i class="fa-solid fa-caret-down" style="color: #e9ecf1;"></i></button>
 
+<<<<<<< HEAD
         
        
      
+=======
+        <!-- Modal -->
+>>>>>>> 74fd83f69ad3d1b5eb6a5fe961abc71f2b043f69
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left:100px; color: white; font-size: 20px;" class="btn"><strong>0 item(s) </strong></a>
-  <i class="fa-solid fa-caret-down" style="color: #e9ecf1;"></i></button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">No Product Added to Cart</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          {% for i in cart %}
-         <div class="col-lg-2">
-           {% if i.product_id.product_img %}
-          <img src="/media/{{ i.product_id.product_img }}" alt="Product Image" width="50px" 
-               style="border-radius: 5px; border: 1px solid #ccc;">
-          {% else %}
-              No Image
-          {% endif %}
+        <!--<a href="/" style="margin-left:100px; color: white; font-size: 20px;" class="btn"><strong>0 item(s) </strong></a>
+      <i class="fa-solid fa-caret-down" style="color: #e9ecf1;"></i>-->
 
-         </div>
-         <div class="col-lg-2">
-          {{i.product_id.product_name}}
-         </div>
-         <div class="col-lg-2">
-          {{cart_quantity}}
-         </div>
-         <div class="col-lg-2" style="background-color: #ff7722; height: 50px; width: 50px;">
-          <i class="fa-solid fa-check"></i>
-         </div>
-         <div class="col-lg-2">
-          {{sale}}
-         </div>
-         <div class="col-lg-2" style="border: 1px solid black;">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-</div>
-          {%endfor%}
-      <div class="row">
-          
-          <div class="col-lg-6" style="text-align: right;"><b>Total</b></div>
-          <div class="col-lg-6"style="text-align: right;"><b>Rs.</b></div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Product Added to Cart</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+
+                
+                
+                {% for i in cart %}
+                <div class="row text-center align-items-center border-bottom py-2">
+                  <!-- Product Image -->
+                  <div class="col-lg">
+                    <img src="/media/{{i.product_id.product_img}}" class="img-fluid" alt="Product Image" style="max-width: 60px;">
+                  </div>
+                
+                  <!-- Product Name -->
+                  <div class="col-lg">{{ i.product_id.product_name }}</div>
+                
+                  <!-- Quantity -->
+                  <div class="col-lg">{{ i.cart_quantity }}</div>
+                
+                  <!-- Price -->
+                  <div class="col-lg">₹{{ i.product_id.sale }}</div>
+                
+                  <!-- Total Price -->
+                  <!-- <div class="col-lg-2">₹{{ i.cart_quantity}}</div> -->
+              
+                  <!-- Remove Button -->
+                  <div class="col-lg">
+                    <form method="POST" action="/cart_delete{{i.cart_id}}/">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                {% empty %}
+                <div class="text-center mt-3">Your cart is empty.</div>
+                {% endfor %}
+                
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn " data-bs-dismiss="modal" style="background-color: #ff7722;">
+                  <i class="fa-solid fa-cart-shopping"></i><b>View Cart</b></button>
+                <button type="button" class="btn" style="background-color: #ff7722;">
+                  <i class="fa-solid fa-chess-knight"></i><b>Checkout</b></button>
+              </div>
+            </div>
+            </div>
+          </div>
 
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn " data-bs-dismiss="modal" style="background-color: #ff7722;">
-          <i class="fa-solid fa-cart-shopping"></i><b>View Cart</b></button>
-        <button type="button" class="btn" style="background-color: #ff7722;">
-          <i class="fa-solid fa-chess-knight"></i><b>Checkout</b></button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
 
-       <!--<a href="/" style="margin-left:100px; color: white; font-size: 20px;" class="btn"><strong>0 item(s) </strong></a>
-      <i class="fa-solid fa-caret-down" style="color: #e9ecf1;"></i>-->
       </div>
     </div>
-  </div>
 
 
 
