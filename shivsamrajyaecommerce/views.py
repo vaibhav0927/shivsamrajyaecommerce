@@ -17,6 +17,7 @@ from wishlist.models import Wishlist
 from cart.models import Cart
 
 
+
 from django.shortcuts import redirect # type: ignore
 
 
@@ -440,6 +441,16 @@ def cart_submit(request):
    
     insert.save()
     return redirect("/")
+
+
+def view_cart(request):
+    cartdata=Cart.objects.all()
+    data={
+        "cart":cartdata
+    }
+
+    return render(request, "view_cart.html",data)
+
 
 def wishlist(request):
     if 'user_id' not in request.session:  # Check if user is logged in
