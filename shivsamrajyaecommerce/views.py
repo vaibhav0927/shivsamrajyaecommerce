@@ -443,14 +443,25 @@ def cart_submit(request):
     return redirect("/")
 
 
+
 def view_cart(request):
+    if 'user_id' not in request.session:  # Check if user is logged in
+        return redirect("/") 
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
+    user_name = request.session.get('user_name', None)
     cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
     data={
-        "cart":cartdata
-    }
-
-    return render(request, "view_cart.html",data)
-
+       
+        "category":categorydata,
+        "brand":branddata,
+        "user_name": user_name,
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'view_cart.html',data)
 
 def wishlist(request):
     if 'user_id' not in request.session:  # Check if user is logged in
