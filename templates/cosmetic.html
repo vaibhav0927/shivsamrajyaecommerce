@@ -17,21 +17,16 @@
 
             <div class="col-lg-3">
                 <h1>Categories</h1>
-                <hr class="text-black">
-                <ul style="list-style: none;">
-                    <li><a href="" class="btn"><b>General</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Grocery</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Food Items</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Spices</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Cosmetic</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Stationary</b></a></li>
-                    <hr class="text-black">
-                </ul>
+             <hr class="text-black">
+              <ul style="list-style: none;">
+          {% for i in category %}
+          <hr class="text-black">
+              <li><a href="/{{ i.category_name }}/" class="btn" >{{ i.category_name }}</li></a>
+
+              {% endfor %}
+          
+        </ul>
+    
             </div>
 
             <div class="col-lg-8">

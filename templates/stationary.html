@@ -20,19 +20,13 @@
                 <h1>Categories</h1>
                 <hr class="text-black">
                 <ul style="list-style: none;">
-                    <li><a href="" class="btn"><b>General</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Grocery</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Food Items</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Spices</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Cosmetic</b></a></li>
-                    <hr class="text-black">
-                    <li><a href="" class="btn"><b>Stationary</b></a></li>
-                    <hr class="text-black">
-                </ul>
+                        {% for i in category %}
+                        <hr class="text-black">
+                        <li><a href="/{{ i.category_name }}/" class="btn">{{ i.category_name }}</li></a>
+
+                        {% endfor %}
+
+                    </ul>
             </div>
 
             <div class="col-lg-9">
@@ -46,11 +40,12 @@
                                     style="background-color: #ff7722; height: 30px ;width:70px;">Rs.25.00</span>
                             </div>
                             {% for i in list %}
-        <div class="carousel-item ">
-          <img src="media/{{i.category_name}}" class="d-block w-100 " alt="/media/{{i.category_name}}">
-        </div>
-        {% endfor %}
-  
+                            <div class="carousel-item ">
+                                <img src="media/{{i.category_name}}" class="d-block w-100 "
+                                    alt="/media/{{i.category_name}}">
+                            </div>
+                            {% endfor %}
+
                             <a href=""><img class="card-img-top img-fluid " style="height: 300px;"
                                     src="/static/assets/camlin Scholar Compass.png" alt="Card image"></a>
                             <div class="card-body">
@@ -347,8 +342,8 @@
         </div>
     </div>
 
-    
-    
+
+
 
     {% endblock %}
 
