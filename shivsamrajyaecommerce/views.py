@@ -449,9 +449,7 @@ def cart_submit(request):
         
     return redirect("/")
 
-<<<<<<< HEAD
-    
-=======
+
 
 
 def view_cart(request):
@@ -472,7 +470,7 @@ def view_cart(request):
         
    }
     return render(request,'view_cart.html',data)
->>>>>>> ae59a03a9cd5a59852e3f62b555ca43eb868ec7b
+
 
 def wishlist(request):
     if 'user_id' not in request.session:  
