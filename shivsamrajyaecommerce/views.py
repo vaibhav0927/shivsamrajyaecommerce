@@ -35,8 +35,8 @@ def product(requset):
 
 
 def contactus(request):
-    # if 'username' not in request.session:
-    #    return redirect("/login/")
+    if 'user_email' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
@@ -75,8 +75,8 @@ def sub(request):
 
 
 def about(request):
-    # if 'username' not in request.session:
-        # return redirect("/login/")
+    if 'user_email' not in request.session:
+        return redirect("/login/")
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
