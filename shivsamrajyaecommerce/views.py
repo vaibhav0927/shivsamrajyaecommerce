@@ -15,6 +15,8 @@ from contactus.models import Contactus
 from product.models import Product
 from wishlist.models import Wishlist
 from cart.models import Cart
+from django.shortcuts import render, redirect # type: ignore
+from checkout.models import Checkout
 
 
 
@@ -454,33 +456,51 @@ def cart_submit(request):
 
 def view_cart(request):
     if 'user_id' not in request.session: 
-        return redirect("/") 
+        return redirect("/")  
 
     user_id = request.session.get('user_id')  
 
     try:
         customer = Customer.objects.get(c_id=user_id)
     except Customer.DoesNotExist:
-        return redirect("/")
+        return redirect("/")  
 
-    
+    # Fetch cart data for the logged-in customer
     cartdata = Cart.objects.filter(c_id=customer)
-    
+
+    # Calculate total price
+    cart_items = []
+    total_price = 0  # Initialize total price
+
+    for item in cartdata:
+        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
+        total_price += item_total
+        cart_items.append({
+            'product_img': item.product_id.product_img,
+            'product_name': item.product_id.product_name,
+            'cart_quantity': item.cart_quantity,
+            'sale_price': item.product_id.sale,
+            'total_price': item_total,
+            'cart_id': item.cart_id,
+        })
+
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
-    user_name = request.session.get('user_name', None)
-    
     wishlistdata = Wishlist.objects.filter(c_id=customer)
+
+    user_name = request.session.get('user_name', None)
 
     data = {
         "category": categorydata,
         "brand": branddata,
         "user_name": user_name,
-        "cart": cartdata,
+        "cart": cart_items,
+        "total_price": total_price,
         "wishlist": wishlistdata,
     }
 
     return render(request, 'view_cart.html', data)
+
 
 
 def wishlist(request):
@@ -566,8 +586,7 @@ def slider(request):
     }
     return render(request,'home.html',data)
 
-from django.shortcuts import render, redirect
-from checkout.models import Checkout
+
 
 def checkout(request):
     if request.method == 'POST':
