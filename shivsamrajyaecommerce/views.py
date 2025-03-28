@@ -443,9 +443,13 @@ def cart_submit(request):
     return redirect("/")
 
 
-def viewcart(request):
+def view_cart(request):
+    cartdata=Cart.objects.all()
+    data={
+        "cart":cartdata
+    }
 
-    return render(request, "viewcart.html")
+    return render(request, "view_cart.html",data)
 
 
 def wishlist(request):
