@@ -566,6 +566,38 @@ def slider(request):
     }
     return render(request,'home.html',data)
 
+from django.shortcuts import render, redirect
+from checkout.models import Checkout
+
+def checkout(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        payment_method = request.POST.get('payment_method')
+        coupon_code=request.POST.get('coupon_code')
+        card_number =request.POST.get('card_number ')
+
+        checkout_entry = Checkout(
+                first_name=first_name,
+                email=email,
+                telephone=phone,
+                address=address,
+                payment_method=payment_method,
+                coupon_code=coupon_code,
+                card_number =card_number ,
+    
+            )
+        checkout_entry.save()
+        print("Order Saved Successfully!")  # Debugging
+        return redirect('/')  # Redirect after successful order placement
+    else:
+        print("Missing Data! Order not saved.")  # Debugging
+
+    return render(request, 'checkout.html')
+
+
 
 
 
