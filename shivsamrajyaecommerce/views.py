@@ -17,6 +17,7 @@ from wishlist.models import Wishlist
 from cart.models import Cart
 
 
+
 from django.shortcuts import redirect # type: ignore
 
 
@@ -393,6 +394,12 @@ def cart_submit(request):
    
     insert.save()
     return redirect("/")
+
+
+def viewcart(request):
+
+    return render(request, "viewcart.html")
+
 
 def wishlist(request):
     wishlist = Wishlist.objects.all()  
