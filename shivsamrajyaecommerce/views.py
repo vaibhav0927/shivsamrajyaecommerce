@@ -453,24 +453,24 @@ def cart_submit(request):
 
 
 def view_cart(request):
-    if 'user_id' not in request.session:  # Ensure user is logged in
+    if 'user_id' not in request.session: 
         return redirect("/") 
 
-    user_id = request.session.get('user_id')  # Get logged-in user ID
+    user_id = request.session.get('user_id')  
 
     try:
         customer = Customer.objects.get(c_id=user_id)
     except Customer.DoesNotExist:
         return redirect("/")
 
-    # Fetch cart data for the logged-in user only
+    
     cartdata = Cart.objects.filter(c_id=customer)
     
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     user_name = request.session.get('user_name', None)
     
-    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
+    wishlistdata = Wishlist.objects.filter(c_id=customer)
 
     data = {
         "category": categorydata,
@@ -494,13 +494,13 @@ def wishlist(request):
     except Customer.DoesNotExist:
         return redirect("/")
 
-    # Fetch wishlist data only for the logged-in user
+   
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     user_name = request.session.get('user_name', None)
-    cartdata = Cart.objects.filter(c_id=customer)  # Only logged-in user's cart
+    cartdata = Cart.objects.filter(c_id=customer)  
 
     data = {
         "category": categorydata,
