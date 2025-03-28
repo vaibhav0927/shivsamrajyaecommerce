@@ -37,6 +37,7 @@ urlpatterns = [
     path('shop/',views.shop),
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
+    path('checkout/',views.checkout),
     # path('cart/',views.cart),
 
     path('submit/',views.submit),

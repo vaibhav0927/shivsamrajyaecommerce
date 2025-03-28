@@ -453,24 +453,24 @@ def cart_submit(request):
 
 
 def view_cart(request):
-    if 'user_id' not in request.session:  # Ensure user is logged in
+    if 'user_id' not in request.session: 
         return redirect("/") 
 
-    user_id = request.session.get('user_id')  # Get logged-in user ID
+    user_id = request.session.get('user_id')  
 
     try:
         customer = Customer.objects.get(c_id=user_id)
     except Customer.DoesNotExist:
         return redirect("/")
 
-    # Fetch cart data for the logged-in user only
+    
     cartdata = Cart.objects.filter(c_id=customer)
     
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     user_name = request.session.get('user_name', None)
     
-    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
+    wishlistdata = Wishlist.objects.filter(c_id=customer)
 
     data = {
         "category": categorydata,
@@ -494,13 +494,13 @@ def wishlist(request):
     except Customer.DoesNotExist:
         return redirect("/")
 
-    # Fetch wishlist data only for the logged-in user
+   
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     user_name = request.session.get('user_name', None)
-    cartdata = Cart.objects.filter(c_id=customer)  # Only logged-in user's cart
+    cartdata = Cart.objects.filter(c_id=customer)  
 
     data = {
         "category": categorydata,
@@ -565,6 +565,38 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+
+from django.shortcuts import render, redirect
+from checkout.models import Checkout
+
+def checkout(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        payment_method = request.POST.get('payment_method')
+        coupon_code=request.POST.get('coupon_code')
+        card_number =request.POST.get('card_number ')
+
+        checkout_entry = Checkout(
+                first_name=first_name,
+                email=email,
+                telephone=phone,
+                address=address,
+                payment_method=payment_method,
+                coupon_code=coupon_code,
+                card_number =card_number ,
+    
+            )
+        checkout_entry.save()
+        print("Order Saved Successfully!")  # Debugging
+        return redirect('/')  # Redirect after successful order placement
+    else:
+        print("Missing Data! Order not saved.")  # Debugging
+
+    return render(request, 'checkout.html')
+
 
 
 
