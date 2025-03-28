@@ -414,12 +414,15 @@ def submit(request):
      else:
         return render(request,'registration.html')
      
+
+
 def cart_submit(request):
     if request.method == "POST":
         product_id = request.POST.get("product_id")
         c_id = request.session.get('user_id')
-        cart_quantity=request.POST.get("cart_quantity")
-        cart_price=request.POST.get("cart_price")  
+        cart_quantity = request.POST.get("cart_quantity", 1)
+        cart_price = request.POST.get("cart_price")  
+
         if not c_id:
             return redirect("/")  
         
@@ -428,21 +431,27 @@ def cart_submit(request):
         except Customer.DoesNotExist:
             return redirect("/") 
 
-     
-        insert =Cart(
-        product_id= Product.objects.get(product_id=product_id),
-        c_id=customer,
-        cart_quantity=cart_quantity,
-        cart_price=cart_price
-            
-        )
         
-   
-    insert.save()
+        try:
+            product = Product.objects.get(product_id=product_id)
+        except Product.DoesNotExist:
+            return redirect("/")  
+
+       
+        insert = Cart(
+            product_id=product,
+            c_id=customer,
+            cart_quantity=cart_quantity,
+            cart_price=cart_price
+        )
+        insert.save()
+        
     return redirect("/")
 
+    
+
 def wishlist(request):
-    if 'user_id' not in request.session:  # Check if user is logged in
+    if 'user_id' not in request.session:  
         return redirect("/") 
     categorydata= Category.objects.all()
     branddata=Brands.objects.all()
@@ -496,6 +505,15 @@ def cartdelete(request, id):
     items= Cart.objects.get(cart_id=id)
     items.delete()
     return redirect("/")
+
+
+
+
+
+
+
+
+
 
 def slider(request):
     sliderdata= slider.objects.all()
