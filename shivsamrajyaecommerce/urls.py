@@ -32,7 +32,7 @@ urlpatterns = [
     path('general/',views.general),
     path('cosmetic/',views.cosmetic),
     path('spices/',views.Spices),
-    path('general/',views.general),
+    
     path('fooditems/',views.fooditems),
     path('shop/',views.shop),
     path('grocery/',views.grocery),
