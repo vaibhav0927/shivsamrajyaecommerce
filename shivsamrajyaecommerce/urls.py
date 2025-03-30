@@ -22,6 +22,7 @@ from .views import registration
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('contactus/',views.contactus),
     path('login/',views.login),
