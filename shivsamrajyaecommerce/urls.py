@@ -38,6 +38,9 @@ urlpatterns = [
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('checkout/',views.checkout),
+    path('showitem/',views.showitem),
+
+
     # path('cart/',views.cart),
 
     path('submit/',views.submit),
@@ -60,6 +63,7 @@ urlpatterns = [
     path('wishlist/',views.wishlist),
     path("wishlistdelete/<id>/",views.wishlistdelete),
     path("cart_delete<id>/",views.cartdelete),
+
    
     
 
