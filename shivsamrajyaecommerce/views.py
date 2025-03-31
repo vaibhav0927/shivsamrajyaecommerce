@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
@@ -17,7 +15,6 @@ from wishlist.models import Wishlist
 from cart.models import Cart
 from django.shortcuts import render, redirect # type: ignore
 from checkout.models import Checkout
-
 
 
 
@@ -777,43 +774,6 @@ def view_cart(request):
 
     return render(request, 'view_cart.html', data)
 
-<<<<<<< HEAD
-
-def showitem(request):
-    if 'user_id' not in request.session:  # Ensure user is logged in
-        return redirect("/") 
-
-    user_id = request.session.get('user_id')  # Get logged-in user ID
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")
-
-    # Fetch cart data for the logged-in user only
-    cartdata = Cart.objects.filter(c_id=customer)
-    
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    user_name = request.session.get('user_name', None)
-    
-    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
-        "user_name": user_name,
-        "cart": cartdata,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'checkout.html', data)
-
-
-
-
-=======
->>>>>>> 21a6fad351084df9e55c4e48299daf4c89bbfbb4
 def wishlist(request):
     if 'user_id' not in request.session: 
         return redirect("/")  
@@ -900,6 +860,8 @@ def cartdelete(request, id):
     return redirect("/")
 
 
+
+
 def slider(request):
     sliderdata= slider.objects.all()
     data={
@@ -907,14 +869,68 @@ def slider(request):
     }
     return render(request,'home.html',data)
 
+def showitem(request):
+    if 'user_id' not in request.session:  # Ensure user is logged in
+        return redirect("/") 
 
-<<<<<<< HEAD
+    user_id = request.session.get('user_id')  # Get logged-in user ID
+
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        return redirect("/")
+
+    # Fetch cart data for the logged-in user only
+    cartdata = Cart.objects.filter(c_id=customer)
+    
+    categorydata = Category.objects.all()
+    branddata = Brands.objects.all()
+    user_name = request.session.get('user_name', None)
+    
+    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
+
+    data = {
+        "category": categorydata,
+        "brand": branddata,
+        "user_name": user_name,
+        "cart": cartdata,
+        "wishlist": wishlistdata,
+    }
+
+    return render(request, 'checkout.html', data)
+
+
+def checkout(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        payment_method = request.POST.get('payment_method')
+        coupon_code=request.POST.get('coupon_code')
+        card_number =request.POST.get('card_number ')
+
+        checkout_entry = Checkout(
+                first_name=first_name,
+                email=email,
+                telephone=phone,
+                address=address,
+                payment_method=payment_method,
+                coupon_code=coupon_code,
+                card_number =card_number ,
+    
+            )
+        checkout_entry.save()
+        print("Order Saved Successfully!")  # Debugging
+        return redirect('/')  # Redirect after successful order placement
+    else:
+        print("Missing Data! Order not saved.")  # Debugging
+
+    return render(request, 'checkout.html')
 
 from checkout.models import Checkout
 from django.contrib import messages
 from order.models import Order
-=======
->>>>>>> 21a6fad351084df9e55c4e48299daf4c89bbfbb4
 
 def checkout(request):
     if request.method == 'POST':
@@ -990,21 +1006,3 @@ def checkout(request):
     }
 
     return render(request, 'checkout.html', data)
-
-
-
-
-
-
-
-
-
-     
-
-
-
-
-
-     
-
-
