@@ -97,20 +97,19 @@
                 <div class="row text-center align-items-center border-bottom py-2">
                   <!-- Product Image -->
                   <div class="col-lg">
-                    <img src="/media/{{i.product_id.product_img}}" class="img-fluid" alt="Product Image" style="max-width: 60px;">
+                    <img src="/media/{{i.product_img}}" class="img-fluid" alt="Product Image" style="max-width: 60px;">
                   </div>
                 
                   <!-- Product Name -->
-                  <div class="col-lg">{{ i.product_id.product_name }}</div>
+                  <div class="col-lg">{{ i.product_name }}</div>
                 
                   <!-- Quantity -->
                   <div class="col-lg">{{ i.cart_quantity }}</div>
                 
                   <!-- Price -->
-                  <div class="col-lg">₹{{ i.product_id.sale }}</div>
+                  <div class="col-lg">₹{{ i.sale_price }}</div>
                 
-                  <!-- Total Price -->
-                  <!-- <div class="col-lg-2">₹{{ i.cart_quantity}}</div> -->
+                 
               
                   <!-- Remove Button -->
                   <div class="col-lg">
@@ -129,7 +128,7 @@
                 
               </div>
               <div class="modal-footer">
-                <a href="/view_cart/" class="btn" target="_self" style="background-color: #ff7722;" onclick="submit()">
+                <a href="/view_cart/" class="btn" target="_self" style="background-color: #ff7722;">
                   <i class="fa-solid fa-cart-shopping"></i><b>View Cart</b>
                </a>
                
