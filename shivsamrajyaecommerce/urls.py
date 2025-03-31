@@ -22,6 +22,7 @@ from .views import registration
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('contactus/',views.contactus),
     path('login/',views.login),
@@ -32,7 +33,7 @@ urlpatterns = [
     path('general/',views.general),
     path('cosmetic/',views.cosmetic),
     path('spices/',views.Spices),
-    path('general/',views.general),
+    
     path('fooditems/',views.fooditems),
     path('shop/',views.shop),
     path('grocery/',views.grocery),
