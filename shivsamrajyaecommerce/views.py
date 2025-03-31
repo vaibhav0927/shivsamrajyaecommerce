@@ -350,7 +350,7 @@ def general(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
-
+    productdata=Product.objects.all()[18:92]  
     user_name = request.session.get('user_name', None)
 
     data = {
@@ -360,6 +360,7 @@ def general(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+        "general":productdata
     }
 
     return render(request, 'general.html', data)
