@@ -160,13 +160,18 @@ def home(request):
    user_name = request.session.get('user_name', None)
 
    productdata=Product.objects.all()[:4]  
-   product=Product.objects.all()[86:92]  
+   plist=Product.objects.all()[86:92]  
    cartdata=Cart.objects.all()
    wishlistdata=Wishlist.objects.all()
    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    # Fetch cart data for the logged-in customer
    cartdata = Cart.objects.filter(c_id=customer)
+   for product in productdata:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+   for  product in plist:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))  
+   
 
     # Calculate total price
    cart_items = []
@@ -197,7 +202,8 @@ def home(request):
         "user_name": user_name,  # Pass the user name to the template
 
         "plist":productdata,
-        "product":product
+        "product":product,
+        "product":plist
         
    }
    return render(request,'home.html',data)
@@ -351,6 +357,8 @@ def general(request):
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     productdata=Product.objects.all()[18:92]  
+    for product in productdata:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
     user_name = request.session.get('user_name', None)
 
     data = {
@@ -399,6 +407,9 @@ def grocery(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
+    productdata=Product.objects.all()
+    for product in productdata:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
 
     user_name = request.session.get('user_name', None)
 
@@ -409,6 +420,7 @@ def grocery(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+        "grocery":productdata
     }
 
     return render(request, 'grocery.html', data)
@@ -594,7 +606,9 @@ def shop(request):
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     productdata=Product.objects.all()
     user_name = request.session.get('user_name', None)
-
+    for product in productdata:
+        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+        
     data = {
         "category": categorydata,
         "brand": branddata,
@@ -602,7 +616,8 @@ def shop(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
-        "plist":productdata
+        "plist":productdata,
+       
     }
 
     return render(request, 'shop.html', data)
