@@ -39,7 +39,7 @@
                     <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);" >₹ {{ i.sale_price }}</td>
                     <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);">
                         
-                        ₹ {{ i.total_price }}
+                        ₹ {{ i.total_price|floatformat:2 }}
                     </td>
                     <td style="padding: 10px; border: 1px solid #ddd;">   
                         <!-- Remove Button -->
@@ -70,7 +70,7 @@
                     
                     <tr>
                         <td><b>Total:</b></td>
-                        <td><b>₹  {{ total_price }}</b></td>
+                        <td><b>₹  {{ total_price|floatformat:2 }}</b></td>
                     </tr>
                 </table>
             </div>

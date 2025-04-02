@@ -5,8 +5,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Document</title>
 </head>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="cartToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Product added to cart successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
 
 <body>
   {% block project %}
@@ -34,12 +47,13 @@
         <div class="row">
           
           {% for i in general%}
+         
           <div class="col-lg-3 shadow-lg p-3 mb-5 ps-5 bg-white rounded">
             <div class="card mb-3 ps-4 pt-3 " style="width: 240px; ">
               <div class="card-title">
     
                 <span class="badge  float-end rounded-pill pt-2 me-1"
-                  style="background-color: #ff7722; height: 30px ;width:70px;">Rs 10.00</span>
+                  style="background-color: #ff7722; height: 30px ;width:70px;">Rs{{i.discount|floatformat:2}}</span>
               </div>
               <a href=""><img class="card-img-top img-fluid" style="height: 180px;width:180px;"
                   src="/media/{{i.product_img}}" alt=" /media/{{i.product_img}}"></a>
@@ -79,6 +93,7 @@
 
 
   {% endblock %}
+
 
 </body>
 
