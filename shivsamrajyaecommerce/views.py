@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
@@ -879,12 +877,6 @@ def cartdelete(request, id):
 
 
 
-
-
-
-
-
-
 def slider(request):
     sliderdata= slider.objects.all()
     data={
@@ -892,7 +884,42 @@ def slider(request):
     }
     return render(request,'home.html',data)
 
+def showitem(request):
+    if 'user_id' not in request.session:  # Ensure user is logged in
+        return redirect("/") 
 
+    user_id = request.session.get('user_id')  # Get logged-in user ID
+
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        return redirect("/")
+
+    # Fetch cart data for the logged-in user only
+    cartdata = Cart.objects.filter(c_id=customer)
+    
+    categorydata = Category.objects.all()
+    branddata = Brands.objects.all()
+    user_name = request.session.get('user_name', None)
+    
+    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
+
+    data = {
+        "category": categorydata,
+        "brand": branddata,
+        "user_name": user_name,
+        "cart": cartdata,
+        "wishlist": wishlistdata,
+    }
+
+    return render(request, 'checkout.html', data)
+
+
+
+
+from checkout.models import Checkout
+from django.contrib import messages
+from order.models import Order
 
 def checkout(request):
     if request.method == 'POST':
@@ -901,43 +928,70 @@ def checkout(request):
         phone = request.POST.get('phone')
         address = request.POST.get('address')
         payment_method = request.POST.get('payment_method')
-        coupon_code=request.POST.get('coupon_code')
-        card_number =request.POST.get('card_number ')
+        coupon_code = request.POST.get('coupon_code')
+        card_number = request.POST.get('card_number')
 
-        checkout_entry = Checkout(
-                first_name=first_name,
-                email=email,
-                telephone=phone,
-                address=address,
-                payment_method=payment_method,
-                coupon_code=coupon_code,
-                card_number =card_number ,
-    
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return redirect("/")  # Ensure the user is logged in
+
+        try:
+            customer = Customer.objects.get(c_id=user_id)
+            
+        except Customer.DoesNotExist:
+            messages.error(request, "Customer not found!")
+            return redirect("/")
+
+        # Fetch cart data for the logged-in user
+        cart_items = Cart.objects.filter(c_id=customer)
+
+        if not cart_items:
+            messages.error(request, "Your cart is empty!")
+            return redirect("/cart/")
+
+        # Save checkout entry
+        checkout_entry = Checkout.objects.create(
+            first_name=first_name,
+            email=email,
+            telephone=phone,
+            address=address,
+            payment_method=payment_method,
+            coupon_code=coupon_code,
+            card_number=card_number,
+        )
+
+        # Save order entries for each item in the cart
+        for item in cart_items:
+            Order.objects.create(
+                c_id=customer,
+                product_id=item.product_id,
+                price=item.cart_price,
+                quantity=item.cart_quantity,
             )
-        checkout_entry.save()
-        print("Order Saved Successfully!")  # Debugging
-        return redirect('/')  # Redirect after successful order placement
+
+        # Clear the user's cart after placing the order
+        cart_items.delete()
+
+        messages.success(request, "Order placed successfully!")
+        return redirect("/")  # Redirect to homepage or order confirmation page
+
     else:
-        print("Missing Data! Order not saved.")  # Debugging
+        if 'user_id' not in request.session:
+            return redirect("/")  
 
-    return render(request, 'checkout.html')
+    user_id = request.session.get('user_id')
+    user_name = request.session.get('user_name', None)
 
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        return redirect("/")
 
+    cartdata = Cart.objects.filter(c_id=customer)
+    
+    data = {
+        "cart": cartdata,
+        "user_name": user_name,
+    }
 
-
-
-
-
-
-
-
-
-     
-
-
-
-
-
-     
-
-
+    return render(request, 'checkout.html', data)

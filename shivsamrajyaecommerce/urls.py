@@ -24,11 +24,11 @@ from .views import registration
 urlpatterns = [
     
     path('admin/', admin.site.urls),
+       path('',views.home),
     path('contactus/',views.contactus),
     path('login/',views.login),
     path('logout/',views.logout),
     path('registration/',views.registration),
-    path('',views.home),
     path('about/',views.about),
     path('general/',views.general),
     path('cosmetic/',views.cosmetic),
@@ -39,6 +39,9 @@ urlpatterns = [
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('checkout/',views.checkout),
+    path('showitem/',views.showitem),
+
+
     # path('cart/',views.cart),
 
     path('submit/',views.submit),
@@ -61,6 +64,7 @@ urlpatterns = [
     path('wishlist/',views.wishlist),
     path("wishlistdelete/<id>/",views.wishlistdelete),
     path("cart_delete<id>/",views.cartdelete),
+
    
     
 
