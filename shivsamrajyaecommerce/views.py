@@ -15,16 +15,7 @@ from wishlist.models import Wishlist
 from cart.models import Cart
 from django.shortcuts import render, redirect # type: ignore
 from checkout.models import Checkout
-
-
-
 from django.shortcuts import redirect # type: ignore
-
-
-
-
-
-
 
 def contactus(request):
     if 'user_id' not in request.session: 
@@ -90,9 +81,6 @@ def sub(request):
         
     
     return render(request, "contactus.html") 
-
-
-
 
 def about(request):
     if 'user_id' not in request.session: 
@@ -169,8 +157,6 @@ def home(request):
        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
    for  product in plist:
        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))  
-   
-
     # Calculate total price
    cart_items = []
    total_price = 0  # Initialize total price
@@ -210,8 +196,6 @@ def logout(request):
     request.session.flush()  # Clear session data
     return redirect("/")  # Redirect to home page
  
-
-
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -917,9 +901,7 @@ def showitem(request):
 
 
 
-from checkout.models import Checkout
-from django.contrib import messages
-from order.models import Order
+
 
 def checkout(request):
     if request.method == 'POST':
