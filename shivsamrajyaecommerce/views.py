@@ -508,7 +508,7 @@ def cosmetic(request):
         "wishlist": wishlistdata,
     }
 
-    return render(request, 'contactus.html', data)
+    return render(request, 'cosmetic.html', data)
 
 def fooditems(request):
 #    if 'user_id' not in request.session: 
