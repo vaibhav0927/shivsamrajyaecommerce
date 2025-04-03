@@ -913,7 +913,6 @@ def showitem(request):
     return render(request, 'checkout.html', data)
 
 
-
 def checkout(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
