@@ -874,15 +874,6 @@ def cartdelete(request, id):
     items.delete()
     return redirect("/")
 
-
-
-
-
-
-
-
-
-
 def slider(request):
     sliderdata= slider.objects.all()
     data={
@@ -902,7 +893,7 @@ def checkout(request):
         coupon_code=request.POST.get('coupon_code')
         card_number =request.POST.get('card_number ')
 
-<<<<<<< HEAD
+
         checkout_entry = Checkout(
                 first_name=first_name,
                 email=email,
@@ -918,7 +909,7 @@ def checkout(request):
         return redirect('/')  # Redirect after successful order placement
     else:
         print("Missing Data! Order not saved.")  # Debugging
-=======
+
         user_id = request.session.get('user_id')
         if not user_id:
             return redirect("/")  # Ensure the user is logged in
@@ -967,7 +958,7 @@ def checkout(request):
         messages.success(request, "Order placed successfully! Your bill is ready.")
         return redirect("/thankyou/")  
 
-    else:
+        else:
         if 'user_id' not in request.session:
             return redirect("/")
 
@@ -985,7 +976,7 @@ def checkout(request):
         "cart": cartdata,
         "user_name": user_name,
     }
->>>>>>> 4a40674ab4d22900d714ec23101cb35bdce1ee62
+
 
 
     return render(request, 'checkout.html', data)
