@@ -13,56 +13,45 @@ from contactus.models import Contactus
 from product.models import Product
 from wishlist.models import Wishlist
 from cart.models import Cart
-from django.shortcuts import render, redirect # type: ignore
-from checkout.models import Checkout
+
+
+
+
 from django.shortcuts import redirect # type: ignore
 
+
+
+
+def product(requset):
+    productdata=Product.objects.all()
+    data={
+       
+        "plist":productdata
+        
+   }
+    print(data)
+
+    return render(requset,'home.html',data)
+
+
 def contactus(request):
-    if 'user_id' not in request.session: 
-        return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
+    if 'user_email' not in request.session:
+        return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'contactus.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'contactus.html',data)
     
   
 def sub(request):
@@ -82,112 +71,55 @@ def sub(request):
     
     return render(request, "contactus.html") 
 
+
+
+
 def about(request):
-    if 'user_id' not in request.session: 
-        return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-    
-
+    if 'user_email' not in request.session:
+        return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'about.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'about.html',data)
     
 def home(request):
-   user_id = request.session.get('user_id')  
-
-   try:
-        customer = Customer.objects.get(c_id=user_id)
-   except Customer.DoesNotExist:
-        return redirect("/")  
    
    sliderdata= Slider.objects.all()
    categorydata= Category.objects.all()
    branddata=Brands.objects.all()
-   wishlistdata = Wishlist.objects.filter(c_id=customer)
 
    user_name = request.session.get('user_name', None)
 
    productdata=Product.objects.all()[:4]  
-   plist=Product.objects.all()[86:92]  
+   product=Product.objects.all()[86:92]  
    cartdata=Cart.objects.all()
    wishlistdata=Wishlist.objects.all()
    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
-   # Fetch cart data for the logged-in customer
-   cartdata = Cart.objects.filter(c_id=customer)
-   for product in productdata:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-   for  product in plist:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))  
-    # Calculate total price
-   cart_items = []
-   total_price = 0  # Initialize total price
 
-   for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-     
    data={
         "list":sliderdata,
         "category":categorydata,
         "brand":branddata,
         "cart":cartdata,
         "wishlist":wishlistdata,
-        "cart": cart_items,
-        "total_price": total_price,
+
         
         "user_name": user_name,  # Pass the user name to the template
 
         "plist":productdata,
-        "product":product,
-        "product":plist
+        "product":product
         
    }
    return render(request,'home.html',data)
@@ -196,6 +128,8 @@ def logout(request):
     request.session.flush()  # Clear session data
     return redirect("/")  # Redirect to home page
  
+
+
 def registration(request):
     if request.method == "POST":
         full_name_eng = request.POST.get("fullNameEng")
@@ -251,9 +185,6 @@ def registration(request):
     user_name = request.session.get('user_name', None)
     cartdata=Cart.objects.all()
     wishlistdata=Wishlist.objects.all()
-    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
-    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
-
     data={
        
         "category":categorydata,
@@ -293,8 +224,6 @@ def login(request):
     user_name = request.session.get('user_name', None)
     cartdata=Cart.objects.all()
     wishlistdata=Wishlist.objects.all()
-    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
-    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
     data={
        
         "category":categorydata,
@@ -304,352 +233,148 @@ def login(request):
         "wishlist":wishlistdata
         
    }
-    return render(request,'login.html',data)      
+    return render(request,'login.html',data)    
+     
 def general(request):
-    # if 'user_id' not in request.session: 
-        # return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-    productdata=Product.objects.all()[18:92]  
-    for product in productdata:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+    #  if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-        "general":productdata
-    }
-
-    return render(request, 'general.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'general.html',data)
      
 
 def grocery(request):
-    if 'user_id' not in request.session: 
-        return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-    productdata=Product.objects.all()
-    for product in productdata:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-
+    # if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-        "grocery":productdata
-    }
-
-    return render(request, 'grocery.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'grocery.html',data)
     
 
 
 def Spices(request):
-#    if 'user_id' not in request.session: 
-        # return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
+    # if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'spices.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'Spices.html',data)
     
     
 
 def cosmetic(request):
-   
-    # if 'user_id' not in request.session: 
-        # return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
+    # if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'cosmetic.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'cosmetic.html',data)
+    
 
 def fooditems(request):
-#    if 'user_id' not in request.session: 
-        # return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
+    # if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'fooditems.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'fooditems.html',data)
     
 def shop(request):
-    if 'user_id' not in request.session: 
-        return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-    productdata=Product.objects.all()
+    # if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-    for product in productdata:
-        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-        
-    data = {
-        "category": categorydata,
-        "brand": branddata,
-        "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-        "plist":productdata,
+    cartdata=Cart.objects.all()
+    productdata=Product.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
        
-    }
-
-    return render(request, 'shop.html', data)
+        "category":categorydata,
+        "brand":branddata,
+        "user_name": user_name,
+        "cart":cartdata,
+        "wishlist":wishlistdata,
+        "plist":productdata
+        
+   }
+    return render(request,'shop.html',data)
 
 def stationary(request):
-    # if 'user_id' not in request.session: 
-        # return redirect("/")  
-
-    user_id = request.session.get('user_id')  
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")  
-
-    # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
+    # if 'username' not in request.session:
+        # return redirect("/login/")
+    categorydata= Category.objects.all()
+    branddata=Brands.objects.all()
     user_name = request.session.get('user_name', None)
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
+    cartdata=Cart.objects.all()
+    wishlistdata=Wishlist.objects.all()
+    data={
+       
+        "category":categorydata,
+        "brand":branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'stationary.html', data)
+        "cart":cartdata,
+        "wishlist":wishlistdata
+        
+   }
+    return render(request,'stationary.html',data)
     
 
    
@@ -727,94 +452,93 @@ def cart_submit(request):
 
 
 def view_cart(request):
-    if 'user_id' not in request.session: 
-        return redirect("/")  
+    if 'user_id' not in request.session:  # Ensure user is logged in
+        return redirect("/") 
 
-    user_id = request.session.get('user_id')  
+    user_id = request.session.get('user_id')  # Get logged-in user ID
 
     try:
         customer = Customer.objects.get(c_id=user_id)
     except Customer.DoesNotExist:
-        return redirect("/")  
+        return redirect("/")
 
-    # Fetch cart data for the logged-in customer
+    # Fetch cart data for the logged-in user only
     cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
+    
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
     user_name = request.session.get('user_name', None)
+    
+    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
 
     data = {
         "category": categorydata,
         "brand": branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
+        "cart": cartdata,
         "wishlist": wishlistdata,
     }
 
     return render(request, 'view_cart.html', data)
 
-def wishlist(request):
-    if 'user_id' not in request.session: 
-        return redirect("/")  
 
-    user_id = request.session.get('user_id')  
+def showitem(request):
+    if 'user_id' not in request.session:  # Ensure user is logged in
+        return redirect("/") 
+
+    user_id = request.session.get('user_id')  # Get logged-in user ID
 
     try:
         customer = Customer.objects.get(c_id=user_id)
     except Customer.DoesNotExist:
-        return redirect("/")  
+        return redirect("/")
 
-    # Fetch cart data for the logged-in customer
+    # Fetch cart data for the logged-in user only
     cartdata = Cart.objects.filter(c_id=customer)
-
-    # Calculate total price
-    cart_items = []
-    total_price = 0  # Initialize total price
-
-    for item in cartdata:
-        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
-        total_price += item_total
-        cart_items.append({
-            'product_img': item.product_id.product_img,
-            'product_name': item.product_id.product_name,
-            'cart_quantity': item.cart_quantity,
-            'sale_price': item.product_id.sale,
-            'total_price': item_total,
-            'cart_id': item.cart_id,
-        })
-
+    
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
-    wishlistdata = Wishlist.objects.filter(c_id=customer)
-
     user_name = request.session.get('user_name', None)
+    
+    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
 
     data = {
         "category": categorydata,
         "brand": branddata,
         "user_name": user_name,
-        "cart": cart_items,
-        "total_price": total_price,
+        "cart": cartdata,
+        "wishlist": wishlistdata,
+    }
+
+    return render(request, 'checkout.html', data)
+
+
+
+
+def wishlist(request):
+    if 'user_id' not in request.session:  
+        return redirect("/") 
+
+    user_id = request.session.get('user_id')
+
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        return redirect("/")
+
+    # Fetch wishlist data only for the logged-in user
+    wishlistdata = Wishlist.objects.filter(c_id=customer)
+    
+    categorydata = Category.objects.all()
+    branddata = Brands.objects.all()
+    user_name = request.session.get('user_name', None)
+    cartdata = Cart.objects.filter(c_id=customer)  # Only logged-in user's cart
+
+    data = {
+        "category": categorydata,
+        "brand": branddata,
+        "user_name": user_name,
+        "cart": cartdata,
         "wishlist": wishlistdata,
     }
 
@@ -859,8 +583,6 @@ def cartdelete(request, id):
     return redirect("/")
 
 
-
-
 def slider(request):
     sliderdata= slider.objects.all()
     data={
@@ -868,40 +590,11 @@ def slider(request):
     }
     return render(request,'home.html',data)
 
-def showitem(request):
-    if 'user_id' not in request.session:  # Ensure user is logged in
-        return redirect("/") 
-
-    user_id = request.session.get('user_id')  # Get logged-in user ID
-
-    try:
-        customer = Customer.objects.get(c_id=user_id)
-    except Customer.DoesNotExist:
-        return redirect("/")
-
-    # Fetch cart data for the logged-in user only
-    cartdata = Cart.objects.filter(c_id=customer)
-    
-    categorydata = Category.objects.all()
-    branddata = Brands.objects.all()
-    user_name = request.session.get('user_name', None)
-    
-    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
-
-    data = {
-        "category": categorydata,
-        "brand": branddata,
-        "user_name": user_name,
-        "cart": cartdata,
-        "wishlist": wishlistdata,
-    }
-
-    return render(request, 'checkout.html', data)
 
 
-
-
-
+from checkout.models import Checkout
+from django.contrib import messages
+from order.models import Order
 
 def checkout(request):
     if request.method == 'POST':
@@ -976,4 +669,4 @@ def checkout(request):
         "user_name": user_name,
     }
 
-    return render(request, 'checkout.html', data)
+    return render(request, 'checkout.html')
