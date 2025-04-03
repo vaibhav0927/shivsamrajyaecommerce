@@ -58,7 +58,7 @@ urlpatterns = [
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
 
-     path('view_cart/',views.view_cart),
+    path('view_cart/',views.view_cart),
 
    
     path('cart_submit/',views.cart_submit),
