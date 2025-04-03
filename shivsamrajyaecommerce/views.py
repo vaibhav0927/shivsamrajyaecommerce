@@ -13,11 +13,15 @@ from contactus.models import Contactus
 from product.models import Product
 from wishlist.models import Wishlist
 from cart.models import Cart
-
+from django.shortcuts import render, redirect # type: ignore
+from checkout.models import Checkout
+from order.models import Order
+from django.contrib import messages # type: ignore
 
 
 
 from django.shortcuts import redirect # type: ignore
+
 
 
 
@@ -154,13 +158,20 @@ def home(request):
    user_name = request.session.get('user_name', None)
 
    productdata=Product.objects.all()[:4]  
-   product=Product.objects.all()[86:92]  
+   plist=Product.objects.all()[86:92]  
    cartdata=Cart.objects.all()
    wishlistdata=Wishlist.objects.all()
    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    # Fetch cart data for the logged-in customer
    cartdata = Cart.objects.filter(c_id=customer)
+
+   for product in productdata:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+   for  product in plist:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))  
+   
+
 
     # Calculate total price
    cart_items = []
@@ -191,7 +202,8 @@ def home(request):
         "user_name": user_name,  # Pass the user name to the template
 
         "plist":productdata,
-        "product":product
+        "product":product,
+        "product":plist
         
    }
    return render(request,'home.html',data)
@@ -345,6 +357,10 @@ def general(request):
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     productdata=Product.objects.all()[18:92]  
+
+    for product in productdata:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+
     user_name = request.session.get('user_name', None)
 
     data = {
@@ -394,6 +410,12 @@ def grocery(request):
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
 
+
+    productdata=Product.objects.all()
+    for product in productdata:
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+
+
     user_name = request.session.get('user_name', None)
 
     data = {
@@ -403,6 +425,10 @@ def grocery(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+
+
+        "grocery":productdata
+
     }
 
     return render(request, 'grocery.html', data)
@@ -589,6 +615,12 @@ def shop(request):
     productdata=Product.objects.all()
     user_name = request.session.get('user_name', None)
 
+
+
+    for product in productdata:
+        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+        
+
     data = {
         "category": categorydata,
         "brand": branddata,
@@ -596,7 +628,12 @@ def shop(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
-        "plist":productdata
+
+        "plist":productdata,
+
+        "plist":productdata,
+       
+
     }
 
     return render(request, 'shop.html', data)
@@ -861,6 +898,11 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
+def showitem(request):
+    if 'user_id' not in request.session:  # Ensure user is logged in
+        return redirect("/") 
+
+    user_id = request.session.get('user_id')  # Get logged-in user ID
 
 
 def showitem(request):
@@ -868,6 +910,7 @@ def showitem(request):
         return redirect("/") 
 
     user_id = request.session.get('user_id')  # Get logged-in user ID
+
 
     try:
         customer = Customer.objects.get(c_id=user_id)
@@ -894,9 +937,6 @@ def showitem(request):
     return render(request, 'checkout.html', data)
 
 
-from checkout.models import Checkout
-from django.contrib import messages
-from order.models import Order
 
 def checkout(request):
     if request.method == 'POST':
@@ -969,6 +1009,20 @@ def checkout(request):
 
     # Fetch cart data for the logged-in customer
     cartdata = Cart.objects.filter(c_id=customer)
+    cart_items = []
+    total_price = 0  # Initialize total price
+
+    for item in cartdata:
+        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
+        total_price += item_total
+        cart_items.append({
+            'product_img': item.product_id.product_img,
+            'product_name': item.product_id.product_name,
+            'cart_quantity': item.cart_quantity,
+            'sale_price': item.product_id.sale,
+            'total_price': item_total,
+            'cart_id': item.cart_id,
+        })
 
     # Calculate total price
     cart_items = []
@@ -999,6 +1053,10 @@ def checkout(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+
+        "cart_items":cart_items,
+        "total_price":total_price
+
     }
 
  
