@@ -13,15 +13,11 @@ from contactus.models import Contactus
 from product.models import Product
 from wishlist.models import Wishlist
 from cart.models import Cart
-from django.shortcuts import render, redirect # type: ignore
-from checkout.models import Checkout
+
 
 
 
 from django.shortcuts import redirect # type: ignore
-
-
-
 
 
 
@@ -158,18 +154,13 @@ def home(request):
    user_name = request.session.get('user_name', None)
 
    productdata=Product.objects.all()[:4]  
-   plist=Product.objects.all()[86:92]  
+   product=Product.objects.all()[86:92]  
    cartdata=Cart.objects.all()
    wishlistdata=Wishlist.objects.all()
    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
    # Fetch cart data for the logged-in customer
    cartdata = Cart.objects.filter(c_id=customer)
-   for product in productdata:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-   for  product in plist:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))  
-   
 
     # Calculate total price
    cart_items = []
@@ -200,8 +191,7 @@ def home(request):
         "user_name": user_name,  # Pass the user name to the template
 
         "plist":productdata,
-        "product":product,
-        "product":plist
+        "product":product
         
    }
    return render(request,'home.html',data)
@@ -355,8 +345,6 @@ def general(request):
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     productdata=Product.objects.all()[18:92]  
-    for product in productdata:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
     user_name = request.session.get('user_name', None)
 
     data = {
@@ -405,9 +393,6 @@ def grocery(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
-    productdata=Product.objects.all()
-    for product in productdata:
-       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
 
     user_name = request.session.get('user_name', None)
 
@@ -418,7 +403,6 @@ def grocery(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
-        "grocery":productdata
     }
 
     return render(request, 'grocery.html', data)
@@ -604,9 +588,7 @@ def shop(request):
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     productdata=Product.objects.all()
     user_name = request.session.get('user_name', None)
-    for product in productdata:
-        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-        
+
     data = {
         "category": categorydata,
         "brand": branddata,
@@ -614,8 +596,7 @@ def shop(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
-        "plist":productdata,
-       
+        "plist":productdata
     }
 
     return render(request, 'shop.html', data)
@@ -872,7 +853,7 @@ def wishlist_add(request):
 def cartdelete(request, id):
     items= Cart.objects.get(cart_id=id)
     items.delete()
-    return redirect("/")
+    return redirect("view_cart")
 
 def slider(request):
     sliderdata= slider.objects.all()
@@ -882,6 +863,41 @@ def slider(request):
     return render(request,'home.html',data)
 
 
+def showitem(request):
+    if 'user_id' not in request.session:  # Ensure user is logged in
+        return redirect("/") 
+
+    user_id = request.session.get('user_id')  # Get logged-in user ID
+
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        return redirect("/")
+
+    # Fetch cart data for the logged-in user only
+    cartdata = Cart.objects.filter(c_id=customer)
+    
+    
+    categorydata = Category.objects.all()
+    branddata = Brands.objects.all()
+    user_name = request.session.get('user_name', None)
+    
+    wishlistdata = Wishlist.objects.filter(c_id=customer)  # Only logged-in user's wishlist
+
+    data = {
+        "category": categorydata,
+        "brand": branddata,
+        "user_name": user_name,
+        "cart": cartdata,
+        "wishlist": wishlistdata,
+    }
+
+    return render(request, 'checkout.html', data)
+
+
+from checkout.models import Checkout
+from django.contrib import messages
+from order.models import Order
 
 def checkout(request):
     if request.method == 'POST':
@@ -890,25 +906,8 @@ def checkout(request):
         phone = request.POST.get('phone')
         address = request.POST.get('address')
         payment_method = request.POST.get('payment_method')
-        coupon_code=request.POST.get('coupon_code')
-        card_number =request.POST.get('card_number ')
-
-
-        checkout_entry = Checkout(
-                first_name=first_name,
-                email=email,
-                telephone=phone,
-                address=address,
-                payment_method=payment_method,
-                coupon_code=coupon_code,
-                card_number =card_number ,
-    
-            )
-        checkout_entry.save()
-        print("Order Saved Successfully!")  # Debugging
-        return redirect('/')  # Redirect after successful order placement
-    else:
-        print("Missing Data! Order not saved.")  # Debugging
+        coupon_code = request.POST.get('coupon_code')
+        card_number = request.POST.get('card_number')
 
         user_id = request.session.get('user_id')
         if not user_id:
@@ -958,7 +957,7 @@ def checkout(request):
         messages.success(request, "Order placed successfully! Your bill is ready.")
         return redirect("/thankyou/")  
 
-        else:
+    else:
         if 'user_id' not in request.session:
             return redirect("/")
 
@@ -971,12 +970,28 @@ def checkout(request):
         return redirect("/")
 
     cartdata = Cart.objects.filter(c_id=customer)
+    cart_items = []
+    total_price = 0  # Initialize total price
+
+    for item in cartdata:
+        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
+        total_price += item_total
+        cart_items.append({
+            'product_img': item.product_id.product_img,
+            'product_name': item.product_id.product_name,
+            'cart_quantity': item.cart_quantity,
+            'sale_price': item.product_id.sale,
+            'total_price': item_total,
+            'cart_id': item.cart_id,
+        })
+
 
     data = {
         "cart": cartdata,
         "user_name": user_name,
+        "cart": cart_items,
+        "total_price": total_price,
     }
-
 
 
     return render(request, 'checkout.html', data)
@@ -1028,4 +1043,3 @@ def thankyou(request):
     return render(request,'thankyou.html')
 
     return render(request, 'checkout.html')
-
