@@ -22,7 +22,6 @@ from .views import registration
 
 
 urlpatterns = [
-    
     path('admin/', admin.site.urls),
        path('',views.home),
     path('contactus/',views.contactus),
@@ -33,13 +32,19 @@ urlpatterns = [
     path('general/',views.general),
     path('cosmetic/',views.cosmetic),
     path('spices/',views.Spices),
-    
+    path('general/',views.general),
     path('fooditems/',views.fooditems),
     path('shop/',views.shop),
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('checkout/',views.checkout),
+
    
+
+    path('bill/',views.bill),
+    path('showitem/',views.showitem),
+    path('thankyou/',views.thankyou),
+
 
     # path('cart/',views.cart),
 

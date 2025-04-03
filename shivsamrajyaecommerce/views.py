@@ -902,6 +902,7 @@ def checkout(request):
         coupon_code=request.POST.get('coupon_code')
         card_number =request.POST.get('card_number ')
 
+<<<<<<< HEAD
         checkout_entry = Checkout(
                 first_name=first_name,
                 email=email,
@@ -917,5 +918,123 @@ def checkout(request):
         return redirect('/')  # Redirect after successful order placement
     else:
         print("Missing Data! Order not saved.")  # Debugging
+=======
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return redirect("/")  # Ensure the user is logged in
+
+        try:
+            customer = Customer.objects.get(c_id=user_id)
+        except Customer.DoesNotExist:
+            messages.error(request, "Customer not found!")
+            return redirect("/")
+
+        
+        cart_items = Cart.objects.filter(c_id=customer)
+        if not cart_items:
+            messages.error(request, "Your cart is empty!")
+            return redirect("/cart/")
+
+        
+        Order.objects.filter(c_id=customer).delete()
+
+        
+        checkout_entry = Checkout.objects.create(
+            first_name=first_name,
+            email=email,
+            telephone=phone,
+            address=address,
+            payment_method=payment_method,
+            coupon_code=coupon_code,
+            card_number=card_number,
+        )
+
+        
+        for item in cart_items:
+            Order.objects.create(
+                c_id=customer,
+                product_id=item.product_id,
+                price=item.cart_price,
+                quantity=item.cart_quantity,
+            )
+
+        
+        request.session['latest_checkout_id'] = checkout_entry.checkout_id
+
+    
+        cart_items.delete()
+
+        messages.success(request, "Order placed successfully! Your bill is ready.")
+        return redirect("/thankyou/")  
+
+    else:
+        if 'user_id' not in request.session:
+            return redirect("/")
+
+    user_id = request.session.get('user_id')
+    user_name = request.session.get('user_name', None)
+
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        return redirect("/")
+
+    cartdata = Cart.objects.filter(c_id=customer)
+
+    data = {
+        "cart": cartdata,
+        "user_name": user_name,
+    }
+>>>>>>> 4a40674ab4d22900d714ec23101cb35bdce1ee62
+
+
+    return render(request, 'checkout.html', data)
+
+
+def bill(request):
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return redirect("/")
+
+    try:
+        customer = Customer.objects.get(c_id=user_id)
+    except Customer.DoesNotExist:
+        messages.error(request, "Customer not found!")
+        return redirect("/")
+
+    # Get the latest checkout ID from session
+    latest_checkout_id = request.session.get('latest_checkout_id')
+
+    if not latest_checkout_id:
+        messages.error(request, "No recent order found!")
+        return redirect("/")
+
+    
+    checkout_entry = Checkout.objects.get(checkout_id=latest_checkout_id)
+
+    
+    orders = Order.objects.filter(c_id=customer)
+
+    if not orders.exists():
+        request.session.pop('latest_checkout_id', None)
+        messages.warning(request, "Your bill has been cleared as no items exist!")
+        return redirect("/")
+
+    
+    total_amount = sum(order.price * order.quantity for order in orders)
+
+    context = {
+        'checkout': checkout_entry,
+        'orders': orders,
+        'total_amount': total_amount
+    }
+
+    return render(request, 'bill.html', context)
+
+
+
+def thankyou(request):
+    return render(request,'thankyou.html')
 
     return render(request, 'checkout.html')
+
