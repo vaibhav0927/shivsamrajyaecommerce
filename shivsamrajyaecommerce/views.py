@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render # type: ignore
 
 from customer.models import Customer
@@ -675,6 +673,7 @@ def checkout(request):
         "user_name": user_name,
     }
 
+
     return render(request, 'checkout.html', data)
 
 
@@ -722,3 +721,6 @@ def bill(request):
 
 def thankyou(request):
     return render(request,'thankyou.html')
+
+    return render(request, 'checkout.html')
+

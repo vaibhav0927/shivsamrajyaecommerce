@@ -23,11 +23,11 @@ from .views import registration
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+       path('',views.home),
     path('contactus/',views.contactus),
     path('login/',views.login),
     path('logout/',views.logout),
     path('registration/',views.registration),
-    path('',views.home),
     path('about/',views.about),
     path('general/',views.general),
     path('cosmetic/',views.cosmetic),

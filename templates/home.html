@@ -70,7 +70,7 @@
           <div class="card-title">
 
             <span class="badge  float-end rounded-pill pt-2 me-1"
-              style="background-color: #ff7722; height: 30px ;width:70px;">Rs 10.00</span>
+              style="background-color: #ff7722; height: 30px ;width:70px;">Rs.{{i.discount|floatformat:2}}</span>
           </div>
           <a href=""><img class="card-img-top img-fluid" style="height: 180px;width:180px;"
               src="/media/{{i.product_img}}" alt=" /media/{{i.product_img}}"></a>
@@ -111,14 +111,14 @@
         <h1><b>Products</b></h1>
         <hr class="text-black">
         <div class="row">
-          {% for i in plist %}
+          {% for i in product %}
           <div class="col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
 
             <div class="card mb-3 ps-4 pt-3 ms-4" style="width: 240px; ">
               <div class="card-title">
 
                 <span class="badge  float-end rounded-pill pt-2 me-1"
-                  style="background-color: #ff7722; height: 30px ;width:70px;">Rs 03.00</span>
+                  style="background-color: #ff7722; height: 30px ;width:70px;">Rs. {{i.discount|floatformat:2}}</span>
               </div>
               <img class="card-img-top img-fluid" style="height: 180px;width:180px;" src="/media/{{ i.product_img }}"
                 alt="/media/{{ i.product_img }}"></a>
@@ -139,6 +139,8 @@
                       style="background-color: #ff7722;color: aliceblue;">
                   </form>
 
+                   
+                  
 
                   <!-- <a href="{{i.cart_id}}" class="btn  mt-3 " style="background-color: #ff7722;color: aliceblue;">Add To Cart</a> -->
 
@@ -243,6 +245,8 @@
 
 
   {% endblock %}
+
+  
 
 </body>
 
