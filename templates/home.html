@@ -82,9 +82,11 @@
                 {% csrf_token %}
 
                 <input type="hidden" name="product_id" value="{{i.product_id}}">
-                <input type="number" name="cart_quantity" value="1">
+
+                <input type="number" name="cart_quantity" value="1" style="width: 50px;">
+
                 <input type="hidden" name="cart_price" value="{{i.sale}}">
-                 <input type="submit" value="Add To Cart" class="btn mt-3"
+                <input type="submit" value="Add To Cart" class="btn mt-3"
                 style="background-color: #ff7722;color: aliceblue;">
                 
               </form>
@@ -94,7 +96,7 @@
               <form action="/wishlist_add/" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{i.product_id}}">
-                <button type="submit" class="btn mt-3"
+                <button type="submit" class="btn mt-5"
                   style="background-color: #ff7722; color: aliceblue; border: none; margin: 10px;;">
                   <i class="fa-regular fa-heart"></i>
                 </button>
@@ -180,7 +182,7 @@
       <div class="row">
         {%for i in category%}
         <div class=" col-lg-3 shadow-lg p-3 mb-5 bg-white rounded">
-          <div class="card mb-3  pt-3 p" ">
+          <div class="card mb-3  pt-3 p" >
                  
                   <a href=""><img class=" card-img-top" style="height: 300px;" src="/media/{{i.category_img}}"
             alt="/media/{{i.product_img}}"></a>
