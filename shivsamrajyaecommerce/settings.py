@@ -59,15 +59,6 @@ INSTALLED_APPS = [
     'checkout',
     
     'order',
-    
-    
-
-    
-
-
-    
-
-
 ]
 
 MIDDLEWARE = [
