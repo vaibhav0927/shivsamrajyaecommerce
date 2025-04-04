@@ -42,7 +42,7 @@ urlpatterns = [
    
 
     path('bill/',views.bill),
-    path('showitem/',views.showitem),
+    # path('showitem/',views.showitem),
     path('thankyou/',views.thankyou),
 
 
@@ -58,7 +58,7 @@ urlpatterns = [
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
 
-     path('view_cart/',views.view_cart),
+    path('view_cart/',views.view_cart),
 
    
     path('cart_submit/',views.cart_submit),
@@ -68,7 +68,7 @@ urlpatterns = [
     path('wishlist/',views.wishlist),
     path("wishlistdelete/<id>/",views.wishlistdelete),
     path("cart_delete<id>/",views.cartdelete),
-
+   
    
     
 
