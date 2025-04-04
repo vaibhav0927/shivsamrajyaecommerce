@@ -74,44 +74,46 @@
                             <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
                             <th style="padding: 10px; border: 1px solid #ddd;">Total</th>
                             <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
-                            
                         </tr>
                     </thead>
                     <tbody>
                         {% for i in cart %}
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">
-                        <img src="/media/{{ i.product_img }}" alt="Product Image" width="50px" 
-                             style="border-radius: 5px; border: 1px solid #ccc;">
-                    </td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ i.product_name }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ i.cart_quantity }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);" >₹ {{ i.sale_price }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);">
-                        
-                        ₹ {{ i.total_price|floatformat:2 }}
-                    </td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">   
-                        <!-- Remove Button -->
-                        <div class="col-lg">
-                            <form method="POST" action="/cart_delete{{i.cart_id}}/">
-                              {% csrf_token %}
-                              <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="fa-solid fa-trash"></i>
-                              </button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="6" class="text-center" style="padding: 10px; color: red;">
-                        Your cart is empty.
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                <img src="/media/{{ i.product_img }}" alt="Product Image" width="50px" 
+                                     style="border-radius: 5px; border: 1px solid #ccc;">
+                            </td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ i.product_name }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ i.cart_quantity }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);" >₹ {{ i.sale_price }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; color: rgb(0, 0, 0);">
+                                
+                                ₹ {{ i.total_price|floatformat:2 }}
+                            </td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">   
+                                <!-- Remove Button -->
+                                <div class="col-lg">
+                                    <form method="POST" action="/cart_delete{{i.cart_id}}/">
+                                      {% csrf_token %}
+                                      <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fa-solid fa-trash"></i>
+                                      </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center" style="padding: 10px; color: red;">
+                                Your cart is empty.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        
+              
 
         <!-- Total Calculation -->
         <div class="row mt-3">
@@ -123,11 +125,18 @@
                         <td><b>₹  {{ total_price|floatformat:2 }}</b></td>
                     </tr>
                 </table>
+
                     </div>
                 </div>
         
-            
+                <!-- Buttons -->
+                <div class="text-center mt-4 mb-5">
+                    <a href="/" class="btn btn-secondary" style="margin-right: 10px;">🛒 Continue Shopping</a>
+                    <a href="/checkout/" class="btn text-light" style="background-color: #ff7722;">💳 Checkout</a>
+                </div>
             </div>
+            
+      
 
             <!-- Coupon Code -->
             <div class="card mt-4 p-3">
