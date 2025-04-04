@@ -981,7 +981,7 @@ def showitem(request):
 
 
 from checkout.models import Checkout
-from django.contrib import messages
+from django.contrib import messages # type: ignore
 from order.models import Order
 
 def checkout(request):
