@@ -1119,7 +1119,5 @@ def bill(request):
 
 
 def thankyou(request):
-    return render(request,'thankyou.html')
-
-
-    return render(request, 'checkout.html')
+ return render(request,'thankyou.html')
+ return render(request, 'checkout.html')
