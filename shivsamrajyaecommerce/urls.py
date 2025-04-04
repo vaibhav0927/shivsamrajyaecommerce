@@ -23,11 +23,11 @@ from .views import registration
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.home),
     path('contactus/',views.contactus),
     path('login/',views.login),
     path('logout/',views.logout),
     path('registration/',views.registration),
-    path('',views.home),
     path('about/',views.about),
     path('general/',views.general),
     path('cosmetic/',views.cosmetic),
@@ -37,6 +37,15 @@ urlpatterns = [
     path('shop/',views.shop),
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
+    path('checkout/',views.checkout),
+
+   
+
+    path('bill/',views.bill),
+    # path('showitem/',views.showitem),
+    path('thankyou/',views.thankyou),
+
+
     # path('cart/',views.cart),
 
     path('submit/',views.submit),
@@ -48,14 +57,20 @@ urlpatterns = [
     path('Spices/',views.Spices),
     path('Stationary/',views.stationary),
     path('Cosmetic/',views.cosmetic),
-     path('addcart/',views.addcart),
+
+    path('view_cart/',views.view_cart),
+
    
     path('cart_submit/',views.cart_submit),
     path('wishlist_add/',views.wishlist_add),
-
+    
 
     path('wishlist/',views.wishlist),
-     path("wishlistdelete/<id>/",views.wishlistdelete),
+    path("wishlistdelete/<id>/",views.wishlistdelete),
+    path("cart_delete<id>/",views.cartdelete),
+   
+   
+    
 
 ]
 
