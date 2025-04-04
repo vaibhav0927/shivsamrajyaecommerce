@@ -14,11 +14,9 @@ from product.models import Product
 from wishlist.models import Wishlist
 from cart.models import Cart
 
-
 from checkout.models import Checkout
 from order.models import Order
 from django.contrib import messages # type: ignore
-
 from django.shortcuts import redirect # type: ignore
 
 
@@ -163,20 +161,12 @@ def home(request):
     branddata = Brands.objects.all()
     productdata = Product.objects.all()[:4]  
     plist = Product.objects.all()[86:92]  
-    product=Product.objects.all()[86:92]  
-    cartdata=Cart.objects.all()
-    wishlistdata=Wishlist.objects.all()
-    cartdata = Cart.objects.filter(c_id=request.session.get('user_id')) if user_name else []
-    wishlistdata = Wishlist.objects.filter(c_id=request.session.get('user_id')) if user_name else []
-   # Fetch cart data for the logged-in customer
-    cartdata = Cart.objects.filter(c_id=customer)
 
     # Calculate discount
     for product in productdata:
         product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
     for product in plist:
         product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-
 
     # Calculate total price for logged-in users
     cart_items = []
@@ -208,7 +198,8 @@ def home(request):
             'cart_id': item.cart_id,
         })
 
-       data = {
+
+    data = {
         "list": sliderdata,
         "category": categorydata,
         "brand": branddata,
@@ -221,7 +212,6 @@ def home(request):
     }
 
     return render(request, 'home.html', data)
-
 
 
 def logout(request):
@@ -374,10 +364,8 @@ def general(request):
     wishlistdata = Wishlist.objects.filter(c_id=customer)
     productdata=Product.objects.all()[18:92]  
 
-
     for product in productdata:
        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-
 
     user_name = request.session.get('user_name', None)
 
@@ -429,11 +417,9 @@ def grocery(request):
     wishlistdata = Wishlist.objects.filter(c_id=customer)
 
 
-
     productdata=Product.objects.all()
     for product in productdata:
        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
-
 
 
     user_name = request.session.get('user_name', None)
@@ -447,9 +433,7 @@ def grocery(request):
         "wishlist": wishlistdata,
 
 
-
         "grocery":productdata
-
 
     }
 
@@ -552,7 +536,7 @@ def cosmetic(request):
         "wishlist": wishlistdata,
     }
 
-    return render(request, 'cosmetic.html', data)
+    return render(request, 'contactus.html', data)
 
 def fooditems(request):
 #    if 'user_id' not in request.session: 
@@ -639,11 +623,9 @@ def shop(request):
 
 
 
-
     for product in productdata:
         product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
         
-
 
     data = {
         "category": categorydata,
@@ -653,12 +635,10 @@ def shop(request):
         "total_price": total_price,
         "wishlist": wishlistdata,
 
-        "plist":productdata
+        "plist":productdata,
 
-
-        
+        "plist":productdata,
        
-
 
     }
 
@@ -939,8 +919,6 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
-
-
 def showitem(request):
     if 'user_id' not in request.session:  # Ensure user is logged in
         return redirect("/") 
@@ -980,9 +958,6 @@ def showitem(request):
     return render(request, 'checkout.html', data)
 
 
-from checkout.models import Checkout
-from django.contrib import messages # type: ignore
-from order.models import Order
 
 def checkout(request):
     if request.method == 'POST':
@@ -1147,4 +1122,3 @@ def thankyou(request):
     return render(request,'thankyou.html')
 
     return render(request, 'checkout.html')
-
