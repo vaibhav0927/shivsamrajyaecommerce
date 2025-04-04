@@ -208,14 +208,7 @@ def home(request):
             'cart_id': item.cart_id,
         })
 
-
-        "plist":productdata,
-        "product":product
-        
-   
-     return render(request,'home.html',data)
-
-     data = {
+       data = {
         "list": sliderdata,
         "category": categorydata,
         "brand": branddata,
