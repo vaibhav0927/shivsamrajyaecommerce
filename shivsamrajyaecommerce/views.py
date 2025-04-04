@@ -969,10 +969,26 @@ def checkout(request):
         return redirect("/")
 
     cartdata = Cart.objects.filter(c_id=customer)
+    cart_items = []
+    total_price = 0  # Initialize total price
+
+    for item in cartdata:
+        item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
+        total_price += item_total
+        cart_items.append({
+            'product_img': item.product_id.product_img,
+            'product_name': item.product_id.product_name,
+            'cart_quantity': item.cart_quantity,
+            'sale_price': item.product_id.sale,
+            'total_price': item_total,
+            'cart_id': item.cart_id,
+        })
 
     data = {
         "cart": cartdata,
         "user_name": user_name,
+        "cart_items":cart_items,
+        "total_price":total_price
     }
 
 

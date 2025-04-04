@@ -38,9 +38,13 @@ urlpatterns = [
     path('grocery/',views.grocery),
     path('stationary/',views.stationary),
     path('checkout/',views.checkout),
+
+   
+
     path('bill/',views.bill),
     # path('showitem/',views.showitem),
     path('thankyou/',views.thankyou),
+
 
     # path('cart/',views.cart),
 
