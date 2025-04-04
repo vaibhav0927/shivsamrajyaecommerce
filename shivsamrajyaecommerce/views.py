@@ -332,21 +332,16 @@ def login(request):
 def general(request):
     # if 'user_id' not in request.session: 
         # return redirect("/")  
-
     user_id = request.session.get('user_id')  
-
     try:
         customer = Customer.objects.get(c_id=user_id)
     except Customer.DoesNotExist:
         return redirect("/")  
-
     # Fetch cart data for the logged-in customer
     cartdata = Cart.objects.filter(c_id=customer)
-
     # Calculate total price
     cart_items = []
     total_price = 0  # Initialize total price
-
     for item in cartdata:
         item_total = int(item.cart_quantity) * float(item.product_id.sale)  # Multiply quantity and price
         total_price += item_total
@@ -358,7 +353,6 @@ def general(request):
             'total_price': item_total,
             'cart_id': item.cart_id,
         })
-
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
@@ -524,6 +518,11 @@ def cosmetic(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
+    productdata = Product.objects.filter(category__category_name="Cosmetic")
+
+    for product in productdata:
+       
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
 
     user_name = request.session.get('user_name', None)
 
@@ -534,9 +533,10 @@ def cosmetic(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+        "cosmetic": productdata
     }
 
-    return render(request, 'contactus.html', data)
+    return render(request, 'cosmetic.html', data)
 
 def fooditems(request):
 #    if 'user_id' not in request.session: 
