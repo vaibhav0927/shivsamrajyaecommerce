@@ -656,9 +656,7 @@ def shop(request):
         "plist":productdata
 
 
-        "plist":productdata,
-
-        "plist":productdata,
+        
        
 
 
