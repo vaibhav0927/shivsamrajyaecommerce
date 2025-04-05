@@ -149,7 +149,6 @@ def home(request):
             customer = Customer.objects.get(c_id=user_id)
         except Customer.DoesNotExist:
             return redirect("/")  # Redirect to home or login page if customer does not exist
-        
         wishlistdata = Wishlist.objects.filter(c_id=customer)
         cartdata = Cart.objects.filter(c_id=customer)
     else:
