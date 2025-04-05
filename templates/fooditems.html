@@ -67,6 +67,7 @@
                     <input type="hidden" name="product_id" value="{{i.product_id}}">
                     <input type="number" name="cart_quantity" value="" style="width: 50px;">
                     <input type="hidden" name="cart_price" value="{{i.sale}}">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                      <input type="submit" value="Add To Cart" class="btn mt-3"
                     style="background-color: #ff7722;color: aliceblue;">
                     

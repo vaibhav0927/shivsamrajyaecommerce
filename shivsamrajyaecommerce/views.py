@@ -160,7 +160,7 @@ def home(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     productdata = Product.objects.all()[:4]  
-    plist = Product.objects.all()[86:92]  
+    plist = Product.objects.all()[86:90]  
 
     # Calculate discount
     for product in productdata:
@@ -755,33 +755,29 @@ def submit(request):
 def cart_submit(request):
     if request.method == "POST":
         product_id = request.POST.get("product_id")
-        c_id = request.session.get('user_id')
         cart_quantity = request.POST.get("cart_quantity", 1)
-        cart_price = request.POST.get("cart_price")  
+        cart_price = request.POST.get("cart_price")
+        redirect_url = request.POST.get("redirect_url", "/")  # Default to homepage if not provided
 
+        c_id = request.session.get('user_id')
         if not c_id:
-            return redirect("/")  
-        
-        try:
-            customer = Customer.objects.get(c_id=int(c_id))  
-        except Customer.DoesNotExist:
-            return redirect("/") 
+            return redirect(redirect_url)
 
-        
         try:
+            customer = Customer.objects.get(c_id=int(c_id))
             product = Product.objects.get(product_id=product_id)
-        except Product.DoesNotExist:
-            return redirect("/")  
+        except (Customer.DoesNotExist, Product.DoesNotExist):
+            return redirect(redirect_url)
 
-       
-        insert = Cart(
+        Cart.objects.create(
             product_id=product,
             c_id=customer,
             cart_quantity=cart_quantity,
             cart_price=cart_price
         )
-        insert.save()
-        
+
+        return redirect(redirect_url)
+
     return redirect("/")
 
 
@@ -932,7 +928,7 @@ def wishlist_add(request):
 def cartdelete(request, id):
     items= Cart.objects.get(cart_id=id)
     items.delete()
-    return redirect("/")
+    return redirect("/view_cart/")
 
 def slider(request):
     sliderdata= slider.objects.all()
