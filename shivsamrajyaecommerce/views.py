@@ -919,11 +919,6 @@ def slider(request):
         "list":sliderdata
     }
     return render(request,'home.html',data)
-def showitem(request):
-    if 'user_id' not in request.session:  # Ensure user is logged in
-        return redirect("/") 
-
-    user_id = request.session.get('user_id')  # Get logged-in user ID
 
 
 def showitem(request):
@@ -968,7 +963,8 @@ def checkout(request):
         payment_method = request.POST.get('payment_method')
         coupon_code = request.POST.get('coupon_code')
         card_number = request.POST.get('card_number')
-
+        agree_terms = request.POST.get('agree_terms') == 'on'
+       
         user_id = request.session.get('user_id')
         if not user_id:
             return redirect("/")  # Ensure user is logged in
@@ -989,6 +985,7 @@ def checkout(request):
 
         # Create a new checkout entry
         checkout_entry = Checkout.objects.create(
+            
             first_name=first_name,
             email=email,
             telephone=phone,
@@ -996,7 +993,8 @@ def checkout(request):
             payment_method=payment_method,
             coupon_code=coupon_code,
             card_number=card_number,
-        )
+             agree_terms=agree_terms,
+ )
 
         # Process cart items into orders
         for item in cart_items:
@@ -1056,6 +1054,7 @@ def checkout(request):
                 'sale_price': sale_price,
                 'total_price': item_total,
                 'cart_id': item.cart_id,
+                
             })
 
     categorydata = Category.objects.all()
@@ -1120,4 +1119,5 @@ def bill(request):
 
 def thankyou(request):
  return render(request,'thankyou.html')
- return render(request, 'checkout.html')
+ 
+
