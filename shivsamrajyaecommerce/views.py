@@ -411,8 +411,10 @@ def grocery(request):
     wishlistdata = Wishlist.objects.filter(c_id=customer)
 
 
-    productdata=Product.objects.all()
+    productdata = Product.objects.filter(category__category_name="Grocery")
+
     for product in productdata:
+       
        product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
 
 
@@ -468,6 +470,13 @@ def Spices(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
+    productdata = Product.objects.filter(category__category_name="Spices")
+
+    for product in productdata:
+       
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
+    
+
 
     user_name = request.session.get('user_name', None)
 
@@ -478,9 +487,10 @@ def Spices(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+        "Spices" : productdata
     }
 
-    return render(request, 'spices.html', data)
+    return render(request, 'Spices.html', data)
     
     
 
@@ -571,6 +581,11 @@ def fooditems(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
+    productdata = Product.objects.filter(category__category_name="Food Items")
+
+    for product in productdata:
+       
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
 
     user_name = request.session.get('user_name', None)
 
@@ -581,9 +596,10 @@ def fooditems(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+        "fooditems": productdata
     }
 
-    return render(request, 'fooditems.html', data)
+    return render(request,'fooditems.html', data)
     
 def shop(request):
     if 'user_id' not in request.session: 
@@ -637,7 +653,7 @@ def shop(request):
 
         "plist":productdata,
 
-        "plist":productdata,
+       
        
 
     }
@@ -677,7 +693,11 @@ def stationary(request):
     categorydata = Category.objects.all()
     branddata = Brands.objects.all()
     wishlistdata = Wishlist.objects.filter(c_id=customer)
+    productdata = Product.objects.filter(category__category_name="Stationary")
 
+    for product in productdata:
+       
+       product.discount = "{:.2f}".format(float(product.mrp) - float(product.sale))
     user_name = request.session.get('user_name', None)
 
     data = {
@@ -687,6 +707,7 @@ def stationary(request):
         "cart": cart_items,
         "total_price": total_price,
         "wishlist": wishlistdata,
+        "stationary":productdata
     }
 
     return render(request, 'stationary.html', data)
