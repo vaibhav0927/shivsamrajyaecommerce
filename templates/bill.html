@@ -59,6 +59,7 @@
         <p><strong>Email:</strong> {{ checkout.email }}</p>
         <p><strong>Phone:</strong> {{ checkout.telephone }}</p>
         <p><strong>Address:</strong> {{ checkout.address }}</p>
+        <p><strong>Payment Method:</strong> {{ checkout.get_payment_method_display }}</p>
 
         <table>
             <tr>
